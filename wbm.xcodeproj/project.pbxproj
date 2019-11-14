@@ -1,0 +1,516 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2DCA3269237DD302001C0AB4 /* wbm.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA3268237DD302001C0AB4 /* wbm.entitlements */; };
+		2DCA326B237DD302001C0AB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA326A237DD302001C0AB4 /* AppDelegate.swift */; };
+		2DCA326E237DD303001C0AB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA326C237DD303001C0AB4 /* Main.storyboard */; };
+		2DCA3270237DD303001C0AB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA326F237DD303001C0AB4 /* ViewController.swift */; };
+		2DCA3272237DD312001C0AB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA3271237DD312001C0AB4 /* Assets.xcassets */; };
+		2DCA3279237DD313001C0AB4 /* wbm Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2DCA3278237DD313001C0AB4 /* wbm Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2DCA327E237DD313001C0AB4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCA327D237DD313001C0AB4 /* Cocoa.framework */; };
+		2DCA3281237DD313001C0AB4 /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3280237DD313001C0AB4 /* SafariExtensionHandler.swift */; };
+		2DCA3283237DD313001C0AB4 /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3282237DD313001C0AB4 /* SafariExtensionViewController.swift */; };
+		2DCA3286237DD313001C0AB4 /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA3284237DD313001C0AB4 /* SafariExtensionViewController.xib */; };
+		2DCA3289237DD313001C0AB4 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA3288237DD313001C0AB4 /* script.js */; };
+		2DCA328B237DD313001C0AB4 /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA328A237DD313001C0AB4 /* ToolbarItemIcon.pdf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2DCA327A237DD313001C0AB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DCA325D237DD302001C0AB4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2DCA3277237DD313001C0AB4;
+			remoteInfo = "wbm Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2DCA3292237DD313001C0AB4 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2DCA3279237DD313001C0AB4 /* wbm Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2DCA3265237DD302001C0AB4 /* wbm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wbm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DCA3268237DD302001C0AB4 /* wbm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wbm.entitlements; sourceTree = "<group>"; };
+		2DCA326A237DD302001C0AB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2DCA326D237DD303001C0AB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2DCA326F237DD303001C0AB4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2DCA3271237DD312001C0AB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2DCA3273237DD312001C0AB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DCA3278237DD313001C0AB4 /* wbm Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "wbm Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DCA327D237DD313001C0AB4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		2DCA3280237DD313001C0AB4 /* SafariExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionHandler.swift; sourceTree = "<group>"; };
+		2DCA3282237DD313001C0AB4 /* SafariExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionViewController.swift; sourceTree = "<group>"; };
+		2DCA3285237DD313001C0AB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SafariExtensionViewController.xib; sourceTree = "<group>"; };
+		2DCA3287237DD313001C0AB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DCA3288237DD313001C0AB4 /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
+		2DCA328A237DD313001C0AB4 /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIcon.pdf; sourceTree = "<group>"; };
+		2DCA328C237DD313001C0AB4 /* wbm_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wbm_Extension.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2DCA3262237DD302001C0AB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DCA3275237DD313001C0AB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DCA327E237DD313001C0AB4 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2DCA325C237DD302001C0AB4 = {
+			isa = PBXGroup;
+			children = (
+				2DCA3267237DD302001C0AB4 /* wbm */,
+				2DCA327F237DD313001C0AB4 /* wbm Extension */,
+				2DCA327C237DD313001C0AB4 /* Frameworks */,
+				2DCA3266237DD302001C0AB4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2DCA3266237DD302001C0AB4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2DCA3265237DD302001C0AB4 /* wbm.app */,
+				2DCA3278237DD313001C0AB4 /* wbm Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2DCA3267237DD302001C0AB4 /* wbm */ = {
+			isa = PBXGroup;
+			children = (
+				2DCA3268237DD302001C0AB4 /* wbm.entitlements */,
+				2DCA326A237DD302001C0AB4 /* AppDelegate.swift */,
+				2DCA326C237DD303001C0AB4 /* Main.storyboard */,
+				2DCA326F237DD303001C0AB4 /* ViewController.swift */,
+				2DCA3271237DD312001C0AB4 /* Assets.xcassets */,
+				2DCA3273237DD312001C0AB4 /* Info.plist */,
+			);
+			path = wbm;
+			sourceTree = "<group>";
+		};
+		2DCA327C237DD313001C0AB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2DCA327D237DD313001C0AB4 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2DCA327F237DD313001C0AB4 /* wbm Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2DCA3280237DD313001C0AB4 /* SafariExtensionHandler.swift */,
+				2DCA3282237DD313001C0AB4 /* SafariExtensionViewController.swift */,
+				2DCA3284237DD313001C0AB4 /* SafariExtensionViewController.xib */,
+				2DCA3287237DD313001C0AB4 /* Info.plist */,
+				2DCA3288237DD313001C0AB4 /* script.js */,
+				2DCA328A237DD313001C0AB4 /* ToolbarItemIcon.pdf */,
+				2DCA328C237DD313001C0AB4 /* wbm_Extension.entitlements */,
+			);
+			path = "wbm Extension";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2DCA3264237DD302001C0AB4 /* wbm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2DCA3293237DD313001C0AB4 /* Build configuration list for PBXNativeTarget "wbm" */;
+			buildPhases = (
+				2DCA3261237DD302001C0AB4 /* Sources */,
+				2DCA3262237DD302001C0AB4 /* Frameworks */,
+				2DCA3263237DD302001C0AB4 /* Resources */,
+				2DCA3292237DD313001C0AB4 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2DCA327B237DD313001C0AB4 /* PBXTargetDependency */,
+			);
+			name = wbm;
+			productName = wbm;
+			productReference = 2DCA3265237DD302001C0AB4 /* wbm.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2DCA3277237DD313001C0AB4 /* wbm Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2DCA328F237DD313001C0AB4 /* Build configuration list for PBXNativeTarget "wbm Extension" */;
+			buildPhases = (
+				2DCA3274237DD313001C0AB4 /* Sources */,
+				2DCA3275237DD313001C0AB4 /* Frameworks */,
+				2DCA3276237DD313001C0AB4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "wbm Extension";
+			productName = "wbm Extension";
+			productReference = 2DCA3278237DD313001C0AB4 /* wbm Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2DCA325D237DD302001C0AB4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = "Claus Wolf";
+				TargetAttributes = {
+					2DCA3264237DD302001C0AB4 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					2DCA3277237DD313001C0AB4 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 2DCA3260237DD302001C0AB4 /* Build configuration list for PBXProject "wbm" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2DCA325C237DD302001C0AB4;
+			productRefGroup = 2DCA3266237DD302001C0AB4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2DCA3264237DD302001C0AB4 /* wbm */,
+				2DCA3277237DD313001C0AB4 /* wbm Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2DCA3263237DD302001C0AB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DCA3269237DD302001C0AB4 /* wbm.entitlements in Resources */,
+				2DCA3272237DD312001C0AB4 /* Assets.xcassets in Resources */,
+				2DCA326E237DD303001C0AB4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DCA3276237DD313001C0AB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DCA328B237DD313001C0AB4 /* ToolbarItemIcon.pdf in Resources */,
+				2DCA3286237DD313001C0AB4 /* SafariExtensionViewController.xib in Resources */,
+				2DCA3289237DD313001C0AB4 /* script.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2DCA3261237DD302001C0AB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DCA3270237DD303001C0AB4 /* ViewController.swift in Sources */,
+				2DCA326B237DD302001C0AB4 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DCA3274237DD313001C0AB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DCA3283237DD313001C0AB4 /* SafariExtensionViewController.swift in Sources */,
+				2DCA3281237DD313001C0AB4 /* SafariExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2DCA327B237DD313001C0AB4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2DCA3277237DD313001C0AB4 /* wbm Extension */;
+			targetProxy = 2DCA327A237DD313001C0AB4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2DCA326C237DD303001C0AB4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2DCA326D237DD303001C0AB4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2DCA3284237DD313001C0AB4 /* SafariExtensionViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2DCA3285237DD313001C0AB4 /* Base */,
+			);
+			name = SafariExtensionViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2DCA328D237DD313001C0AB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2DCA328E237DD313001C0AB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		2DCA3290237DD313001C0AB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "wbm Extension/wbm_Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J3PNNM2UXC;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "wbm Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "net.otzberg.wbm-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		2DCA3291237DD313001C0AB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "wbm Extension/wbm_Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J3PNNM2UXC;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "wbm Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "net.otzberg.wbm-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		2DCA3294237DD313001C0AB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = wbm/wbm.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = J3PNNM2UXC;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = wbm/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.wbm;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		2DCA3295237DD313001C0AB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = wbm/wbm.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = J3PNNM2UXC;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = wbm/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.wbm;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2DCA3260237DD302001C0AB4 /* Build configuration list for PBXProject "wbm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DCA328D237DD313001C0AB4 /* Debug */,
+				2DCA328E237DD313001C0AB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2DCA328F237DD313001C0AB4 /* Build configuration list for PBXNativeTarget "wbm Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DCA3290237DD313001C0AB4 /* Debug */,
+				2DCA3291237DD313001C0AB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2DCA3293237DD313001C0AB4 /* Build configuration list for PBXNativeTarget "wbm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DCA3294237DD313001C0AB4 /* Debug */,
+				2DCA3295237DD313001C0AB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2DCA325D237DD302001C0AB4 /* Project object */;
+}
