@@ -134,56 +134,27 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     }
     
     override func mouseEntered(with event: NSEvent) {
-        
         if let buttonName = event.trackingArea?.userInfo?.values.first as? String {
-            switch (buttonName) {
-            case "pageHistoryLivePageButton":
-                (pageHistoryLivePageButton.cell as? NSButtonCell)?.backgroundColor = NSColor.darkGray
-                pageHistoryLivePageButton.contentTintColor = .white
-            case "oldestSnapshotButton":
-                (oldestSnapshotButton.cell as? NSButtonCell)?.backgroundColor = NSColor.darkGray
-                oldestSnapshotButton.contentTintColor = .white
-            case "newestSnapshotButton":
-                (newestSnapshotButton.cell as? NSButtonCell)?.backgroundColor = NSColor.darkGray
-                newestSnapshotButton.contentTintColor = .white
-            case "domainFilesButton":
-                (domainFilesButton.cell as? NSButtonCell)?.backgroundColor = NSColor.darkGray
-                domainFilesButton.contentTintColor = .white
-            case "domainDataButton":
-                (domainDataButton.cell as? NSButtonCell)?.backgroundColor = NSColor.darkGray
-                domainDataButton.contentTintColor = .white
-            case "currentPageButton":
-                (currentPageButton.cell as? NSButtonCell)?.backgroundColor = NSColor.darkGray
-                currentPageButton.contentTintColor = .white
-            default:
-                print("The given button name: \"\(buttonName)\" is unknown!")
+            for case let button as NSButton in self.view.subviews {
+                if let identifier = button.identifier?.rawValue{
+                    if identifier == buttonName {
+                        (button.cell as? NSButtonCell)?.backgroundColor = NSColor.darkGray
+                        button.contentTintColor = .white
+                    }
+                }
             }
         }
     }
     
     override func mouseExited(with event: NSEvent) {
         if let buttonName = event.trackingArea?.userInfo?.values.first as? String {
-            switch (buttonName) {
-            case "pageHistoryLivePageButton":
-                (pageHistoryLivePageButton.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
-                pageHistoryLivePageButton.contentTintColor = .labelColor
-            case "oldestSnapshotButton":
-                (oldestSnapshotButton.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
-                oldestSnapshotButton.contentTintColor = .labelColor
-            case "newestSnapshotButton":
-                (newestSnapshotButton.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
-                newestSnapshotButton.contentTintColor = .labelColor
-            case "domainFilesButton":
-                (domainFilesButton.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
-                domainFilesButton.contentTintColor = .labelColor
-            case "domainDataButton":
-                (domainDataButton.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
-                domainDataButton.contentTintColor = .labelColor
-            case "currentPageButton":
-                (currentPageButton.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
-                currentPageButton.contentTintColor = .labelColor
-            default:
-                print("The given button name: \"\(buttonName)\" is unknown!")
+            for case let button as NSButton in self.view.subviews {
+                if let identifier = button.identifier?.rawValue{
+                    if identifier == buttonName {
+                        (button.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
+                        button.contentTintColor = .labelColor
+                    }
+                }
             }
         }
     }
