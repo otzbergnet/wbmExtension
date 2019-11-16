@@ -30,5 +30,28 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     override func popoverViewController() -> SFSafariExtensionViewController {
         return SafariExtensionViewController.shared
     }
+    
+    //construct the URL and open a new tab, when text is selected and the context menu is selected
+    override func contextMenuItemSelected(withCommand command: String, in page: SFSafariPage, userInfo: [String : Any]? = nil) {
+        
+        if(command == "wbm_context"){
+            page.getPropertiesWithCompletionHandler { (pagePropierties) in
+                if let currentUrl = pagePropierties?.url{
+                    let url = "https://web.archive.org/web/*/\(currentUrl)"
+                    self.openTabWithUrl(url: url)
+                }
+            }
+        }
 
+    }
+
+    func openTabWithUrl(url: String){
+        SFSafariApplication.getActiveWindow { (window) in
+            if let myUrl = URL(string: url) {
+                window?.openTab(with: myUrl, makeActiveIfPossible: true, completionHandler: nil)
+            }
+            
+        }
+    }
+    
 }
