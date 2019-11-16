@@ -22,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="200" height="160"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tLL-G2-igt">
+                <button identifier="pageHistoryLivePageButton" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tLL-G2-igt">
                     <rect key="frame" x="0.0" y="130" width="200" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="aaG-FL-2tb"/>
@@ -36,7 +36,7 @@
                         <action selector="showPageHistoryLivePageClicked:" target="-2" id="zXF-yA-vAd"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zWQ-SZ-wfA">
+                <button identifier="oldestSnapshotButton" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zWQ-SZ-wfA">
                     <rect key="frame" x="0.0" y="105" width="200" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="l1R-0H-uTS"/>
@@ -50,7 +50,7 @@
                         <action selector="openOldestSnapshotClicked:" target="-2" id="NGd-ak-ugK"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="m5W-ld-LcY">
+                <button identifier="newestSnapshotButton" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="m5W-ld-LcY">
                     <rect key="frame" x="0.0" y="80" width="200" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="A96-fl-VSZ"/>
@@ -64,7 +64,7 @@
                         <action selector="openNewestSnapshotClicked:" target="-2" id="hRh-fV-XEL"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qQ4-cV-e8J">
+                <button identifier="domainFilesButton" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qQ4-cV-e8J">
                     <rect key="frame" x="0.0" y="55" width="200" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="Kx5-L7-8iP"/>
@@ -78,7 +78,7 @@
                         <action selector="showDomainFilesClicked:" target="-2" id="YBa-wu-xem"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o9J-UB-eFY">
+                <button identifier="domainDataButton" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o9J-UB-eFY">
                     <rect key="frame" x="0.0" y="30" width="200" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="7to-na-zuZ"/>
@@ -92,7 +92,7 @@
                         <action selector="showDomainDataClicked:" target="-2" id="yqy-e8-Tpc"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="B67-JH-udz">
+                <button identifier="currentPageButton" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="B67-JH-udz">
                     <rect key="frame" x="0.0" y="5" width="200" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="FxB-r5-AsS"/>

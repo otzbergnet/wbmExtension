@@ -123,22 +123,13 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     //MARK: — Add Hover-Effect To Buttons
     
     func handleButtons(){
-        let button1 = ButtonObject(button: self.pageHistoryLivePageButton, title: "pageHistoryLivePageButton")
-        let button2 = ButtonObject(button: self.oldestSnapshotButton, title: "oldestSnapshotButton")
-        let button3 = ButtonObject(button: self.newestSnapshotButton, title: "newestSnapshotButton")
-        let button5 = ButtonObject(button: self.domainFilesButton, title: "domainFilesButton")
-        let button6 = ButtonObject(button: self.domainDataButton, title: "domainDataButton")
-        let button7 = ButtonObject(button: self.currentPageButton, title: "currentPageButton")
-        
-        let buttonArray : [ButtonObject] = [button1, button2, button3, button5, button6, button7]
-        
-        for button in buttonArray{
-            (button.button.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
-            let area = NSTrackingArea.init(rect: button.button.bounds,
+        for case let button as NSButton in self.view.subviews {
+            (button.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
+            let area = NSTrackingArea.init(rect: button.bounds,
                                            options: [.mouseEnteredAndExited, .activeAlways],
                                            owner: self,
-                                           userInfo: ["button" : button.title])
-            button.button.addTrackingArea(area)
+                                           userInfo: ["button" : button.identifier?.rawValue ?? "failed"])
+            button.addTrackingArea(area)
         }
     }
     
@@ -244,9 +235,4 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     }
     
     
-}
-
-struct ButtonObject {
-    let button : NSButton
-    let title : String
 }
