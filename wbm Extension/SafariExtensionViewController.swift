@@ -19,6 +19,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     @IBOutlet weak var domainFilesButton: NSButton!
     @IBOutlet weak var domainDataButton: NSButton!
     @IBOutlet weak var currentPageButton: NSButton!
+    @IBOutlet weak var wbmURLField: NSTextField!
     
     var originURL : String = ""
     var currentURL : String = ""
@@ -29,7 +30,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     static let shared: SafariExtensionViewController = {
         let shared = SafariExtensionViewController()
-        shared.preferredContentSize = NSSize(width:200, height:160)
+        shared.preferredContentSize = NSSize(width:200, height:230)
         return shared
     }()
     
@@ -205,5 +206,16 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
   
     }
     
+    @IBAction func wbmURLAction(_ sender: NSTextField) {
+        let url = sender.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
+        if (validateUrl(urlString: url)){
+            self.openTabWithURL(url: "https://web.archive.org/web/*/\(url)")
+        }
+    }
+ 
+    func validateUrl (urlString: String?) -> Bool {
+        let urlRegEx = "(http|https)://((\\w)*|([0-9]*)|([-|_])*)+([\\.|/]((\\w)*|([0-9]*)|([-|_])*))+"
+        return NSPredicate(format: "SELF MATCHES %@", urlRegEx).evaluate(with: urlString)
+    }
     
 }
