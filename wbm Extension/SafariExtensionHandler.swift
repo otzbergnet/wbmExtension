@@ -10,13 +10,16 @@ import SafariServices
 
 class SafariExtensionHandler: SFSafariExtensionHandler {
     
+    let settings = SettingsHelper()
+    
     override func messageReceived(withName messageName: String, from page: SFSafariPage, userInfo: [String : Any]?) {
         // This method will be called when a content script provided by your extension calls safari.extension.dispatchMessage("message").
         switch (messageName){
         case "wbm_pageHistory":
             handlePageHistory(page: page)
         case "shortcut":
-            page.dispatchMessageToScript(withName: "shortcut", userInfo: [ "shortcut" : "w"])
+            let shortcut = settings.getStringData(key: "shortcut")
+            page.dispatchMessageToScript(withName: "shortcut", userInfo: [ "shortcut" : shortcut])
         default:
             return
         }
