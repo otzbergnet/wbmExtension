@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14269.14" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -65,7 +66,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="wbm" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -96,22 +97,27 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="329"/>
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="wbm" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" misplaced="YES" id="m2S-Jp-Qdl">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="392"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="42" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZLV-xE-AGT">
-                                <rect key="frame" x="0.0" y="34" width="480" height="250"/>
+                                <rect key="frame" x="0.0" y="34" width="480" height="313"/>
                                 <subviews>
                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FWV-e2-WQh" userLabel="IconView">
-                                        <rect key="frame" x="176" y="122" width="128" height="128"/>
+                                        <rect key="frame" x="176" y="185" width="128" height="128"/>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="AppIcon" id="Hhb-TZ-Dhg"/>
                                     </imageView>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EB0-ac-UZR">
-                                        <rect key="frame" x="206" y="63" width="68" height="17"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="App Name" id="S7v-7o-3vW">
+                                        <rect key="frame" x="76" y="63" width="329" height="80"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" id="S7v-7o-3vW">
                                             <font key="font" metaFont="system"/>
+                                            <string key="title">To install:
+
+1. Click the button below to open Safari Preferences
+2. Activate the extension
+3. That's it - you won't need this containing app again</string>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
