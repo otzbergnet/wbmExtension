@@ -28,9 +28,15 @@
 		<array>
 			<dict>
 				<key>Command</key>
-				<string>wbm_context</string>
+				<string>wbm_newestSnapshot</string>
 				<key>Text</key>
-				<string>Open in Wayback Machine</string>
+				<string>wbm: Open Newest Snapshot</string>
+			</dict>
+			<dict>
+				<key>Command</key>
+				<string>wbm_pageHistory</string>
+				<key>Text</key>
+				<string>wbm: Show Page History</string>
 			</dict>
 		</array>
 		<key>NSExtensionPointIdentifier</key>
@@ -41,7 +47,7 @@
 		<array>
 			<dict>
 				<key>Script</key>
-				<string>script.js</string>
+				<string>wbm_script.js</string>
 			</dict>
 		</array>
 		<key>SFSafariToolbarItem</key>

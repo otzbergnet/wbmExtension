@@ -12,8 +12,13 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     
     override func messageReceived(withName messageName: String, from page: SFSafariPage, userInfo: [String : Any]?) {
         // This method will be called when a content script provided by your extension calls safari.extension.dispatchMessage("message").
-        page.getPropertiesWithCompletionHandler { properties in
-            NSLog("The extension received a message (\(messageName)) from a script injected into (\(String(describing: properties?.url))) with userInfo (\(userInfo ?? [:]))")
+        switch (messageName){
+        case "wbm_pageHistory":
+            handlePageHistory(page: page)
+        case "shortcut":
+            page.dispatchMessageToScript(withName: "shortcut", userInfo: [ "shortcut" : "w"])
+        default:
+            return
         }
     }
     
@@ -34,17 +39,36 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     //construct the URL and open a new tab, when text is selected and the context menu is selected
     override func contextMenuItemSelected(withCommand command: String, in page: SFSafariPage, userInfo: [String : Any]? = nil) {
         
-        if(command == "wbm_context"){
-            page.getPropertiesWithCompletionHandler { (pagePropierties) in
-                if let currentUrl = pagePropierties?.url{
-                    let url = "https://web.archive.org/web/*/\(currentUrl)"
-                    self.openTabWithUrl(url: url)
-                }
+        switch (command) {
+        case "wbm_pageHistory":
+            handlePageHistory(page: page)
+        case "wbm_newestSnapshot":
+            handleNewestSnapshot(page: page)
+        default:
+            return
+        }
+        
+    }
+    
+    func handlePageHistory(page: SFSafariPage){
+        page.getPropertiesWithCompletionHandler { (pagePropierties) in
+            if let currentUrl = pagePropierties?.url{
+                let url = "https://web.archive.org/web/*/\(currentUrl)"
+                self.openTabWithUrl(url: url)
             }
         }
 
     }
-
+    
+    func handleNewestSnapshot(page: SFSafariPage){
+        page.getPropertiesWithCompletionHandler { (pagePropierties) in
+            if let currentUrl = pagePropierties?.url{
+                let url = "https://web.archive.org/web/2/\(currentUrl)"
+                self.openTabWithUrl(url: url)
+            }
+        }
+    }
+    
     func openTabWithUrl(url: String){
         SFSafariApplication.getActiveWindow { (window) in
             if let myUrl = URL(string: url) {

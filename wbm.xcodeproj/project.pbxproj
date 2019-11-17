@@ -19,7 +19,7 @@
 		2DCA3281237DD313001C0AB4 /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3280237DD313001C0AB4 /* SafariExtensionHandler.swift */; };
 		2DCA3283237DD313001C0AB4 /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3282237DD313001C0AB4 /* SafariExtensionViewController.swift */; };
 		2DCA3286237DD313001C0AB4 /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA3284237DD313001C0AB4 /* SafariExtensionViewController.xib */; };
-		2DCA3289237DD313001C0AB4 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA3288237DD313001C0AB4 /* script.js */; };
+		2DCA3289237DD313001C0AB4 /* wbm_script.js in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA3288237DD313001C0AB4 /* wbm_script.js */; };
 		2DE13E272381185C007FCF3D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2DE13E292381185C007FCF3D /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +66,7 @@
 		2DCA3282237DD313001C0AB4 /* SafariExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionViewController.swift; sourceTree = "<group>"; };
 		2DCA3285237DD313001C0AB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SafariExtensionViewController.xib; sourceTree = "<group>"; };
 		2DCA3287237DD313001C0AB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2DCA3288237DD313001C0AB4 /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
+		2DCA3288237DD313001C0AB4 /* wbm_script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = wbm_script.js; sourceTree = "<group>"; };
 		2DCA328C237DD313001C0AB4 /* wbm_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wbm_Extension.entitlements; sourceTree = "<group>"; };
 		2DE13E282381185C007FCF3D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,7 +137,7 @@
 				2DCA3282237DD313001C0AB4 /* SafariExtensionViewController.swift */,
 				2DCA3284237DD313001C0AB4 /* SafariExtensionViewController.xib */,
 				2DCA3287237DD313001C0AB4 /* Info.plist */,
-				2DCA3288237DD313001C0AB4 /* script.js */,
+				2DCA3288237DD313001C0AB4 /* wbm_script.js */,
 				2D9FC22423810BBC007FCF22 /* ToolbarItemIconWbm.pdf */,
 				2DCA328C237DD313001C0AB4 /* wbm_Extension.entitlements */,
 				2D9FC22E2381153A007FCF22 /* Localizable.strings */,
@@ -240,7 +240,7 @@
 			files = (
 				2DCA3286237DD313001C0AB4 /* SafariExtensionViewController.xib in Resources */,
 				2D9FC22C2381153A007FCF22 /* Localizable.strings in Resources */,
-				2DCA3289237DD313001C0AB4 /* script.js in Resources */,
+				2DCA3289237DD313001C0AB4 /* wbm_script.js in Resources */,
 				2D9FC22523810BBC007FCF22 /* ToolbarItemIconWbm.pdf in Resources */,
 				2DE13E272381185C007FCF3D /* InfoPlist.strings in Resources */,
 			);
