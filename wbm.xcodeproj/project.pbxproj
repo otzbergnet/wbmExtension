@@ -23,6 +23,7 @@
 		2DE13E272381185C007FCF3D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2DE13E292381185C007FCF3D /* InfoPlist.strings */; };
 		2DE13E2B238138A6007FCF3D /* SettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE13E2A238138A6007FCF3D /* SettingsHelper.swift */; };
 		2DE13E2C238138A6007FCF3D /* SettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE13E2A238138A6007FCF3D /* SettingsHelper.swift */; };
+		2DE13E3023814383007FCF3D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2DE13E3323814383007FCF3D /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		2DCA328C237DD313001C0AB4 /* wbm_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wbm_Extension.entitlements; sourceTree = "<group>"; };
 		2DE13E282381185C007FCF3D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2DE13E2A238138A6007FCF3D /* SettingsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHelper.swift; sourceTree = "<group>"; };
+		2DE13E3223814383007FCF3D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				2DCA326F237DD303001C0AB4 /* ViewController.swift */,
 				2DCA3271237DD312001C0AB4 /* Assets.xcassets */,
 				2DCA3273237DD312001C0AB4 /* Info.plist */,
+				2DE13E3323814383007FCF3D /* Localizable.strings */,
 			);
 			path = wbm;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DCA3269237DD302001C0AB4 /* wbm.entitlements in Resources */,
+				2DE13E3023814383007FCF3D /* Localizable.strings in Resources */,
 				2DCA3272237DD312001C0AB4 /* Assets.xcassets in Resources */,
 				2DCA326E237DD303001C0AB4 /* Main.storyboard in Resources */,
 			);
@@ -317,6 +321,14 @@
 				2DE13E282381185C007FCF3D /* de */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2DE13E3323814383007FCF3D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2DE13E3223814383007FCF3D /* de */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
