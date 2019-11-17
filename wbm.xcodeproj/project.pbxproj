@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D9FC22523810BBC007FCF22 /* ToolbarItemIconWbm.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2D9FC22423810BBC007FCF22 /* ToolbarItemIconWbm.pdf */; };
 		2DCA3269237DD302001C0AB4 /* wbm.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA3268237DD302001C0AB4 /* wbm.entitlements */; };
 		2DCA326B237DD302001C0AB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA326A237DD302001C0AB4 /* AppDelegate.swift */; };
 		2DCA326E237DD303001C0AB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA326C237DD303001C0AB4 /* Main.storyboard */; };
@@ -18,7 +19,6 @@
 		2DCA3283237DD313001C0AB4 /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3282237DD313001C0AB4 /* SafariExtensionViewController.swift */; };
 		2DCA3286237DD313001C0AB4 /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA3284237DD313001C0AB4 /* SafariExtensionViewController.xib */; };
 		2DCA3289237DD313001C0AB4 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA3288237DD313001C0AB4 /* script.js */; };
-		2DCA328B237DD313001C0AB4 /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA328A237DD313001C0AB4 /* ToolbarItemIcon.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +46,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2D9FC22423810BBC007FCF22 /* ToolbarItemIconWbm.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIconWbm.pdf; sourceTree = "<group>"; };
 		2DCA3265237DD302001C0AB4 /* wbm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wbm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DCA3268237DD302001C0AB4 /* wbm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wbm.entitlements; sourceTree = "<group>"; };
 		2DCA326A237DD302001C0AB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,7 +61,6 @@
 		2DCA3285237DD313001C0AB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SafariExtensionViewController.xib; sourceTree = "<group>"; };
 		2DCA3287237DD313001C0AB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DCA3288237DD313001C0AB4 /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
-		2DCA328A237DD313001C0AB4 /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIcon.pdf; sourceTree = "<group>"; };
 		2DCA328C237DD313001C0AB4 /* wbm_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wbm_Extension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,7 +131,7 @@
 				2DCA3284237DD313001C0AB4 /* SafariExtensionViewController.xib */,
 				2DCA3287237DD313001C0AB4 /* Info.plist */,
 				2DCA3288237DD313001C0AB4 /* script.js */,
-				2DCA328A237DD313001C0AB4 /* ToolbarItemIcon.pdf */,
+				2D9FC22423810BBC007FCF22 /* ToolbarItemIconWbm.pdf */,
 				2DCA328C237DD313001C0AB4 /* wbm_Extension.entitlements */,
 			);
 			path = "wbm Extension";
@@ -228,9 +228,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCA328B237DD313001C0AB4 /* ToolbarItemIcon.pdf in Resources */,
 				2DCA3286237DD313001C0AB4 /* SafariExtensionViewController.xib in Resources */,
 				2DCA3289237DD313001C0AB4 /* script.js in Resources */,
+				2D9FC22523810BBC007FCF22 /* ToolbarItemIconWbm.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
