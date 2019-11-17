@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  wbm
+
+  Created by Claus Wolf on 17.11.19.
+  Copyright © 2019 Claus Wolf. All rights reserved.
+*/
+
+NSHumanReadableDescription = "Diese Erweiterung unterstützt Sie darin, die Wayback Machine des Internet Archive effizient zu nutzen";
+NSHumanReadableCopyright = "© 2019 Claus Wolf & Matt Sephton. Alle Recht vorbehalten.";

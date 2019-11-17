@@ -1,0 +1,18 @@
+
+/* Class = "NSButtonCell"; title = "Show Page History"; ObjectID = "Hu3-v8-eft"; */
+"Hu3-v8-eft.title" = "Show Page History";
+
+/* Class = "NSButtonCell"; title = "Show Domain Files"; ObjectID = "RJY-mO-Tmy"; */
+"RJY-mO-Tmy.title" = "Show Domain Files";
+
+/* Class = "NSButtonCell"; title = "Open Oldest Snapshot"; ObjectID = "UJu-Ee-ng3"; */
+"UJu-Ee-ng3.title" = "Open Oldest Snapshot";
+
+/* Class = "NSButtonCell"; title = "Save Current Page"; ObjectID = "eb1-Wu-3lw"; */
+"eb1-Wu-3lw.title" = "Save Current Page";
+
+/* Class = "NSButtonCell"; title = "Show Domain Data"; ObjectID = "gaK-bS-ZFq"; */
+"gaK-bS-ZFq.title" = "Show Domain Data";
+
+/* Class = "NSButtonCell"; title = "Open Newest Snapshot"; ObjectID = "geN-hM-Pc7"; */
+"geN-hM-Pc7.title" = "Open Newest Snapshot";

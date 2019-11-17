@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  wbm
+
+  Created by Claus Wolf on 17.11.19.
+  Copyright © 2019 Claus Wolf. All rights reserved.
+*/
+
+
+//func showOrHideLive()
+
+"Show Page History" = "Seitenverlauf zeigen";
+"Show Live Page" = "Seite im Web aufrufen";

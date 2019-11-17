@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D9FC22523810BBC007FCF22 /* ToolbarItemIconWbm.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2D9FC22423810BBC007FCF22 /* ToolbarItemIconWbm.pdf */; };
+		2D9FC22C2381153A007FCF22 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D9FC22E2381153A007FCF22 /* Localizable.strings */; };
 		2DCA3269237DD302001C0AB4 /* wbm.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA3268237DD302001C0AB4 /* wbm.entitlements */; };
 		2DCA326B237DD302001C0AB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA326A237DD302001C0AB4 /* AppDelegate.swift */; };
 		2DCA326E237DD303001C0AB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA326C237DD303001C0AB4 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 		2DCA3283237DD313001C0AB4 /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3282237DD313001C0AB4 /* SafariExtensionViewController.swift */; };
 		2DCA3286237DD313001C0AB4 /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA3284237DD313001C0AB4 /* SafariExtensionViewController.xib */; };
 		2DCA3289237DD313001C0AB4 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA3288237DD313001C0AB4 /* script.js */; };
+		2DE13E272381185C007FCF3D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2DE13E292381185C007FCF3D /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,10 @@
 
 /* Begin PBXFileReference section */
 		2D9FC22423810BBC007FCF22 /* ToolbarItemIconWbm.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIconWbm.pdf; sourceTree = "<group>"; };
+		2D9FC22723811494007FCF22 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SafariExtensionViewController.strings; sourceTree = "<group>"; };
+		2D9FC228238114B2007FCF22 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		2D9FC229238114B2007FCF22 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SafariExtensionViewController.strings; sourceTree = "<group>"; };
+		2D9FC22D2381153A007FCF22 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2DCA3265237DD302001C0AB4 /* wbm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wbm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DCA3268237DD302001C0AB4 /* wbm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wbm.entitlements; sourceTree = "<group>"; };
 		2DCA326A237DD302001C0AB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +68,7 @@
 		2DCA3287237DD313001C0AB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DCA3288237DD313001C0AB4 /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
 		2DCA328C237DD313001C0AB4 /* wbm_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wbm_Extension.entitlements; sourceTree = "<group>"; };
+		2DE13E282381185C007FCF3D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +140,8 @@
 				2DCA3288237DD313001C0AB4 /* script.js */,
 				2D9FC22423810BBC007FCF22 /* ToolbarItemIconWbm.pdf */,
 				2DCA328C237DD313001C0AB4 /* wbm_Extension.entitlements */,
+				2D9FC22E2381153A007FCF22 /* Localizable.strings */,
+				2DE13E292381185C007FCF3D /* InfoPlist.strings */,
 			);
 			path = "wbm Extension";
 			sourceTree = "<group>";
@@ -201,6 +210,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = 2DCA325C237DD302001C0AB4;
 			productRefGroup = 2DCA3266237DD302001C0AB4 /* Products */;
@@ -229,8 +239,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DCA3286237DD313001C0AB4 /* SafariExtensionViewController.xib in Resources */,
+				2D9FC22C2381153A007FCF22 /* Localizable.strings in Resources */,
 				2DCA3289237DD313001C0AB4 /* script.js in Resources */,
 				2D9FC22523810BBC007FCF22 /* ToolbarItemIconWbm.pdf in Resources */,
+				2DE13E272381185C007FCF3D /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,10 +278,19 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2D9FC22E2381153A007FCF22 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D9FC22D2381153A007FCF22 /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		2DCA326C237DD303001C0AB4 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				2DCA326D237DD303001C0AB4 /* Base */,
+				2D9FC228238114B2007FCF22 /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -278,8 +299,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				2DCA3285237DD313001C0AB4 /* Base */,
+				2D9FC22723811494007FCF22 /* en */,
+				2D9FC229238114B2007FCF22 /* de */,
 			);
 			name = SafariExtensionViewController.xib;
+			sourceTree = "<group>";
+		};
+		2DE13E292381185C007FCF3D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2DE13E282381185C007FCF3D /* de */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -289,6 +320,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -349,6 +381,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

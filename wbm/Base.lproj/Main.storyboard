@@ -98,7 +98,7 @@
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="wbm" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" misplaced="YES" id="m2S-Jp-Qdl">
+                    <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="392"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -109,9 +109,9 @@
                                         <rect key="frame" x="176" y="185" width="128" height="128"/>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="AppIcon" id="Hhb-TZ-Dhg"/>
                                     </imageView>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EB0-ac-UZR">
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iYn-Gc-5uc">
                                         <rect key="frame" x="76" y="63" width="329" height="80"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" id="S7v-7o-3vW">
+                                        <textFieldCell key="cell" lineBreakMode="clipping" id="MYy-vP-p0w">
                                             <font key="font" metaFont="system"/>
                                             <string key="title">To install:
 
@@ -155,9 +155,6 @@ DQ
                             <constraint firstItem="ZLV-xE-AGT" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="mT6-ee-vkp"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="appNameLabel" destination="EB0-ac-UZR" id="SDO-j1-PQa"/>
-                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

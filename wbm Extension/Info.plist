@@ -66,7 +66,7 @@
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2019 Claus Wolf. All rights reserved.</string>
+	<string>Copyright © 2019 Claus Wolf &amp; Matt Sephton. All rights reserved.</string>
 	<key>NSHumanReadableDescription</key>
 	<string>This extension helps you interact with the Internet Archive&apos;s Wayback Machine more efficiently</string>
 </dict>

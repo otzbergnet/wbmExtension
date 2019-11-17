@@ -15,7 +15,6 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.appNameLabel.stringValue = "wbm";
     }
     
     @IBAction func openSafariExtensionPreferences(_ sender: AnyObject?) {
