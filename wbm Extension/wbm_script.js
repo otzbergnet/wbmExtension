@@ -6,6 +6,7 @@ if (window.top === window) {
     console.log("Wayback Machine Extension successfully loaded");
     
     safari.self.addEventListener("message", messageHandler);
+    document.addEventListener("contextmenu", handleContextMenu, false);
     safari.extension.dispatchMessage("shortcut", {"msgID" : "1"});
     
     //mostly useless and we should remove
@@ -30,6 +31,14 @@ function messageHandler(event){
             shortcut = event.message.shortcut
             console.log("use ctrl + "+shortcut+" to open the Page History")
     }
-    
-    
+}
+
+function handleContextMenu(event) {
+    var link =  window.getSelection().anchorNode.parentNode.href
+    if(link != undefined){
+        safari.extension.setContextMenuEventUserInfo(event, { "href": link });
+    }
+    else{
+        safari.extension.setContextMenuEventUserInfo(event, { "href": "-" });
+    }
 }
