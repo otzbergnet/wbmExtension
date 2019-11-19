@@ -20,6 +20,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     @IBOutlet weak var domainDataButton: NSButton!
     @IBOutlet weak var currentPageButton: NSButton!
     @IBOutlet weak var wbmURLField: NSTextField!
+    @IBOutlet weak var enterUrlLabel: NSTextField!
     
     var originURL : String = ""
     var currentURL : String = ""
@@ -38,10 +39,12 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     override func viewDidLoad() {
         showOrHideLive()
+        setLabels()
         handleButtons()
     }
     
     override func viewDidAppear() {
+        setLabels()
         showOrHideLive()
     }
     
@@ -102,6 +105,10 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
                 self.pageHistoryLivePageButton.title = NSLocalizedString("Show Page History", comment: "used in button to toggle Page History & Live Page")
             }
         }
+    }
+    
+    func setLabels(){
+        self.enterUrlLabel.stringValue = NSLocalizedString("Enter a URL to go to archive:", comment: "only shown when an invalid URL is encountered")
     }
     
     func removeWBM(url: String) -> String{
@@ -208,14 +215,31 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     @IBAction func wbmURLAction(_ sender: NSTextField) {
         let url = sender.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
-        if (validateUrl(urlString: url)){
+        let url1 = "https://\(url)"
+        if (url.isValidURL){
             self.openTabWithURL(url: "https://web.archive.org/web/*/\(url)")
+        }
+        else if(url1.isValidURL){
+            self.openTabWithURL(url: "https://web.archive.org/web/*/\(url)")
+        }
+        else{
+            self.enterUrlLabel.stringValue = NSLocalizedString("The URL was not valid", comment: "only shown when an invalid URL is encountered")
         }
     }
  
-    func validateUrl (urlString: String?) -> Bool {
-        let urlRegEx = "(http|https)://((\\w)*|([0-9]*)|([-|_])*)+([\\.|/]((\\w)*|([0-9]*)|([-|_])*))+"
-        return NSPredicate(format: "SELF MATCHES %@", urlRegEx).evaluate(with: urlString)
-    }
     
+}
+
+
+// Source for String Extension: https://stackoverflow.com/questions/28079123/how-to-check-validity-of-url-in-swift/49072718
+extension String {
+    var isValidURL: Bool {
+        let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+        if let match = detector.firstMatch(in: self, options: [], range: NSRange(location: 0, length: self.utf16.count)) {
+            // it is a link, if the match covers the whole string
+            return match.range.length == self.utf16.count
+        } else {
+            return false
+        }
+    }
 }

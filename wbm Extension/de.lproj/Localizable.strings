@@ -11,3 +11,5 @@
 
 "Show Page History" = "Seitenverlauf zeigen";
 "Show Live Page" = "Seite im Web aufrufen";
+"Enter a URL to go to archive:" = "URL eingeben, um Archiv zu sehen:";
+"The URL was not valid" = "Ungültige URL";
