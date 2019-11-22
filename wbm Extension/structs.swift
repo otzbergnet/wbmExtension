@@ -8,7 +8,7 @@
 
 
 struct Wayback : Decodable {
-    let url : String
+    let url : String?
     let archived_snapshots : Archive?
 }
 
