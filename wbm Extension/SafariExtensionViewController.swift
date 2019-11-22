@@ -97,6 +97,17 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         }
     }
     
+    func openWithinSameTab(url: String){
+        SFSafariApplication.getActiveWindow { (window) in
+            window?.getActiveTab(completionHandler: { (tab) in
+                if let myUrl = URL(string: url){
+                    tab?.navigate(to: myUrl)
+                }
+            })
+        }
+    }
+    
+    
     func showOrHideLive(){
         getCurrentUrlData() { (currentURL : String, originURL : String, cleanedURL: String, onWayBackMachine: Bool) in
             if(onWayBackMachine){
@@ -228,7 +239,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         if let date = dateFormatter.date(from: timestamp){
             let displayFormatter = DateFormatter()
             displayFormatter.locale = Locale.current
-            displayFormatter.setLocalizedDateFormatFromTemplate("YYYYMMMMd '@' HH:mm")
+            displayFormatter.setLocalizedDateFormatFromTemplate("yyyyMMMddHHmm")
             return displayFormatter.string(from: date)
         }
         return "failed to convert date"
@@ -315,7 +326,13 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     @IBAction func saveCurrentPageClicked(_ sender: Any) {
         //save
-        whichToOpen(onWBMurl: "https://web.archive.org/save/\(self.cleanedURL)", offWBMurl: "https://web.archive.org/save/\(self.currentURL)")
+        self.dismissPopover()
+        if(self.onWayBackMachine){
+            self.openWithinSameTab(url: "https://web.archive.org/save/\(self.cleanedURL)")
+        }
+        else{
+            self.openWithinSameTab(url: "https://web.archive.org/save/\(self.currentURL)")
+        }
         
     }
     
