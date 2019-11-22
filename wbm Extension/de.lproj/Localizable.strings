@@ -13,3 +13,7 @@
 "Show Live Page" = "Seite im Web aufrufen";
 "Enter a URL to go to archive:" = "URL eingeben, um Archiv zu sehen:";
 "The URL was not valid" = "Ungültige URL";
+"Unfortunately we encountered an error!" = "Leider stolperten wir über einen Fehler!";
+"This page was never archived" = "Diese Seite wurde bisher nicht archiviert";
+"The archive is inaccessible" = "Die Archivseite ist nicht verfügbar";
+"Last archived:" = "Letzter Snapshot:";

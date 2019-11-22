@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,9 +12,11 @@
                 <outlet property="domainDataButton" destination="o9J-UB-eFY" id="tla-g8-Ul4"/>
                 <outlet property="domainFilesButton" destination="qQ4-cV-e8J" id="m2m-oD-gTw"/>
                 <outlet property="enterUrlLabel" destination="TgF-Le-gDN" id="OUW-d8-2cw"/>
+                <outlet property="lastArchivedLabel" destination="vXa-SF-ugH" id="w0M-yV-iOW"/>
                 <outlet property="newestSnapshotButton" destination="m5W-ld-LcY" id="Fee-i4-i4i"/>
                 <outlet property="oldestSnapshotButton" destination="zWQ-SZ-wfA" id="gLl-fg-Qxj"/>
                 <outlet property="pageHistoryLivePageButton" destination="tLL-G2-igt" id="blz-8y-Avt"/>
+                <outlet property="progressIndicator" destination="bcg-QN-Btd" id="sx1-4P-YGy"/>
                 <outlet property="view" destination="c22-O7-iKe" id="vwT-Xx-Aiz"/>
                 <outlet property="wbmURLField" destination="E5n-Hi-3qn" id="R5d-t4-d1g"/>
             </connections>
@@ -21,9 +24,27 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="200" height="230"/>
+            <rect key="frame" x="0.0" y="0.0" width="200" height="286"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vXa-SF-ugH">
+                    <rect key="frame" x="18" y="236" width="164" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="BRt-Qs-Bcc"/>
+                        <constraint firstAttribute="height" constant="35" id="dke-83-sTk"/>
+                    </constraints>
+                    <textFieldCell key="cell" title="Label" id="Gub-HY-v0e">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <progressIndicator wantsLayer="YES" maxValue="100" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="bcg-QN-Btd">
+                    <rect key="frame" x="92" y="253" width="16" height="16"/>
+                </progressIndicator>
+                <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="fcn-hh-lcH">
+                    <rect key="frame" x="20" y="228" width="160" height="5"/>
+                </box>
                 <button identifier="pageHistoryLivePageButton" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tLL-G2-igt">
                     <rect key="frame" x="0.0" y="200" width="200" height="25"/>
                     <constraints>
@@ -125,7 +146,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TgF-Le-gDN">
                     <rect key="frame" x="8" y="45" width="184" height="14"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Enter a URL to go to archive:" id="ZkG-FV-xuq">
-                        <font key="font" metaFont="label" size="11"/>
+                        <font key="font" metaFont="controlContent" size="11"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -134,33 +155,41 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Ih1-L7-RTB" secondAttribute="trailing" constant="20" id="5vD-eI-fmF"/>
                 <constraint firstItem="o9J-UB-eFY" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="7fa-Ba-BbU"/>
+                <constraint firstItem="vXa-SF-ugH" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="8LE-WF-Gdv"/>
                 <constraint firstItem="zWQ-SZ-wfA" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="8sb-2t-N7E"/>
                 <constraint firstItem="B67-JH-udz" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="Ahj-kE-bgw"/>
                 <constraint firstItem="TgF-Le-gDN" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="10" id="C3W-oT-yzi"/>
                 <constraint firstItem="TgF-Le-gDN" firstAttribute="top" secondItem="Ih1-L7-RTB" secondAttribute="bottom" constant="10" id="EVq-Ps-3kL"/>
                 <constraint firstItem="tLL-G2-igt" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="G7U-9v-Ikg"/>
+                <constraint firstItem="bcg-QN-Btd" firstAttribute="top" secondItem="vXa-SF-ugH" secondAttribute="bottom" constant="-33" id="HKp-Y5-QnN"/>
                 <constraint firstAttribute="trailing" secondItem="TgF-Le-gDN" secondAttribute="trailing" constant="10" id="HWq-n7-amM"/>
                 <constraint firstAttribute="trailing" secondItem="E5n-Hi-3qn" secondAttribute="trailing" constant="20" id="JD4-Y4-6DI"/>
+                <constraint firstItem="vXa-SF-ugH" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="15" id="KVj-gZ-EXC"/>
                 <constraint firstAttribute="trailing" secondItem="m5W-ld-LcY" secondAttribute="trailing" id="NWN-ar-z36"/>
                 <constraint firstItem="B67-JH-udz" firstAttribute="top" secondItem="o9J-UB-eFY" secondAttribute="bottom" id="NsH-M2-Viq"/>
+                <constraint firstAttribute="trailing" secondItem="vXa-SF-ugH" secondAttribute="trailing" constant="20" id="OUV-uU-1Qy"/>
+                <constraint firstItem="fcn-hh-lcH" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="QPN-yw-OGJ"/>
                 <constraint firstItem="m5W-ld-LcY" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="Qef-o9-LJu"/>
+                <constraint firstItem="tLL-G2-igt" firstAttribute="top" secondItem="fcn-hh-lcH" secondAttribute="bottom" constant="5" id="R9J-5P-ORj"/>
+                <constraint firstItem="bcg-QN-Btd" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="XHK-TG-RGC"/>
                 <constraint firstAttribute="trailing" secondItem="o9J-UB-eFY" secondAttribute="trailing" id="Y6i-86-Cic"/>
                 <constraint firstAttribute="trailing" secondItem="qQ4-cV-e8J" secondAttribute="trailing" id="Yda-A2-gXV"/>
                 <constraint firstItem="E5n-Hi-3qn" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="YuA-j8-BHf"/>
                 <constraint firstAttribute="trailing" secondItem="B67-JH-udz" secondAttribute="trailing" id="Yv3-0G-lYS"/>
                 <constraint firstItem="Ih1-L7-RTB" firstAttribute="top" secondItem="B67-JH-udz" secondAttribute="bottom" constant="5" id="ZFZ-St-5SZ"/>
                 <constraint firstItem="o9J-UB-eFY" firstAttribute="top" secondItem="qQ4-cV-e8J" secondAttribute="bottom" id="cHj-ui-fDf"/>
+                <constraint firstItem="fcn-hh-lcH" firstAttribute="top" secondItem="vXa-SF-ugH" secondAttribute="bottom" constant="5" id="cHo-NW-Jwf"/>
                 <constraint firstItem="zWQ-SZ-wfA" firstAttribute="top" secondItem="tLL-G2-igt" secondAttribute="bottom" id="ebs-1M-9Lz"/>
                 <constraint firstItem="Ih1-L7-RTB" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="gDr-yx-3pb"/>
+                <constraint firstAttribute="trailing" secondItem="fcn-hh-lcH" secondAttribute="trailing" constant="20" id="iBx-Ol-CVI"/>
                 <constraint firstItem="qQ4-cV-e8J" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="iIn-yT-UWI"/>
-                <constraint firstItem="tLL-G2-igt" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="5" id="mIW-Il-q9a"/>
                 <constraint firstItem="qQ4-cV-e8J" firstAttribute="top" secondItem="m5W-ld-LcY" secondAttribute="bottom" id="pSz-Tc-UdE"/>
                 <constraint firstAttribute="trailing" secondItem="zWQ-SZ-wfA" secondAttribute="trailing" id="sPI-jP-Yx8"/>
                 <constraint firstItem="m5W-ld-LcY" firstAttribute="top" secondItem="zWQ-SZ-wfA" secondAttribute="bottom" id="uYX-O3-THD"/>
                 <constraint firstAttribute="trailing" secondItem="tLL-G2-igt" secondAttribute="trailing" id="x59-pn-Cec"/>
                 <constraint firstItem="E5n-Hi-3qn" firstAttribute="top" secondItem="TgF-Le-gDN" secondAttribute="bottom" constant="10" id="y2U-YI-O4W"/>
             </constraints>
-            <point key="canvasLocation" x="115.5" y="211.5"/>
+            <point key="canvasLocation" x="115" y="239"/>
         </customView>
     </objects>
 </document>

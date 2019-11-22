@@ -21,6 +21,10 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     @IBOutlet weak var currentPageButton: NSButton!
     @IBOutlet weak var wbmURLField: NSTextField!
     @IBOutlet weak var enterUrlLabel: NSTextField!
+    @IBOutlet weak var progressIndicator: NSProgressIndicator!
+    @IBOutlet weak var lastArchivedLabel: NSTextField!
+    
+    
     
     var originURL : String = ""
     var currentURL : String = ""
@@ -31,7 +35,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     static let shared: SafariExtensionViewController = {
         let shared = SafariExtensionViewController()
-        shared.preferredContentSize = NSSize(width:200, height:230)
+        shared.preferredContentSize = NSSize(width:200, height:285)
         return shared
     }()
     
@@ -46,7 +50,9 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     override func viewDidAppear() {
         setLabels()
         showOrHideLive()
+        callWayBackApi()
     }
+    
     
     //MARK: — Extension Functionality
     
@@ -94,15 +100,14 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     func showOrHideLive(){
         getCurrentUrlData() { (currentURL : String, originURL : String, cleanedURL: String, onWayBackMachine: Bool) in
-//            NSLog("WBM_LOG: currentURL: \(currentURL)")
-//            NSLog("WBM_LOG: originURL: \(originURL)")
-//            NSLog("WBM_LOG: cleanedURL: \(cleanedURL)")
-//            NSLog("WBM_LOG: onWayBackMachine: \(onWayBackMachine)")
             if(onWayBackMachine){
                 self.pageHistoryLivePageButton.title = NSLocalizedString("Show Live Page", comment: "used in button to toggle Page History & Live Page")
             }
             else{
                 self.pageHistoryLivePageButton.title = NSLocalizedString("Show Page History", comment: "used in button to toggle Page History & Live Page")
+            }
+            DispatchQueue.main.async {
+                self.callWayBackApi()
             }
         }
     }
@@ -126,6 +131,93 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         else{
             self.openTabWithURL(url: offWBMurl)
         }
+    }
+    
+    func callWayBackApi(){
+        self.lastArchivedLabel.stringValue = ""
+        self.progressIndicator.startAnimation(nil)
+        let jsonUrlString = "https://archive.org/wayback/available?url=\(self.currentURL)"
+        let url = URL(string: jsonUrlString)
+        
+        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+            if let error = error{
+                //we got an error, let's tell the user
+                NSLog("\(error)")
+                self.progressIndicator.stopAnimation(nil)
+                self.progressIndicator.isHidden = true
+                self.lastArchivedLabel.stringValue = NSLocalizedString("Unfortunately we encountered an error1!", comment: "network error")
+                
+            }
+            if let data = data {
+                self.handleData(data: data)
+            }
+            else{
+                // data wasn't there, which is also a type of eror
+                self.progressIndicator.stopAnimation(nil)
+                self.progressIndicator.isHidden = true
+                self.lastArchivedLabel.stringValue = NSLocalizedString("Unfortunately we encountered an error2!", comment: "network error")
+                NSLog("")
+            }
+            
+        }
+        
+        task.resume()
+    }
+    
+    func handleData(data: Data){
+        //sole purpose is to dispatch the url
+        do{
+            let archive = try JSONDecoder().decode(Wayback.self, from: data)
+            if let closest = archive.archived_snapshots?.closest {
+                if (closest.available){
+                    self.progressIndicator.stopAnimation(nil)
+                    self.progressIndicator.isHidden = true
+                    let datum = self.convertTimestamp(timestamp: closest.timestamp)
+                    NSLog("wbm_log: \(datum)")
+                    DispatchQueue.main.async {
+                        self.lastArchivedLabel.stringValue = NSLocalizedString("Last archived:", comment: "Last Archived Date")
+                        self.lastArchivedLabel.stringValue += "\n"
+                        self.lastArchivedLabel.stringValue += datum
+                        
+                    }
+                }
+                else{
+                    //unavailable
+                    self.progressIndicator.stopAnimation(nil)
+                    self.progressIndicator.isHidden = true
+                    self.lastArchivedLabel.stringValue = NSLocalizedString("The archive is inaccessible", comment: "network error")
+                }
+            }
+            else {
+                // there was no snapshot
+                self.progressIndicator.stopAnimation(nil)
+                self.progressIndicator.isHidden = true
+                self.lastArchivedLabel.stringValue = NSLocalizedString("This page was never archived", comment: "network error")
+            }
+            
+            
+        }
+        catch let jsonError{
+            NSLog("\(jsonError)")
+            self.progressIndicator.stopAnimation(nil)
+            self.progressIndicator.isHidden = true
+            self.lastArchivedLabel.stringValue = NSLocalizedString("Unfortunately we encountered an error3!", comment: "network error")
+            return
+        }
+    }
+    
+    func convertTimestamp(timestamp: String) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMddHHmmss"
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.locale = Locale.current
+        if let date = dateFormatter.date(from: timestamp){
+            let displayFormatter = DateFormatter()
+            displayFormatter.locale = Locale.current
+            displayFormatter.setLocalizedDateFormatFromTemplate("YYYYMMMMd '@' HH:mm")
+            return displayFormatter.string(from: date)
+        }
+        return "failed to convert date"
     }
     
     //MARK: — Add Hover-Effect To Buttons
@@ -167,7 +259,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         }
     }
     
-
+    
     //MARK: — Button Actions
     
     @IBAction func showPageHistoryLivePageClicked(_ sender: Any) {
@@ -209,8 +301,8 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     @IBAction func saveCurrentPageClicked(_ sender: Any) {
         //save
-       whichToOpen(onWBMurl: "https://web.archive.org/save/\(self.cleanedURL)", offWBMurl: "https://web.archive.org/save/\(self.currentURL)")
-  
+        whichToOpen(onWBMurl: "https://web.archive.org/save/\(self.cleanedURL)", offWBMurl: "https://web.archive.org/save/\(self.currentURL)")
+        
     }
     
     @IBAction func wbmURLAction(_ sender: NSTextField) {
@@ -225,7 +317,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
             self.enterUrlLabel.stringValue = NSLocalizedString("The URL was not valid", comment: "only shown when an invalid URL is encountered")
         }
     }
- 
+    
     func validateUrl (urlString: String?) -> Bool {
         let urlRegEx = "https?://(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)"
         return NSPredicate(format: "SELF MATCHES %@", urlRegEx).evaluate(with: urlString)
