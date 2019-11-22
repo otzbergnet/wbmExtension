@@ -53,6 +53,8 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             handlePageHistory(page: page, href: href)
         case "wbm_newestSnapshot":
             handleNewestSnapshot(page: page, href: href)
+        case "wbm_oldestSnapshot":
+        handleOldestSnapshot(page: page, href: href)
         default:
             return
         }
@@ -83,6 +85,22 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             page.getPropertiesWithCompletionHandler { (pagePropierties) in
                 if let currentUrl = pagePropierties?.url{
                     let url = "https://web.archive.org/web/2/\(currentUrl)"
+                    self.openTabWithUrl(url: url)
+                }
+            }
+        }
+        
+    }
+    
+    func handleOldestSnapshot(page: SFSafariPage, href: String){
+        if(href != ""){
+            let url = "https://web.archive.org/web/0/\(href)"
+            self.openTabWithUrl(url: url)
+        }
+        else{
+            page.getPropertiesWithCompletionHandler { (pagePropierties) in
+                if let currentUrl = pagePropierties?.url{
+                    let url = "https://web.archive.org/web/0/\(currentUrl)"
                     self.openTabWithUrl(url: url)
                 }
             }

@@ -34,6 +34,12 @@
 			</dict>
 			<dict>
 				<key>Command</key>
+				<string>wbm_oldestSnapshot</string>
+				<key>Text</key>
+				<string>wbm: Open Oldest Snapshot</string>
+			</dict>
+			<dict>
+				<key>Command</key>
 				<string>wbm_pageHistory</string>
 				<key>Text</key>
 				<string>wbm: Show Page History</string>
