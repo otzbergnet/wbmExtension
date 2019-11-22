@@ -50,7 +50,6 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     override func viewDidAppear() {
         setLabels()
         showOrHideLive()
-        callWayBackApi()
     }
     
     
@@ -134,8 +133,11 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     }
     
     func callWayBackApi(){
-        self.lastArchivedLabel.stringValue = ""
-        self.progressIndicator.startAnimation(nil)
+        DispatchQueue.main.async {
+            self.lastArchivedLabel.stringValue = ""
+            self.progressIndicator.isHidden = false
+            self.progressIndicator.startAnimation(nil)
+        }
         let jsonUrlString = "https://archive.org/wayback/available?url=\(self.currentURL)"
         let url = URL(string: jsonUrlString)
         
@@ -143,9 +145,12 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
             if let error = error{
                 //we got an error, let's tell the user
                 NSLog("\(error)")
-                self.progressIndicator.stopAnimation(nil)
-                self.progressIndicator.isHidden = true
-                self.lastArchivedLabel.stringValue = NSLocalizedString("Unfortunately we encountered an error1!", comment: "network error")
+                
+                DispatchQueue.main.async {
+                    self.progressIndicator.stopAnimation(nil)
+                    self.progressIndicator.isHidden = true
+                    self.lastArchivedLabel.stringValue = NSLocalizedString("Unfortunately we encountered an error1!", comment: "network error")
+                }
                 
             }
             if let data = data {
@@ -153,10 +158,12 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
             }
             else{
                 // data wasn't there, which is also a type of eror
-                self.progressIndicator.stopAnimation(nil)
-                self.progressIndicator.isHidden = true
-                self.lastArchivedLabel.stringValue = NSLocalizedString("Unfortunately we encountered an error2!", comment: "network error")
-                NSLog("")
+                
+                DispatchQueue.main.async {
+                    self.progressIndicator.stopAnimation(nil)
+                    self.progressIndicator.isHidden = true
+                    self.lastArchivedLabel.stringValue = NSLocalizedString("Unfortunately we encountered an error2!", comment: "network error")
+                }
             }
             
         }
@@ -170,38 +177,45 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
             let archive = try JSONDecoder().decode(Wayback.self, from: data)
             if let closest = archive.archived_snapshots?.closest {
                 if (closest.available){
-                    self.progressIndicator.stopAnimation(nil)
-                    self.progressIndicator.isHidden = true
-                    let datum = self.convertTimestamp(timestamp: closest.timestamp)
-                    NSLog("wbm_log: \(datum)")
                     DispatchQueue.main.async {
+                        self.progressIndicator.stopAnimation(nil)
+                        self.lastArchivedLabel.stringValue = ""
+                        self.progressIndicator.isHidden = true
+                        let datum = self.convertTimestamp(timestamp: closest.timestamp)
                         self.lastArchivedLabel.stringValue = NSLocalizedString("Last archived:", comment: "Last Archived Date")
                         self.lastArchivedLabel.stringValue += "\n"
                         self.lastArchivedLabel.stringValue += datum
-                        
                     }
                 }
                 else{
                     //unavailable
-                    self.progressIndicator.stopAnimation(nil)
-                    self.progressIndicator.isHidden = true
-                    self.lastArchivedLabel.stringValue = NSLocalizedString("The archive is inaccessible", comment: "network error")
+                    DispatchQueue.main.async {
+                        self.progressIndicator.stopAnimation(nil)
+                        self.progressIndicator.isHidden = true
+                        self.lastArchivedLabel.stringValue = NSLocalizedString("The archive is inaccessible", comment: "network error")
+                    }
                 }
             }
             else {
                 // there was no snapshot
-                self.progressIndicator.stopAnimation(nil)
-                self.progressIndicator.isHidden = true
-                self.lastArchivedLabel.stringValue = NSLocalizedString("This page was never archived", comment: "network error")
+                
+                DispatchQueue.main.async {
+                    self.progressIndicator.stopAnimation(nil)
+                    self.progressIndicator.isHidden = true
+                    self.lastArchivedLabel.stringValue = NSLocalizedString("This page was never archived", comment: "network error")
+                }
             }
             
             
         }
         catch let jsonError{
             NSLog("\(jsonError)")
-            self.progressIndicator.stopAnimation(nil)
-            self.progressIndicator.isHidden = true
-            self.lastArchivedLabel.stringValue = NSLocalizedString("Unfortunately we encountered an error3!", comment: "network error")
+            
+            DispatchQueue.main.async {
+                self.progressIndicator.stopAnimation(nil)
+                self.progressIndicator.isHidden = true
+                self.lastArchivedLabel.stringValue = NSLocalizedString("Unfortunately we encountered an error3!", comment: "network error")
+            }
             return
         }
     }
