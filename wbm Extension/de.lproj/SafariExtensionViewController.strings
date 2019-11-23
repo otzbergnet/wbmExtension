@@ -17,7 +17,7 @@
 /* Class = "NSButtonCell"; title = "Show Page History"; ObjectID = "Hu3-v8-eft"; */
 "Hu3-v8-eft.title" = "Seitenverlauf zeigen";
 
-/* Class = "NSButtonCell"; title = "Settings"; ObjectID = "HwL-s7-dUw"; */
+/* Class = "NSButtonCell"; title = "…"; ObjectID = "HwL-s7-dUw"; */
 "HwL-s7-dUw.title" = "Einstellungen";
 
 /* Class = "NSButtonCell"; title = "Show Domain Files"; ObjectID = "RJY-mO-Tmy"; */

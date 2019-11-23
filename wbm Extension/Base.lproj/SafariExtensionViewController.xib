@@ -149,7 +149,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TgF-Le-gDN">
                     <rect key="frame" x="8" y="51" width="184" height="14"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Enter a URL:" id="ZkG-FV-xuq">
-                        <font key="font" metaFont="message" size="11"/>
+                        <font key="font" metaFont="menu" size="11"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -158,9 +158,9 @@
                     <rect key="frame" x="175" y="286" width="25" height="19"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="19" id="HLt-we-yN6"/>
-                        <constraint firstAttribute="width" constant="25" id="QUQ-vS-3jU"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="QUQ-vS-3jU"/>
                     </constraints>
-                    <buttonCell key="cell" type="roundTextured" title="Settings" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="HwL-s7-dUw">
+                    <buttonCell key="cell" type="roundTextured" title="…" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="HwL-s7-dUw">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="systemBold" size="15"/>
                     </buttonCell>
@@ -190,7 +190,6 @@
                 <constraint firstItem="fcn-hh-lcH" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="QPN-yw-OGJ"/>
                 <constraint firstItem="m5W-ld-LcY" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="Qef-o9-LJu"/>
                 <constraint firstItem="bcg-QN-Btd" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="XHK-TG-RGC"/>
-                <constraint firstItem="B67-JH-udz" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="Xee-Gf-mn3"/>
                 <constraint firstAttribute="trailing" secondItem="o9J-UB-eFY" secondAttribute="trailing" id="Y6i-86-Cic"/>
                 <constraint firstAttribute="trailing" secondItem="qQ4-cV-e8J" secondAttribute="trailing" id="Yda-A2-gXV"/>
                 <constraint firstItem="E5n-Hi-3qn" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="YuA-j8-BHf"/>
