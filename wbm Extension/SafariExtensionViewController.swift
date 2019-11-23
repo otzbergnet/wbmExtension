@@ -355,5 +355,14 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         return NSPredicate(format: "SELF MATCHES %@", urlRegEx).evaluate(with: urlString)
     }
     
+    @IBAction func settingsClicked(_ sender: NSButton) {
+        if let url = URL(string: "wbmextension:settings"),
+            NSWorkspace.shared.open(url) {
+            (sender.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
+            sender.contentTintColor = .labelColor
+        }
+    }
+    
+    
 }
 
