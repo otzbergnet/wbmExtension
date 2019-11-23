@@ -36,7 +36,7 @@ The ultimate goal is to provide this as a free extension in the App Store
 
 # Translations?
 
-We provide Germany & English translations at this time. We would love to work with others to add additional languages!
+We provide German & English translations at this time. We would love to work with others to add additional languages!
 
 # Contact?
 
