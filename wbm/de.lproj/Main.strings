@@ -26,7 +26,7 @@
 /* Class = "NSMenuItem"; title = "Hide wbm"; ObjectID = "Olw-nP-bQN"; */
 "Olw-nP-bQN.title" = "wbm ausblenden";
 
-/* Class = "NSTextFieldCell"; title = "To install:\n\n1. Click the button below to open Safari Preferences\n2. Activate the extension\n3. That's it - you won't need this containing app again"; ObjectID = "MYy-vP-p0w"; */
+/* Class = "NSTextFieldCell"; title = "To install:\n\n1. Click the button below to open Safari Preferences\n2. Activate the extension\n3. That's it - you won't need this containing app again\n4. Optionally set single letter for Open Page Histry Keyboard Shortcut"; ObjectID = "MYy-vP-p0w"; */
 "MYy-vP-p0w.title" = "So legen Sie los:\n\n1. Öffnen Sie die Safari Einstellungen mit der Schaltfläche unten\n2. Aktivieren Sie die Erweiterung\n3. Das war es, Sie brauchen die App nicht mehr!";
 
 /* Class = "NSButtonCell"; alternateTitle = "Install"; ObjectID = "Srx-0j-A4D"; */
@@ -34,6 +34,8 @@
 
 /* Class = "NSButtonCell"; title = "Open in Safari Extensions Preferences…"; ObjectID = "Srx-0j-A4D"; */
 "Srx-0j-A4D.title" = "Safari Einstellungen öffnen…";
+
+/* Class = "NSButtonCell"; title = "Open in Safari Extensions Preferences…"; ObjectID = "gbG-GN-iWZ"; */
 "gbG-GN-iWZ.title" = "Safari Einstellungen öffnen…";
 
 /* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "Vdr-fp-XzO"; */
@@ -45,15 +47,38 @@
 /* Class = "NSMenuItem"; title = "Help"; ObjectID = "wpr-3q-Mcd"; */
 "wpr-3q-Mcd.title" = "Hilfe";
 
-
+/* Class = "NSTextFieldCell"; title = "Keyboard Shortcut (Show Page History)"; ObjectID = "zeL-b9-PG5"; */
 "zeL-b9-PG5.title" = "Tastatur Kurzbefehl (Seitenverlauf öffnen)";
+
+/* Class = "NSTextFieldCell"; title = "Set keyboard shortcut: ctrl + "; ObjectID = "Yb3-EX-9Bn"; */
 "Yb3-EX-9Bn.title" = "Kurzbefehl festlegen: strg + ";
+
+/* Class = "NSButtonCell"; title = "Save"; ObjectID = "4bS-Ie-0b3"; */
 "4bS-Ie-0b3.title" = "Speichern";
 
+/* Class = "NSTextFieldCell"; title = "Context Menu Items"; ObjectID = "TvY-KX-RBV"; */
 "TvY-KX-RBV.title" = "Einträge im Safari Kontextmenü festlegen";
+
+/* Class = "NSButtonCell"; title = "Show \"Open Newest Snapshot\""; ObjectID = "Z1Z-C3-oKE"; */
 "Z1Z-C3-oKE.title" = "Zeige \"Neusten Snapshot öffnen\"";
+
+/* Class = "NSButtonCell"; title = "Show \"Open Oldest Snapshot\""; ObjectID = "bOx-6d-cDS"; */
 "bOx-6d-cDS.title" = "Zeige \"Ältesten Snapshot öffnen\"";
+
+/* Class = "NSButtonCell"; title = "Show \"Show Page History\""; ObjectID = "J4c-Sl-yNf"; */
 "J4c-Sl-yNf.title" = "Zeige \"Seitenverlauf öffnen\"";
 
+/* Class = "NSViewController"; title = "Welcome"; ObjectID = "XfG-lQ-9wD"; */
 "XfG-lQ-9wD.title" = "Willkommen";
+
+/* Class = "NSViewController"; title = "Settings"; ObjectID = "bhF-NN-E4R"; */
 "bhF-NN-E4R.title" = "Einstellungen";
+
+/* Class = "NSButtonCell"; alternateTitle = "save"; ObjectID = "4bS-Ie-0b3"; */
+"4bS-Ie-0b3.alternateTitle" = "Speichern";
+
+/* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "USY-lk-OxL"; */
+"USY-lk-OxL.title" = "Label";
+
+/* Class = "NSButtonCell"; alternateTitle = "Install"; ObjectID = "gbG-GN-iWZ"; */
+"gbG-GN-iWZ.alternateTitle" = "Installieren";

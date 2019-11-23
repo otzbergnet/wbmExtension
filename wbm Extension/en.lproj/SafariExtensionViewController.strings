@@ -1,12 +1,6 @@
 
-/* Class = "NSButtonCell"; title = "Show Page History"; ObjectID = "Hu3-v8-eft"; */
-"Hu3-v8-eft.title" = "Show Page History";
-
-/* Class = "NSButtonCell"; title = "Show Domain Files"; ObjectID = "RJY-mO-Tmy"; */
-"RJY-mO-Tmy.title" = "Show Domain Files";
-
-/* Class = "NSButtonCell"; title = "Open Oldest Snapshot"; ObjectID = "UJu-Ee-ng3"; */
-"UJu-Ee-ng3.title" = "Open Oldest Snapshot";
+/* Class = "NSTextFieldCell"; placeholderString = "Enter URL"; ObjectID = "5bZ-df-5mP"; */
+"5bZ-df-5mP.placeholderString" = "URL eingeben";
 
 /* Class = "NSButtonCell"; title = "Save Current Page"; ObjectID = "eb1-Wu-3lw"; */
 "eb1-Wu-3lw.title" = "Save Current Page";
@@ -16,3 +10,21 @@
 
 /* Class = "NSButtonCell"; title = "Open Newest Snapshot"; ObjectID = "geN-hM-Pc7"; */
 "geN-hM-Pc7.title" = "Open Newest Snapshot";
+
+/* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "Gub-HY-v0e"; */
+"Gub-HY-v0e.title" = "Label";
+
+/* Class = "NSButtonCell"; title = "Show Page History"; ObjectID = "Hu3-v8-eft"; */
+"Hu3-v8-eft.title" = "Show Page History";
+
+/* Class = "NSButtonCell"; title = "Settings"; ObjectID = "HwL-s7-dUw"; */
+"HwL-s7-dUw.title" = "Einstellungen";
+
+/* Class = "NSButtonCell"; title = "Show Domain Files"; ObjectID = "RJY-mO-Tmy"; */
+"RJY-mO-Tmy.title" = "Show Domain Files";
+
+/* Class = "NSButtonCell"; title = "Open Oldest Snapshot"; ObjectID = "UJu-Ee-ng3"; */
+"UJu-Ee-ng3.title" = "Open Oldest Snapshot";
+
+/* Class = "NSTextFieldCell"; title = "Enter a URL to go to archive:"; ObjectID = "ZkG-FV-xuq"; */
+"ZkG-FV-xuq.title" = "URL eingeben, um Archiv zu sehen";

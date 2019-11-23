@@ -1,3 +1,4 @@
+
 /* 
   Localizable.strings
   wbm
@@ -7,3 +8,41 @@
 */
 "Keyboard Shortcut successfully saved" = "Tastaturkurzbefehl erfolgreich gespeichert";
 
+/* only shown when an invalid URL is encountered */
+"Enter a URL to go to archive:" = "URL eingeben, um Archiv zu sehen";
+
+/* Last Archived Date */
+"Last archived:" = "Letzes Archiv von:";
+
+/* used in button to toggle Page History & Live Page */
+"Show Live Page" = "Live Seite zeigen";
+
+/* used in button to toggle Page History & Live Page */
+"Show Page History" = "Seitenverlauf zeigen";
+
+/* network error */
+"The archive is inaccessible" = "Das Archiv kann nicht erreicht werden";
+
+/* only shown when an invalid URL is encountered */
+"The URL was not valid" = "Die URL war nicht gültig";
+
+/* network error */
+"This page was never archived" = "Diese Seite wurde noch nicht archiviert";
+
+/* network error */
+"Unfortunately we encountered an error1!" = "Leider stolperten wir über einen Fehler 1!";
+
+/* network error */
+"Unfortunately we encountered an error2!" = "Leider stolperten wir über einen Fehler 2!";
+
+/* network error */
+"Unfortunately we encountered an error3!" = "Leider stolperten wir über einen Fehler 3!";
+
+/* context menu */
+"wbm: Open Newest Snapshot" = "wbm: Neusten Snapshot öffnen";
+
+/* context menu */
+"wbm: Open Oldest Snapshot" = "wbm: Ältesten Snapshot öffnen";
+
+/* context menu */
+"wbm: Show Page History" = "wbm: Seitenverlauf öffnen";

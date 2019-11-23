@@ -167,6 +167,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DCA3293237DD313001C0AB4 /* Build configuration list for PBXNativeTarget "wbm" */;
 			buildPhases = (
+				2DCBB83C2389B7220069BEB3 /* bartycrouch */,
 				2DCA3261237DD302001C0AB4 /* Sources */,
 				2DCA3262237DD302001C0AB4 /* Frameworks */,
 				2DCA3263237DD302001C0AB4 /* Resources */,
@@ -263,6 +264,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2DCBB83C2389B7220069BEB3 /* bartycrouch */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = bartycrouch;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which bartycrouch > /dev/null; then\n    bartycrouch update -x\n    bartycrouch lint -x\nelse\n    echo \"warning: BartyCrouch not installed, download it from https://github.com/Flinesoft/BartyCrouch\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2DCA3261237DD302001C0AB4 /* Sources */ = {
