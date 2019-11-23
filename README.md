@@ -7,13 +7,36 @@ The official Safari App Extension for the internet archive's Wayback Machine did
 
 The original concept for this extension was created by gingerbeardman, who is also the driving force behind the business logic
 
+# What does it do?
+
+## Popover
+
+1. the popover will show the last snapshot date for a page
+2. option to see latest snapshot, oldest snapshot, page history
+3. option to see domain files and domain data
+4. option to save snapshot of current page
+
+## Context Menu
+
+1. newest snapshot
+2. oldest snapshot
+3. page history
+
+## Keyboard Shortcut
+
+1. ctrl + w -> will open Page History
+
+# Configurable
+
+You are able to define, which context menu items are added to your Safari Context Menu and which keyboard shortcut to use. We elected to use strg / ctrl as it is a rather unusual modifier on macOS
+
 # Will it be in the App Store
 
 The ultimate goal is to provide this as a free extension in the App Store
 
 # Translations?
 
-We are considering the topic of translations
+We provide Germany & English translations at this time. We would love to work with others to add additional languages!
 
 # Contact?
 

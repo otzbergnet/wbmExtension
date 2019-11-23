@@ -30,7 +30,6 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     var currentURL : String = ""
     var cleanedURL : String = ""
     var onWayBackMachine : Bool = false
-    let showPopover = false
     
     //MARK: — Return Popover Size
     
