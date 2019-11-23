@@ -45,6 +45,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         showOrHideLive()
         setLabels()
         handleButtons()
+        hideAPILabels()
     }
     
     override func viewDidAppear() {
@@ -155,8 +156,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
             if let error = error{
                 //we got an error, let's tell the user
-                NSLog("\(error)")
-                
+                NSLog("wbm_log: \(error)")
                 DispatchQueue.main.async {
                     self.progressIndicator.stopAnimation(nil)
                     self.progressIndicator.isHidden = true
@@ -165,7 +165,16 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
                 
             }
             if let data = data {
-                self.handleData(data: data)
+                if let httpResponse = response as? HTTPURLResponse {
+                    if(httpResponse.statusCode == 200){
+                        self.handleData(data: data)
+                    }
+                    else{
+                        self.lastArchivedLabel.stringValue = String(format: NSLocalizedString("Error - HTTP Status: \"%@\"", comment: "changes Context Label"), String(httpResponse.statusCode))
+                        self.progressIndicator.isHidden = true
+                    }
+                }
+                
             }
             else{
                 // data wasn't there, which is also a type of eror
@@ -220,7 +229,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
             
         }
         catch let jsonError{
-            NSLog("\(jsonError)")
+            NSLog("wbm_log json_Error: \(jsonError)")
             
             DispatchQueue.main.async {
                 self.progressIndicator.stopAnimation(nil)
@@ -244,6 +253,12 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         }
         return "failed to convert date"
     }
+    
+    func hideAPILabels(){
+        self.lastArchivedLabel.stringValue = ""
+        self.progressIndicator.isHidden = false
+    }
+    
     
     //MARK: — Add Hover-Effect To Buttons
     

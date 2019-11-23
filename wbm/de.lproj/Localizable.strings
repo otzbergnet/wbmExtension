@@ -46,3 +46,9 @@
 
 /* context menu */
 "wbm: Show Page History" = "wbm: Seitenverlauf öffnen";
+
+/* changes Context Label */
+"We received the following HTTP error: \"%@\"" = "Wir haben folgenden HTTP Status Code erhalten \"%@\"";
+
+/* changes Context Label */
+"Error - HTTP Status: \"%@\"" = "Fehler - HTTP Status: \"%@\"";

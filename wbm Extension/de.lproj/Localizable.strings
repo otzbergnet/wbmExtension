@@ -1,44 +1,45 @@
 
+/* only shown when an invalid URL is encountered */
+"Enter a URL to go to archive:" = "URL eingeben";
+
+/* changes Context Label */
+"Error - HTTP Status: \"%@\"" = "Fehler - HTTP Status: \"%@\"";
+
+/* No comment provided by engineer. */
+"Keyboard Shortcut successfully saved" = "Tastatur-Kurzbefehl gespeichert";
+
+/* Last Archived Date */
+"Last archived:" = "Letztes Archiv am:";
+
+/* used in button to toggle Page History & Live Page */
+"Show Live Page" = "Live Seite zeigen";
+
 /* used in button to toggle Page History & Live Page */
 "Show Page History" = "Seitenverlauf zeigen";
 
-/* used in button to toggle Page History & Live Page */
-"Show Live Page" = "Seite im Web aufrufen";
+/* network error */
+"The archive is inaccessible" = "Das Archiv kann nicht erreicht werden";
 
 /* only shown when an invalid URL is encountered */
-"Enter a URL to go to archive:" = "URL eingeben, um Archiv zu sehen:";
-
-/* only shown when an invalid URL is encountered */
-"The URL was not valid" = "Ungültige URL";
-
-"Unfortunately we encountered an error!" = "Leider stolperten wir über einen Fehler!";
+"The URL was not valid" = "Die URL ist ungültig";
 
 /* network error */
-"This page was never archived" = "Diese Seite wurde bisher nicht archiviert";
+"This page was never archived" = "Diese Seite wurde nocht nicht archiviert";
 
 /* network error */
-"The archive is inaccessible" = "Die Archivseite ist nicht verfügbar";
+"Unfortunately we encountered an error1!" = "Leider solperten wir über einen Fehler 1!";
 
-/* Last Archived Date */
-"Last archived:" = "Letzter Snapshot:";
+/* network error */
+"Unfortunately we encountered an error2!" = "Leider solperten wir über einen Fehler 2!";
+
+/* network error */
+"Unfortunately we encountered an error3!" = "Leider solperten wir über einen Fehler 3!";
 
 /* context menu */
-"wbm: Open Newest Snapshot" = "wbm: Neusten Snapshot öffnen";
+"wbm: Open Newest Snapshot" = "wbm: Neusten Snapschot öffnen";
 
 /* context menu */
 "wbm: Open Oldest Snapshot" = "wbm: Ältesten Snapshot öffnen";
 
 /* context menu */
-"wbm: Show Page History" = "wbm: Seitenverlauf zeigen";
-
-/* No comment provided by engineer. */
-"Keyboard Shortcut successfully saved" = "Tastatur Kurzbefehl erfolgreich gesichert";
-
-/* network error */
-"Unfortunately we encountered an error1!" = "Leider stolperten wir über einen Fehler 1!";
-
-/* network error */
-"Unfortunately we encountered an error2!" = "Leider stolperten wir über einen Fehler 1!";
-
-/* network error */
-"Unfortunately we encountered an error3!" = "Leider stolperten wir über einen Fehler 1!";
+"wbm: Show Page History" = "wbm: Seitenverlauf öffnen";

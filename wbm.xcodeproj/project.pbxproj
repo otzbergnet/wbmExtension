@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2D9FC22523810BBC007FCF22 /* ToolbarItemIconWbm.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2D9FC22423810BBC007FCF22 /* ToolbarItemIconWbm.pdf */; };
-		2D9FC22C2381153A007FCF22 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D9FC22E2381153A007FCF22 /* Localizable.strings */; };
 		2DCA3269237DD302001C0AB4 /* wbm.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA3268237DD302001C0AB4 /* wbm.entitlements */; };
 		2DCA326B237DD302001C0AB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA326A237DD302001C0AB4 /* AppDelegate.swift */; };
 		2DCA326E237DD303001C0AB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA326C237DD303001C0AB4 /* Main.storyboard */; };
@@ -23,10 +22,10 @@
 		2DCBB8322388622F0069BEB3 /* structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCBB8312388622F0069BEB3 /* structs.swift */; };
 		2DCBB8332388EECE0069BEB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA3271237DD312001C0AB4 /* Assets.xcassets */; };
 		2DCBB8352388F65C0069BEB3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCBB8342388F65C0069BEB3 /* SettingsViewController.swift */; };
+		2DCBB83D2389BFA00069BEB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2DE13E3323814383007FCF3D /* Localizable.strings */; };
 		2DE13E272381185C007FCF3D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2DE13E292381185C007FCF3D /* InfoPlist.strings */; };
 		2DE13E2B238138A6007FCF3D /* SettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE13E2A238138A6007FCF3D /* SettingsHelper.swift */; };
 		2DE13E2C238138A6007FCF3D /* SettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE13E2A238138A6007FCF3D /* SettingsHelper.swift */; };
-		2DE13E3023814383007FCF3D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2DE13E3323814383007FCF3D /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +57,7 @@
 		2D9FC22723811494007FCF22 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SafariExtensionViewController.strings; sourceTree = "<group>"; };
 		2D9FC228238114B2007FCF22 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		2D9FC229238114B2007FCF22 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SafariExtensionViewController.strings; sourceTree = "<group>"; };
-		2D9FC22D2381153A007FCF22 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2DC5978D2389C44100C68737 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2DCA3265237DD302001C0AB4 /* wbm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wbm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DCA3268237DD302001C0AB4 /* wbm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wbm.entitlements; sourceTree = "<group>"; };
 		2DCA326A237DD302001C0AB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -152,10 +151,10 @@
 				2DCA3288237DD313001C0AB4 /* wbm_script.js */,
 				2D9FC22423810BBC007FCF22 /* ToolbarItemIconWbm.pdf */,
 				2DCA328C237DD313001C0AB4 /* wbm_Extension.entitlements */,
-				2D9FC22E2381153A007FCF22 /* Localizable.strings */,
 				2DE13E292381185C007FCF3D /* InfoPlist.strings */,
 				2DE13E2A238138A6007FCF3D /* SettingsHelper.swift */,
 				2DCBB8312388622F0069BEB3 /* structs.swift */,
+				2DC5978E2389C44100C68737 /* Localizable.strings */,
 			);
 			path = "wbm Extension";
 			sourceTree = "<group>";
@@ -244,7 +243,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DCA3269237DD302001C0AB4 /* wbm.entitlements in Resources */,
-				2DE13E3023814383007FCF3D /* Localizable.strings in Resources */,
 				2DCA3272237DD312001C0AB4 /* Assets.xcassets in Resources */,
 				2DCA326E237DD303001C0AB4 /* Main.storyboard in Resources */,
 			);
@@ -255,8 +253,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DCA3286237DD313001C0AB4 /* SafariExtensionViewController.xib in Resources */,
-				2D9FC22C2381153A007FCF22 /* Localizable.strings in Resources */,
 				2DCA3289237DD313001C0AB4 /* wbm_script.js in Resources */,
+				2DCBB83D2389BFA00069BEB3 /* Localizable.strings in Resources */,
 				2D9FC22523810BBC007FCF22 /* ToolbarItemIconWbm.pdf in Resources */,
 				2DCBB8332388EECE0069BEB3 /* Assets.xcassets in Resources */,
 				2DE13E272381185C007FCF3D /* InfoPlist.strings in Resources */,
@@ -320,10 +318,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2D9FC22E2381153A007FCF22 /* Localizable.strings */ = {
+		2DC5978E2389C44100C68737 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2D9FC22D2381153A007FCF22 /* de */,
+				2DC5978D2389C44100C68737 /* de */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

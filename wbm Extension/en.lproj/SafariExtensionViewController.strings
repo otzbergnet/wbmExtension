@@ -26,5 +26,5 @@
 /* Class = "NSButtonCell"; title = "Open Oldest Snapshot"; ObjectID = "UJu-Ee-ng3"; */
 "UJu-Ee-ng3.title" = "Open Oldest Snapshot";
 
-/* Class = "NSTextFieldCell"; title = "Enter a URL to go to archive:"; ObjectID = "ZkG-FV-xuq"; */
+/* Class = "NSTextFieldCell"; title = "Enter a URL:"; ObjectID = "ZkG-FV-xuq"; */
 "ZkG-FV-xuq.title" = "URL eingeben, um Archiv zu sehen";
