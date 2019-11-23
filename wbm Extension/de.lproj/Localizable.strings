@@ -17,3 +17,7 @@
 "This page was never archived" = "Diese Seite wurde bisher nicht archiviert";
 "The archive is inaccessible" = "Die Archivseite ist nicht verfügbar";
 "Last archived:" = "Letzter Snapshot:";
+
+"wbm: Open Newest Snapshot" = "wbm: Neusten Snapshot öffnen";
+"wbm: Open Oldest Snapshot" = "wbm: Ältesten Snapshot öffnen";
+"wbm: Show Page History" = "wbm: Seitenverlauf zeigen";

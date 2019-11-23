@@ -21,6 +21,8 @@
 		2DCA3286237DD313001C0AB4 /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA3284237DD313001C0AB4 /* SafariExtensionViewController.xib */; };
 		2DCA3289237DD313001C0AB4 /* wbm_script.js in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA3288237DD313001C0AB4 /* wbm_script.js */; };
 		2DCBB8322388622F0069BEB3 /* structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCBB8312388622F0069BEB3 /* structs.swift */; };
+		2DCBB8332388EECE0069BEB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA3271237DD312001C0AB4 /* Assets.xcassets */; };
+		2DCBB8352388F65C0069BEB3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCBB8342388F65C0069BEB3 /* SettingsViewController.swift */; };
 		2DE13E272381185C007FCF3D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2DE13E292381185C007FCF3D /* InfoPlist.strings */; };
 		2DE13E2B238138A6007FCF3D /* SettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE13E2A238138A6007FCF3D /* SettingsHelper.swift */; };
 		2DE13E2C238138A6007FCF3D /* SettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE13E2A238138A6007FCF3D /* SettingsHelper.swift */; };
@@ -73,6 +75,7 @@
 		2DCA3288237DD313001C0AB4 /* wbm_script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = wbm_script.js; sourceTree = "<group>"; };
 		2DCA328C237DD313001C0AB4 /* wbm_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wbm_Extension.entitlements; sourceTree = "<group>"; };
 		2DCBB8312388622F0069BEB3 /* structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = structs.swift; sourceTree = "<group>"; };
+		2DCBB8342388F65C0069BEB3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2DE13E282381185C007FCF3D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2DE13E2A238138A6007FCF3D /* SettingsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHelper.swift; sourceTree = "<group>"; };
 		2DE13E3223814383007FCF3D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -123,6 +126,7 @@
 				2DCA326A237DD302001C0AB4 /* AppDelegate.swift */,
 				2DCA326C237DD303001C0AB4 /* Main.storyboard */,
 				2DCA326F237DD303001C0AB4 /* ViewController.swift */,
+				2DCBB8342388F65C0069BEB3 /* SettingsViewController.swift */,
 				2DCA3271237DD312001C0AB4 /* Assets.xcassets */,
 				2DCA3273237DD312001C0AB4 /* Info.plist */,
 				2DE13E3323814383007FCF3D /* Localizable.strings */,
@@ -253,6 +257,7 @@
 				2D9FC22C2381153A007FCF22 /* Localizable.strings in Resources */,
 				2DCA3289237DD313001C0AB4 /* wbm_script.js in Resources */,
 				2D9FC22523810BBC007FCF22 /* ToolbarItemIconWbm.pdf in Resources */,
+				2DCBB8332388EECE0069BEB3 /* Assets.xcassets in Resources */,
 				2DE13E272381185C007FCF3D /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,6 +272,7 @@
 				2DCA3270237DD303001C0AB4 /* ViewController.swift in Sources */,
 				2DE13E2B238138A6007FCF3D /* SettingsHelper.swift in Sources */,
 				2DCA326B237DD302001C0AB4 /* AppDelegate.swift in Sources */,
+				2DCBB8352388F65C0069BEB3 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

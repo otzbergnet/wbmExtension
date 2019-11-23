@@ -35,6 +35,42 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         validationHandler(true, "")
     }
     
+    override func validateContextMenuItem(withCommand command: String, in page: SFSafariPage, userInfo: [String : Any]? = nil, validationHandler: @escaping (Bool, String?) -> Void) {
+        NSLog("wbm_log: openNewContext Bool \(settings.getBoolData(key: "openNewContext"))")
+        NSLog("wbm_log: openOldContext Bool \(settings.getBoolData(key: "openOldContext"))")
+        NSLog("wbm_log: pageHistoryContext Bool \(settings.getBoolData(key: "pageHistoryContext"))")
+        
+        switch (command){
+        case "wbm_newestSnapshot":
+            let label = NSLocalizedString("wbm: Open Newest Snapshot", comment: "context menu")
+            if(settings.getBoolData(key: "openNewContext")){
+                validationHandler(false, label)
+            }
+            else{
+                validationHandler(true, label)
+            }
+        case "wbm_oldestSnapshot":
+            let label = NSLocalizedString("wbm: Open Oldest Snapshot", comment: "context menu")
+            if(settings.getBoolData(key: "openOldContext")){
+                validationHandler(false, label)
+            }
+            else{
+                validationHandler(true, label)
+            }
+        case "wbm_pageHistory":
+            let label = NSLocalizedString("wbm: Show Page History", comment: "context menu")
+            if(settings.getBoolData(key: "pageHistoryContext")){
+                validationHandler(false, label)
+            }
+            else{
+                validationHandler(true, label)
+            }
+        default:
+            NSLog("wbm_log: apparently we found a new command that we didn't code for. bummer...")
+        }
+
+    }
+    
     override func popoverViewController() -> SFSafariExtensionViewController {
         return SafariExtensionViewController.shared
     }
@@ -54,7 +90,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         case "wbm_newestSnapshot":
             handleNewestSnapshot(page: page, href: href)
         case "wbm_oldestSnapshot":
-        handleOldestSnapshot(page: page, href: href)
+            handleOldestSnapshot(page: page, href: href)
         default:
             return
         }

@@ -34,6 +34,7 @@
 
 /* Class = "NSButtonCell"; title = "Open in Safari Extensions Preferences…"; ObjectID = "Srx-0j-A4D"; */
 "Srx-0j-A4D.title" = "Safari Einstellungen öffnen…";
+"gbG-GN-iWZ.title" = "Safari Einstellungen öffnen…";
 
 /* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "Vdr-fp-XzO"; */
 "Vdr-fp-XzO.title" = "Andere ausblenden";
@@ -45,5 +46,14 @@
 "wpr-3q-Mcd.title" = "Hilfe";
 
 
+"zeL-b9-PG5.title" = "Tastatur Kurzbefehl";
 "Yb3-EX-9Bn.title" = "Kurzbefehl festlegen: strg + ";
 "4bS-Ie-0b3.title" = "Speichern";
+
+"TvY-KX-RBV.title" = "Einträge im Safari Kontextmenü festlegen";
+"Z1Z-C3-oKE.title" = "Zeige \"Neusten Snapshot öffnen\"";
+"bOx-6d-cDS.title" = "Zeige \"Ältesten Snapshot öffnen\"";
+"J4c-Sl-yNf.title" = "Zeige \"Seitenverlauf öffnen\"";
+
+"XfG-lQ-9wD.title" = "Willkommen";
+"bhF-NN-E4R.title" = "Einstellungen";
