@@ -27,7 +27,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     
     override func toolbarItemClicked(in window: SFSafariWindow) {
         // This method will be called when your toolbar item is clicked.
-        NSLog("The extension's toolbar item was clicked")
+        NSLog("wbm_log: The extension's toolbar item was clicked")
     }
     
     override func validateToolbarItem(in window: SFSafariWindow, validationHandler: @escaping ((Bool, String) -> Void)) {
@@ -35,11 +35,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         validationHandler(true, "")
     }
     
-    override func validateContextMenuItem(withCommand command: String, in page: SFSafariPage, userInfo: [String : Any]? = nil, validationHandler: @escaping (Bool, String?) -> Void) {
-        NSLog("wbm_log: openNewContext Bool \(settings.getBoolData(key: "openNewContext"))")
-        NSLog("wbm_log: openOldContext Bool \(settings.getBoolData(key: "openOldContext"))")
-        NSLog("wbm_log: pageHistoryContext Bool \(settings.getBoolData(key: "pageHistoryContext"))")
-        
+    override func validateContextMenuItem(withCommand command: String, in page: SFSafariPage, userInfo: [String : Any]? = nil, validationHandler: @escaping (Bool, String?) -> Void) {       
         switch (command){
         case "wbm_newestSnapshot":
             let label = NSLocalizedString("wbm: Open Newest Snapshot", comment: "context menu")
@@ -68,7 +64,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         default:
             NSLog("wbm_log: apparently we found a new command that we didn't code for. bummer...")
         }
-
+        
     }
     
     override func popoverViewController() -> SFSafariExtensionViewController {

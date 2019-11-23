@@ -30,6 +30,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     var currentURL : String = ""
     var cleanedURL : String = ""
     var onWayBackMachine : Bool = false
+    let showPopover = false
     
     //MARK: — Return Popover Size
     
@@ -52,6 +53,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         showOrHideLive()
     }
     
+
     
     //MARK: — Extension Functionality
     
@@ -93,7 +95,6 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
             if let myUrl = URL(string: url) {
                 window?.openTab(with: myUrl, makeActiveIfPossible: true, completionHandler: nil)
             }
-            
         }
     }
     
