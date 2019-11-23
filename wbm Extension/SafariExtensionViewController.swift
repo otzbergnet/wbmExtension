@@ -35,7 +35,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     static let shared: SafariExtensionViewController = {
         let shared = SafariExtensionViewController()
-        shared.preferredContentSize = NSSize(width:200, height:285)
+        shared.preferredContentSize = NSSize(width:200, height:305)
         return shared
     }()
     
