@@ -36,10 +36,10 @@
 "Unfortunately we encountered an error3!" = "Leider solperten wir über einen Fehler 3!";
 
 /* context menu */
-"wbm: Open Newest Snapshot" = "wbm: Neusten Snapschot öffnen";
+"Open Newest Snapshot with Wayback" = "Neusten Snapschot mit Wayback öffnen";
 
 /* context menu */
-"wbm: Open Oldest Snapshot" = "wbm: Ältesten Snapshot öffnen";
+"Open Oldest Snapshot with Wayback" = "Ältesten Snapshot mit Wayback öffnen";
 
 /* context menu */
-"wbm: Show Page History" = "wbm: Seitenverlauf öffnen";
+"Show Page History with Wayback" = "Seitenverlauf mit Wayback öffnen";

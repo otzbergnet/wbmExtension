@@ -1,12 +1,12 @@
 
 /* Class = "NSMenuItem"; title = "wbm"; ObjectID = "1Xt-HY-uBw"; */
-"1Xt-HY-uBw.title" = "wbm";
+"1Xt-HY-uBw.title" = "Wayback";
 
 /* Class = "NSMenuItem"; title = "Quit wbm"; ObjectID = "4sb-4s-VLi"; */
-"4sb-4s-VLi.title" = "wbm beenden";
+"4sb-4s-VLi.title" = "Wayback beenden";
 
 /* Class = "NSMenuItem"; title = "About wbm"; ObjectID = "5kV-Vb-QxS"; */
-"5kV-Vb-QxS.title" = "Über wbm";
+"5kV-Vb-QxS.title" = "Über Wayback";
 
 /* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
 "AYu-sK-qS6.title" = "Main Menu";
@@ -15,7 +15,7 @@
 "F2S-fz-NVQ.title" = "Hilfe";
 
 /* Class = "NSMenuItem"; title = "wbm Help"; ObjectID = "FKE-Sm-Kum"; */
-"FKE-Sm-Kum.title" = "wbm Hilfe";
+"FKE-Sm-Kum.title" = "Wayback Hilfe";
 
 /* Class = "NSWindow"; title = "App Name"; ObjectID = "IQv-IB-iLA"; */
 "IQv-IB-iLA.title" = "App Name";
@@ -24,9 +24,9 @@
 "Kd2-mp-pUS.title" = "Alle zeigen";
 
 /* Class = "NSMenuItem"; title = "Hide wbm"; ObjectID = "Olw-nP-bQN"; */
-"Olw-nP-bQN.title" = "wbm ausblenden";
+"Olw-nP-bQN.title" = "Wayback ausblenden";
 
-/* Class = "NSTextFieldCell"; title = "To install:\n\n1. Click the button below to open Safari Preferences\n2. Activate the extension\n3. That's it - you won't need this containing app again\n4. Optionally set single letter for Open Page Histry Keyboard Shortcut"; ObjectID = "MYy-vP-p0w"; */
+/* Class = "NSTextFieldCell"; title = "To install:\n\n1. Click the button below to open Safari Preferences\n2. Activate the extension\n3. That's it - you won't need this containing app again"; ObjectID = "MYy-vP-p0w"; */
 "MYy-vP-p0w.title" = "So legen Sie los:\n\n1. Öffnen Sie die Safari Einstellungen mit der Schaltfläche unten\n2. Aktivieren Sie die Erweiterung\n3. Das war es, Sie brauchen die App nicht mehr!";
 
 /* Class = "NSButtonCell"; alternateTitle = "Install"; ObjectID = "Srx-0j-A4D"; */
@@ -42,7 +42,7 @@
 "Vdr-fp-XzO.title" = "Andere ausblenden";
 
 /* Class = "NSMenu"; title = "wbm"; ObjectID = "uQy-DD-JDr"; */
-"uQy-DD-JDr.title" = "wbm";
+"uQy-DD-JDr.title" = "Wayback";
 
 /* Class = "NSMenuItem"; title = "Help"; ObjectID = "wpr-3q-Mcd"; */
 "wpr-3q-Mcd.title" = "Hilfe";
@@ -59,14 +59,14 @@
 /* Class = "NSTextFieldCell"; title = "Context Menu Items"; ObjectID = "TvY-KX-RBV"; */
 "TvY-KX-RBV.title" = "Einträge im Safari Kontextmenü festlegen";
 
-/* Class = "NSButtonCell"; title = "Show \"Open Newest Snapshot\""; ObjectID = "Z1Z-C3-oKE"; */
-"Z1Z-C3-oKE.title" = "Zeige \"Neusten Snapshot öffnen\"";
+/* Class = "NSButtonCell"; title = "Show \"Open Newest Snapshot with Wayback\""; ObjectID = "Z1Z-C3-oKE"; */
+"Z1Z-C3-oKE.title" = "Zeige \"Neusten Snapshot mit Wayback öffnen\"";
 
-/* Class = "NSButtonCell"; title = "Show \"Open Oldest Snapshot\""; ObjectID = "bOx-6d-cDS"; */
-"bOx-6d-cDS.title" = "Zeige \"Ältesten Snapshot öffnen\"";
+/* Class = "NSButtonCell"; title = "Show \"Open Oldest Snapshot with Wayback\""; ObjectID = "bOx-6d-cDS"; */
+"bOx-6d-cDS.title" = "Zeige \"Ältesten Snapshot mit Wayback öffnen\"";
 
-/* Class = "NSButtonCell"; title = "Show \"Show Page History\""; ObjectID = "J4c-Sl-yNf"; */
-"J4c-Sl-yNf.title" = "Zeige \"Seitenverlauf öffnen\"";
+/* Class = "NSButtonCell"; title = "Show \"Show Page History with Wayback\""; ObjectID = "J4c-Sl-yNf"; */
+"J4c-Sl-yNf.title" = "Zeige \"Seitenverlauf mit Wayback öffnen\"";
 
 /* Class = "NSViewController"; title = "Welcome"; ObjectID = "XfG-lQ-9wD"; */
 "XfG-lQ-9wD.title" = "Willkommen";

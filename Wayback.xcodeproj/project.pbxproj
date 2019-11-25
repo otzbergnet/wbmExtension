@@ -13,7 +13,7 @@
 		2DCA326E237DD303001C0AB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA326C237DD303001C0AB4 /* Main.storyboard */; };
 		2DCA3270237DD303001C0AB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA326F237DD303001C0AB4 /* ViewController.swift */; };
 		2DCA3272237DD312001C0AB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA3271237DD312001C0AB4 /* Assets.xcassets */; };
-		2DCA3279237DD313001C0AB4 /* wbm Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2DCA3278237DD313001C0AB4 /* wbm Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2DCA3279237DD313001C0AB4 /* Wayback Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2DCA3278237DD313001C0AB4 /* Wayback Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2DCA327E237DD313001C0AB4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCA327D237DD313001C0AB4 /* Cocoa.framework */; };
 		2DCA3281237DD313001C0AB4 /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3280237DD313001C0AB4 /* SafariExtensionHandler.swift */; };
 		2DCA3283237DD313001C0AB4 /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3282237DD313001C0AB4 /* SafariExtensionViewController.swift */; };
@@ -45,7 +45,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				2DCA3279237DD313001C0AB4 /* wbm Extension.appex in Embed App Extensions */,
+				2DCA3279237DD313001C0AB4 /* Wayback Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,14 +58,14 @@
 		2D9FC228238114B2007FCF22 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		2D9FC229238114B2007FCF22 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SafariExtensionViewController.strings; sourceTree = "<group>"; };
 		2DC5978D2389C44100C68737 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2DCA3265237DD302001C0AB4 /* wbm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wbm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DCA3265237DD302001C0AB4 /* Wayback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wayback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DCA3268237DD302001C0AB4 /* wbm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wbm.entitlements; sourceTree = "<group>"; };
 		2DCA326A237DD302001C0AB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DCA326D237DD303001C0AB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2DCA326F237DD303001C0AB4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2DCA3271237DD312001C0AB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DCA3273237DD312001C0AB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2DCA3278237DD313001C0AB4 /* wbm Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "wbm Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DCA3278237DD313001C0AB4 /* Wayback Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Wayback Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DCA327D237DD313001C0AB4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		2DCA3280237DD313001C0AB4 /* SafariExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionHandler.swift; sourceTree = "<group>"; };
 		2DCA3282237DD313001C0AB4 /* SafariExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionViewController.swift; sourceTree = "<group>"; };
@@ -112,8 +112,8 @@
 		2DCA3266237DD302001C0AB4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2DCA3265237DD302001C0AB4 /* wbm.app */,
-				2DCA3278237DD313001C0AB4 /* wbm Extension.appex */,
+				2DCA3265237DD302001C0AB4 /* Wayback.app */,
+				2DCA3278237DD313001C0AB4 /* Wayback Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,9 +162,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2DCA3264237DD302001C0AB4 /* wbm */ = {
+		2DCA3264237DD302001C0AB4 /* Wayback */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2DCA3293237DD313001C0AB4 /* Build configuration list for PBXNativeTarget "wbm" */;
+			buildConfigurationList = 2DCA3293237DD313001C0AB4 /* Build configuration list for PBXNativeTarget "Wayback" */;
 			buildPhases = (
 				2DCBB83C2389B7220069BEB3 /* bartycrouch */,
 				2DCA3261237DD302001C0AB4 /* Sources */,
@@ -177,14 +177,14 @@
 			dependencies = (
 				2DCA327B237DD313001C0AB4 /* PBXTargetDependency */,
 			);
-			name = wbm;
+			name = Wayback;
 			productName = wbm;
-			productReference = 2DCA3265237DD302001C0AB4 /* wbm.app */;
+			productReference = 2DCA3265237DD302001C0AB4 /* Wayback.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2DCA3277237DD313001C0AB4 /* wbm Extension */ = {
+		2DCA3277237DD313001C0AB4 /* Wayback Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2DCA328F237DD313001C0AB4 /* Build configuration list for PBXNativeTarget "wbm Extension" */;
+			buildConfigurationList = 2DCA328F237DD313001C0AB4 /* Build configuration list for PBXNativeTarget "Wayback Extension" */;
 			buildPhases = (
 				2DCA3274237DD313001C0AB4 /* Sources */,
 				2DCA3275237DD313001C0AB4 /* Frameworks */,
@@ -194,9 +194,9 @@
 			);
 			dependencies = (
 			);
-			name = "wbm Extension";
+			name = "Wayback Extension";
 			productName = "wbm Extension";
-			productReference = 2DCA3278237DD313001C0AB4 /* wbm Extension.appex */;
+			productReference = 2DCA3278237DD313001C0AB4 /* Wayback Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -217,7 +217,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2DCA3260237DD302001C0AB4 /* Build configuration list for PBXProject "wbm" */;
+			buildConfigurationList = 2DCA3260237DD302001C0AB4 /* Build configuration list for PBXProject "Wayback" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -231,8 +231,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2DCA3264237DD302001C0AB4 /* wbm */,
-				2DCA3277237DD313001C0AB4 /* wbm Extension */,
+				2DCA3264237DD302001C0AB4 /* Wayback */,
+				2DCA3277237DD313001C0AB4 /* Wayback Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -312,7 +312,7 @@
 /* Begin PBXTargetDependency section */
 		2DCA327B237DD313001C0AB4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2DCA3277237DD313001C0AB4 /* wbm Extension */;
+			target = 2DCA3277237DD313001C0AB4 /* Wayback Extension */;
 			targetProxy = 2DCA327A237DD313001C0AB4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -564,7 +564,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2DCA3260237DD302001C0AB4 /* Build configuration list for PBXProject "wbm" */ = {
+		2DCA3260237DD302001C0AB4 /* Build configuration list for PBXProject "Wayback" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2DCA328D237DD313001C0AB4 /* Debug */,
@@ -573,7 +573,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2DCA328F237DD313001C0AB4 /* Build configuration list for PBXNativeTarget "wbm Extension" */ = {
+		2DCA328F237DD313001C0AB4 /* Build configuration list for PBXNativeTarget "Wayback Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2DCA3290237DD313001C0AB4 /* Debug */,
@@ -582,7 +582,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2DCA3293237DD313001C0AB4 /* Build configuration list for PBXNativeTarget "wbm" */ = {
+		2DCA3293237DD313001C0AB4 /* Build configuration list for PBXNativeTarget "Wayback" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2DCA3294237DD313001C0AB4 /* Debug */,

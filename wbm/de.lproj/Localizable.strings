@@ -38,17 +38,17 @@
 /* network error */
 "Unfortunately we encountered an error3!" = "Leider stolperten wir über einen Fehler 3!";
 
-/* context menu */
-"wbm: Open Newest Snapshot" = "wbm: Neusten Snapshot öffnen";
-
-/* context menu */
-"wbm: Open Oldest Snapshot" = "wbm: Ältesten Snapshot öffnen";
-
-/* context menu */
-"wbm: Show Page History" = "wbm: Seitenverlauf öffnen";
-
 /* changes Context Label */
 "We received the following HTTP error: \"%@\"" = "Wir haben folgenden HTTP Status Code erhalten \"%@\"";
 
 /* changes Context Label */
 "Error - HTTP Status: \"%@\"" = "Fehler - HTTP Status: \"%@\"";
+
+/* context menu */
+"Open Newest Snapshot with Wayback" = "Neusten Snapshot mit Wayback öffnen";
+
+/* context menu */
+"Open Oldest Snapshot with Wayback" = "Ältesten Snapshot mit Wayback öffnen";
+
+/* context menu */
+"Show Page History with Wayback" = "Seitenverlauf mit Wayback öffnen";

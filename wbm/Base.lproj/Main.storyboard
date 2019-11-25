@@ -143,8 +143,8 @@
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cEc-vg-hyp">
-                                        <rect key="frame" x="18" y="190" width="213" height="18"/>
-                                        <buttonCell key="cell" type="check" title="Show &quot;Open Newest Snapshot&quot;" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Z1Z-C3-oKE">
+                                        <rect key="frame" x="18" y="190" width="300" height="18"/>
+                                        <buttonCell key="cell" type="check" title="Show &quot;Open Newest Snapshot with Wayback&quot;" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Z1Z-C3-oKE">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -153,8 +153,8 @@
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="psx-Jt-aqL">
-                                        <rect key="frame" x="18" y="161" width="207" height="18"/>
-                                        <buttonCell key="cell" type="check" title="Show &quot;Open Oldest Snapshot&quot;" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="bOx-6d-cDS">
+                                        <rect key="frame" x="18" y="161" width="295" height="18"/>
+                                        <buttonCell key="cell" type="check" title="Show &quot;Open Oldest Snapshot with Wayback&quot;" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="bOx-6d-cDS">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -163,8 +163,8 @@
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="m1x-5t-X6s">
-                                        <rect key="frame" x="18" y="132" width="184" height="18"/>
-                                        <buttonCell key="cell" type="check" title="Show &quot;Show Page History&quot;" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="J4c-Sl-yNf">
+                                        <rect key="frame" x="18" y="132" width="272" height="18"/>
+                                        <buttonCell key="cell" type="check" title="Show &quot;Show Page History with Wayback&quot;" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="J4c-Sl-yNf">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -303,15 +303,15 @@
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController title="Welcome" id="XfG-lQ-9wD" customClass="ViewController" customModule="wbm" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="481" height="298"/>
+                    <view key="view" misplaced="YES" id="m2S-Jp-Qdl">
+                        <rect key="frame" x="0.0" y="0.0" width="481" height="282"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZLV-xE-AGT">
-                                <rect key="frame" x="30" y="20" width="421" height="243"/>
+                                <rect key="frame" x="30" y="20" width="421" height="227"/>
                                 <subviews>
                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s6Z-eE-ola">
-                                        <rect key="frame" x="168" y="157" width="86" height="86"/>
+                                        <rect key="frame" x="168" y="141" width="86" height="86"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="86" id="M5l-SM-u9Z"/>
                                             <constraint firstAttribute="height" constant="86" id="XEp-dS-Ovp"/>
@@ -319,15 +319,14 @@
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="AppIcon" id="YI8-qi-DJ6"/>
                                     </imageView>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iYn-Gc-5uc">
-                                        <rect key="frame" x="-2" y="41" width="425" height="96"/>
+                                        <rect key="frame" x="46" y="41" width="329" height="80"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" id="MYy-vP-p0w">
                                             <font key="font" metaFont="system"/>
                                             <string key="title">To install:
 
 1. Click the button below to open Safari Preferences
 2. Activate the extension
-3. That's it - you won't need this containing app again
-4. Optionally set single letter for Open Page Histry Keyboard Shortcut</string>
+3. That's it - you won't need this containing app again</string>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>

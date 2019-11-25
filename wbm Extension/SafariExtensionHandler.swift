@@ -38,7 +38,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     override func validateContextMenuItem(withCommand command: String, in page: SFSafariPage, userInfo: [String : Any]? = nil, validationHandler: @escaping (Bool, String?) -> Void) {       
         switch (command){
         case "wbm_newestSnapshot":
-            let label = NSLocalizedString("wbm: Open Newest Snapshot", comment: "context menu")
+            let label = NSLocalizedString("Open Newest Snapshot with Wayback", comment: "context menu")
             if(settings.getBoolData(key: "openNewContext")){
                 validationHandler(false, label)
             }
@@ -46,7 +46,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                 validationHandler(true, label)
             }
         case "wbm_oldestSnapshot":
-            let label = NSLocalizedString("wbm: Open Oldest Snapshot", comment: "context menu")
+            let label = NSLocalizedString("Open Oldest Snapshot with Wayback", comment: "context menu")
             if(settings.getBoolData(key: "openOldContext")){
                 validationHandler(false, label)
             }
@@ -54,7 +54,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                 validationHandler(true, label)
             }
         case "wbm_pageHistory":
-            let label = NSLocalizedString("wbm: Show Page History", comment: "context menu")
+            let label = NSLocalizedString("Show Page History with Wayback", comment: "context menu")
             if(settings.getBoolData(key: "pageHistoryContext")){
                 validationHandler(false, label)
             }
