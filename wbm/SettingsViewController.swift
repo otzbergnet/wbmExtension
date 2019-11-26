@@ -18,6 +18,7 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var openNewestCheck: NSButton!
     @IBOutlet weak var openOldestCheck: NSButton!
     @IBOutlet weak var pageHistoryCheck: NSButton!
+    @IBOutlet weak var injectHistoryCheck: NSButton!
     
 
     let settings = SettingsHelper()
@@ -30,6 +31,7 @@ class SettingsViewController: NSViewController {
         getOpenNewState()
         getOpenOldState()
         getPageHistoryState()
+        getPageHistoryInjectState()
     }
     
     func initialSetup(){
@@ -38,6 +40,7 @@ class SettingsViewController: NSViewController {
             settings.setBoolData(key: "openNewContext", data: true)
             settings.setBoolData(key: "openOldContext", data: true)
             settings.setBoolData(key: "pageHistoryContext", data: true)
+            settings.setBoolData(key: "pageHistoryInject", data: false)
             settings.setBoolData(key: "setup", data: true)
         }
     }
@@ -70,6 +73,16 @@ class SettingsViewController: NSViewController {
         }
         else{
             pageHistoryCheck.state = .off
+        }
+    }
+    
+    func getPageHistoryInjectState(){
+        let state = settings.getBoolData(key: "pageHistoryInject")
+        if(state){
+            injectHistoryCheck.state = .on
+        }
+        else{
+            injectHistoryCheck.state = .off
         }
     }
     
@@ -139,5 +152,13 @@ class SettingsViewController: NSViewController {
         }
     }
     
+    @IBAction func pageHistoryInjectChanged(_ sender: NSButton) {
+        if(sender.state == .on){
+            settings.setBoolData(key: "pageHistoryInject", data: true)
+        }
+        else{
+            settings.setBoolData(key: "pageHistoryInject", data: false)
+        }
+    }
     
 }

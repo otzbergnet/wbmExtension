@@ -20,6 +20,9 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         case "shortcut":
             let shortcut = settings.getStringData(key: "shortcut")
             page.dispatchMessageToScript(withName: "shortcut", userInfo: [ "shortcut" : shortcut])
+        case "pageHistoryInject":
+            let inject = settings.getBoolData(key: "pageHistoryInject")
+            page.dispatchMessageToScript(withName: "inject", userInfo: [ "inject" : inject])
         default:
             return
         }

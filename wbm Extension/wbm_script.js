@@ -5,13 +5,11 @@ if (window.top === window) {
     
     console.log("Wayback Machine Extension successfully loaded");
     
-    safari.self.addEventListener("message", messageHandler);
-    document.addEventListener("contextmenu", handleContextMenu, false);
-    safari.extension.dispatchMessage("shortcut", {"msgID" : "1"});
-    
-    //mostly useless and we should remove
     document.addEventListener("DOMContentLoaded", function(event) {
-        safari.extension.dispatchMessage("Hello World!");
+        safari.self.addEventListener("message", messageHandler);
+        document.addEventListener("contextmenu", handleContextMenu, false);
+        safari.extension.dispatchMessage("shortcut", {"msgID" : "1"});
+        safari.extension.dispatchMessage("pageHistoryInject");
     });
     
     //detect ctrl+w for pageHistory
@@ -30,6 +28,11 @@ function messageHandler(event){
         case "shortcut":
             shortcut = event.message.shortcut
             console.log("use ctrl + "+shortcut+" to open the Page History")
+        case "inject":
+            inject = event.message.inject
+            if(inject){
+                injectPageHistoryButton();
+            }
     }
 }
 
@@ -41,4 +44,26 @@ function handleContextMenu(event) {
     else{
         safari.extension.setContextMenuEventUserInfo(event, { "href": "-" });
     }
+}
+
+function injectPageHistoryButton(){
+    var src = safari.extension.baseURI + "wbm.png";
+    
+    var div = document.createElement('div');
+    div.innerHTML = '<div class="wbm_pagehistory" id="wbm_pagehistory" title="Click to show Page History in Wayback Machine"><img id="wbm_logo" src="'+src+'" title="Click to show Page History in Wayback Machine" /></div>';
+    div.id = 'wbm_pagehistory_outer';
+    div.className = 'wbm_pagehistory_outer';
+    
+    if(document.body.parentNode.parentNode != "#document"){
+        document.body.appendChild(div);
+    }
+    watchPageHistory();
+}
+
+function watchPageHistory(){
+    document.getElementById("wbm_pagehistory").addEventListener("click", handlePageHistory);
+}
+
+function handlePageHistory(){
+    safari.extension.dispatchMessage("wbm_pageHistory", {"source": "shortcut"});
 }

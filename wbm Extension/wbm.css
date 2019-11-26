@@ -1,0 +1,19 @@
+
+#wbm_logo{
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+}
+
+#wbm_pagehistory_outer{
+    bottom: 10px!important;
+    left: 10px!important;
+    z-index: 999999999!important;
+    position: fixed!important;
+    width: 15px!important;
+    height: 15px!important;
+}
+
+#wbm_pagehistory:hover{
+    cursor: pointer;
+}
