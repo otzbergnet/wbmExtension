@@ -270,6 +270,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
                                            owner: self,
                                            userInfo: ["button" : button.identifier?.rawValue ?? "failed"])
             button.addTrackingArea(area)
+            
         }
     }
     

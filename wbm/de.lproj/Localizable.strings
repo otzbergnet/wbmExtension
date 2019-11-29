@@ -9,7 +9,7 @@
 "Keyboard Shortcut successfully saved" = "Tastaturkurzbefehl erfolgreich gespeichert";
 
 /* only shown when an invalid URL is encountered */
-"Enter a URL to go to archive:" = "URL eingeben, um Archiv zu sehen";
+"Enter a URL to go to archive:" = "URL eingeben:";
 
 /* Last Archived Date */
 "Last archived:" = "Letzes Archiv von:";

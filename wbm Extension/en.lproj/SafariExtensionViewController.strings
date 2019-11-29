@@ -1,5 +1,5 @@
 
-/* Class = "NSTextFieldCell"; placeholderString = "Enter URL"; ObjectID = "5bZ-df-5mP"; */
+/* Class = "NSTextFieldCell"; placeholderString = "www.example.com"; ObjectID = "5bZ-df-5mP"; */
 "5bZ-df-5mP.placeholderString" = "URL eingeben";
 
 /* Class = "NSButtonCell"; title = "Save Current Page"; ObjectID = "eb1-Wu-3lw"; */
@@ -27,4 +27,4 @@
 "UJu-Ee-ng3.title" = "Open Oldest Snapshot";
 
 /* Class = "NSTextFieldCell"; title = "Enter a URL:"; ObjectID = "ZkG-FV-xuq"; */
-"ZkG-FV-xuq.title" = "URL eingeben, um Archiv zu sehen";
+"ZkG-FV-xuq.title" = "URL eingeben:";
