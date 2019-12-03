@@ -1,6 +1,6 @@
 
 /* Class = "NSTextFieldCell"; placeholderString = "www.example.com"; ObjectID = "5bZ-df-5mP"; */
-"5bZ-df-5mP.placeholderString" = "URL eingeben";
+"5bZ-df-5mP.placeholderString" = "www.example.com";
 
 /* Class = "NSButtonCell"; title = "Save Current Page"; ObjectID = "eb1-Wu-3lw"; */
 "eb1-Wu-3lw.title" = "Aktuelle Seite speichern";
