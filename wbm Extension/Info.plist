@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>wbm Extension</string>
+	<string>Wayback</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -72,7 +72,7 @@
 			<key>Image</key>
 			<string>ToolbarItemIconWbm.pdf</string>
 			<key>Label</key>
-			<string>Wayback Machine wbm Extension</string>
+			<string>Wayback</string>
 		</dict>
 		<key>SFSafariWebsiteAccess</key>
 		<dict>
