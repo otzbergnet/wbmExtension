@@ -154,13 +154,13 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sqS-YY-h8U">
+                <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sqS-YY-h8U">
                     <rect key="frame" x="176" y="286" width="25" height="19"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="19" id="HLt-we-yN6"/>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="QUQ-vS-3jU"/>
                     </constraints>
-                    <buttonCell key="cell" type="roundTextured" title="…" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="HwL-s7-dUw">
+                    <buttonCell key="cell" type="roundTextured" title="…" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="HwL-s7-dUw">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="systemBold" size="15"/>
                     </buttonCell>
