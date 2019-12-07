@@ -12,7 +12,7 @@
 "Enter a URL to go to archive:" = "URL eingeben:";
 
 /* Last Archived Date */
-"Last archived:" = "Letzes Archiv von:";
+"Last archived:" = "Letzte Archivierung:";
 
 /* used in button to toggle Page History & Live Page */
 "Show Live Page" = "Live Seite zeigen";
@@ -52,3 +52,12 @@
 
 /* context menu */
 "Show Page History with Wayback" = "Seitenverlauf mit Wayback öffnen";
+
+/* relative timestring xxx days ago */
+"%@ days ago" = "vor %@ Tagen";
+
+/* relative timestring xxx hours ago */
+"%@ hours ago" = "vor %@ Stunden";
+
+/* relative timestring xxx weeks ago */
+"%@ weeks ago" = "vor %@ Wochen";

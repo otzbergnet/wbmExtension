@@ -74,8 +74,11 @@
 /* Class = "NSButtonCell"; alternateTitle = "Install"; ObjectID = "gbG-GN-iWZ"; */
 "gbG-GN-iWZ.alternateTitle" = "Installieren";
 
-/* Class = "NSTextFieldCell"; title = "Inject \"Show Page History\" Button"; ObjectID = "9QZ-YT-aTO"; */
-"9QZ-YT-aTO.title" = "\"Seitenverlauf zeigen\" Schaltfläche einfügen";
+/* Class = "NSTextFieldCell"; title = "Other Settings"; ObjectID = "9QZ-YT-aTO"; */
+"9QZ-YT-aTO.title" = "Weitere Einstellungen";
 
-/* Class = "NSButtonCell"; title = "Yes"; ObjectID = "vK9-wG-CPS"; */
-"vK9-wG-CPS.title" = "Ja";
+/* Class = "NSButtonCell"; title = "Inject \"Show Page History\" Button"; ObjectID = "vK9-wG-CPS"; */
+"vK9-wG-CPS.title" = "\"Seitenverlauf zeigen\" Schaltfläche einfügen";
+
+/* Class = "NSButtonCell"; title = "Use relative timestamps"; ObjectID = "GfQ-sI-MwQ"; */
+"GfQ-sI-MwQ.title" = "Relative Zeitangaben nutzen";

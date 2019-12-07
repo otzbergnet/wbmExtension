@@ -19,6 +19,7 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var openOldestCheck: NSButton!
     @IBOutlet weak var pageHistoryCheck: NSButton!
     @IBOutlet weak var injectHistoryCheck: NSButton!
+    @IBOutlet weak var relativeTimestampCheck: NSButton!
     
 
     let settings = SettingsHelper()
@@ -32,6 +33,7 @@ class SettingsViewController: NSViewController {
         getOpenOldState()
         getPageHistoryState()
         getPageHistoryInjectState()
+        getRelativeTimestampState()
     }
     
     func initialSetup(){
@@ -41,6 +43,7 @@ class SettingsViewController: NSViewController {
             settings.setBoolData(key: "openOldContext", data: true)
             settings.setBoolData(key: "pageHistoryContext", data: true)
             settings.setBoolData(key: "pageHistoryInject", data: false)
+            settings.setBoolData(key: "relativeTimestamp", data: true)
             settings.setBoolData(key: "setup", data: true)
         }
     }
@@ -83,6 +86,16 @@ class SettingsViewController: NSViewController {
         }
         else{
             injectHistoryCheck.state = .off
+        }
+    }
+    
+    func getRelativeTimestampState(){
+        let state = settings.getBoolData(key: "relativeTimestamp")
+        if(state){
+            relativeTimestampCheck.state = .on
+        }
+        else{
+            relativeTimestampCheck.state = .off
         }
     }
     
@@ -160,5 +173,15 @@ class SettingsViewController: NSViewController {
             settings.setBoolData(key: "pageHistoryInject", data: false)
         }
     }
+    
+    @IBAction func relativeTimetsampChanged(_ sender: NSButton) {
+        if(sender.state == .on){
+            settings.setBoolData(key: "relativeTimestamp", data: true)
+        }
+        else{
+            settings.setBoolData(key: "relativeTimestamp", data: false)
+        }
+    }
+    
     
 }
