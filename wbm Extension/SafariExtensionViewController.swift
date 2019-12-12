@@ -37,7 +37,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     static let shared: SafariExtensionViewController = {
         let shared = SafariExtensionViewController()
-        shared.preferredContentSize = NSSize(width:200, height:305)
+        shared.preferredContentSize = NSSize(width:200, height:275)
         return shared
     }()
     
@@ -311,7 +311,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     func handleButtons(){
         for case let button as NSButton in self.view.subviews {
             (button.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
-            button.contentTintColor = .labelColor
+            button.contentTintColor = .textColor
             let area = NSTrackingArea.init(rect: button.bounds,
                                            options: [.mouseEnteredAndExited, .activeAlways],
                                            owner: self,
@@ -340,7 +340,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
                 if let identifier = button.identifier?.rawValue{
                     if identifier == buttonName {
                         (button.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
-                        button.contentTintColor = .labelColor
+                        button.contentTintColor = .textColor
                     }
                 }
             }
@@ -427,4 +427,3 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     
 }
-

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -35,7 +35,7 @@
                     </constraints>
                     <textFieldCell key="cell" title="Label" id="Gub-HY-v0e">
                         <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
@@ -46,97 +46,105 @@
                     <rect key="frame" x="20" y="242" width="161" height="5"/>
                 </box>
                 <button identifier="currentPageButton" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="B67-JH-udz">
-                    <rect key="frame" x="0.0" y="214" width="201" height="25"/>
+                    <rect key="frame" x="0.0" y="219" width="201" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="25" id="FxB-r5-AsS"/>
+                        <constraint firstAttribute="height" constant="20" id="FxB-r5-AsS"/>
                     </constraints>
-                    <buttonCell key="cell" type="bevel" title="Save Current Page" bezelStyle="regularSquare" image="sillyspacer" imagePosition="left" inset="2" id="eb1-Wu-3lw">
+                    <buttonCell key="cell" type="bevel" title="Save Current Page" bezelStyle="regularSquare" image="Snapshot" imagePosition="left" inset="2" id="eb1-Wu-3lw">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
-                    <color key="contentTintColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                    <color key="contentTintColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="horizontalPadding">
+                            <real key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="verticalPadding">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="saveCurrentPageClicked:" target="-2" id="2BW-Uv-1gn"/>
                     </connections>
                 </button>
                 <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="rfC-ah-Ueo">
-                    <rect key="frame" x="20" y="206" width="161" height="5"/>
+                    <rect key="frame" x="20" y="211" width="161" height="5"/>
                 </box>
                 <button identifier="pageHistoryLivePageButton" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tLL-G2-igt">
-                    <rect key="frame" x="0.0" y="181" width="201" height="25"/>
+                    <rect key="frame" x="0.0" y="191" width="201" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="25" id="aaG-FL-2tb"/>
+                        <constraint firstAttribute="height" constant="20" id="aaG-FL-2tb"/>
                     </constraints>
-                    <buttonCell key="cell" type="square" title="Show Page History" bezelStyle="shadowlessSquare" image="sillyspacer" imagePosition="leading" alignment="left" imageScaling="proportionallyDown" inset="2" id="Hu3-v8-eft">
+                    <buttonCell key="cell" type="square" title="Show Page History" bezelStyle="shadowlessSquare" image="Calendar" imagePosition="leading" alignment="left" imageScaling="proportionallyDown" inset="2" id="Hu3-v8-eft">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
-                    <color key="contentTintColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                    <color key="contentTintColor" name="textColor" catalog="System" colorSpace="catalog"/>
                     <connections>
                         <action selector="showPageHistoryLivePageClicked:" target="-2" id="zXF-yA-vAd"/>
                     </connections>
                 </button>
                 <button identifier="oldestSnapshotButton" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zWQ-SZ-wfA">
-                    <rect key="frame" x="0.0" y="156" width="201" height="25"/>
+                    <rect key="frame" x="0.0" y="171" width="201" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="25" id="l1R-0H-uTS"/>
+                        <constraint firstAttribute="height" constant="20" id="l1R-0H-uTS"/>
                     </constraints>
-                    <buttonCell key="cell" type="square" title="Open Oldest Snapshot" bezelStyle="shadowlessSquare" image="sillyspacer" imagePosition="leading" alignment="left" imageScaling="proportionallyDown" inset="2" id="UJu-Ee-ng3">
+                    <buttonCell key="cell" type="square" title="Open Oldest Snapshot" bezelStyle="shadowlessSquare" image="Oldest" imagePosition="leading" alignment="left" imageScaling="proportionallyDown" inset="2" id="UJu-Ee-ng3">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
-                    <color key="contentTintColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                    <color key="contentTintColor" name="textColor" catalog="System" colorSpace="catalog"/>
                     <connections>
                         <action selector="openOldestSnapshotClicked:" target="-2" id="NGd-ak-ugK"/>
                     </connections>
                 </button>
                 <button identifier="newestSnapshotButton" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="m5W-ld-LcY">
-                    <rect key="frame" x="0.0" y="131" width="201" height="25"/>
+                    <rect key="frame" x="0.0" y="151" width="201" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="25" id="A96-fl-VSZ"/>
+                        <constraint firstAttribute="height" constant="20" id="A96-fl-VSZ"/>
                     </constraints>
-                    <buttonCell key="cell" type="square" title="Open Newest Snapshot" bezelStyle="shadowlessSquare" image="sillyspacer" imagePosition="leading" alignment="left" imageScaling="proportionallyDown" inset="2" id="geN-hM-Pc7">
+                    <buttonCell key="cell" type="square" title="Open Newest Snapshot" bezelStyle="shadowlessSquare" image="Newest" imagePosition="leading" alignment="left" imageScaling="proportionallyDown" inset="2" id="geN-hM-Pc7">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
-                    <color key="contentTintColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                    <color key="contentTintColor" name="textColor" catalog="System" colorSpace="catalog"/>
                     <connections>
                         <action selector="openNewestSnapshotClicked:" target="-2" id="hRh-fV-XEL"/>
                     </connections>
                 </button>
                 <button identifier="domainFilesButton" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qQ4-cV-e8J">
-                    <rect key="frame" x="0.0" y="106" width="201" height="25"/>
+                    <rect key="frame" x="0.0" y="131" width="201" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="25" id="Kx5-L7-8iP"/>
+                        <constraint firstAttribute="height" constant="20" id="Kx5-L7-8iP"/>
                     </constraints>
-                    <buttonCell key="cell" type="square" title="Show Domain Files" bezelStyle="shadowlessSquare" image="sillyspacer" imagePosition="leading" alignment="left" imageScaling="proportionallyDown" inset="2" id="RJY-mO-Tmy">
+                    <buttonCell key="cell" type="square" title="Show Domain Files" bezelStyle="shadowlessSquare" image="Files" imagePosition="leading" alignment="left" imageScaling="proportionallyDown" inset="2" id="RJY-mO-Tmy">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
-                    <color key="contentTintColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                    <color key="contentTintColor" name="textColor" catalog="System" colorSpace="catalog"/>
                     <connections>
                         <action selector="showDomainFilesClicked:" target="-2" id="YBa-wu-xem"/>
                     </connections>
                 </button>
                 <button identifier="domainDataButton" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o9J-UB-eFY">
-                    <rect key="frame" x="0.0" y="81" width="201" height="25"/>
+                    <rect key="frame" x="0.0" y="111" width="201" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="25" id="7to-na-zuZ"/>
+                        <constraint firstAttribute="height" constant="20" id="7to-na-zuZ"/>
                     </constraints>
-                    <buttonCell key="cell" type="square" title="Show Domain Data" bezelStyle="shadowlessSquare" image="sillyspacer" imagePosition="leading" alignment="left" imageScaling="proportionallyDown" inset="2" id="gaK-bS-ZFq">
+                    <buttonCell key="cell" type="square" title="Show Domain Data" bezelStyle="shadowlessSquare" image="Data" imagePosition="leading" alignment="left" imageScaling="proportionallyDown" inset="2" id="gaK-bS-ZFq">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
-                    <color key="contentTintColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                    <color key="contentTintColor" name="textColor" catalog="System" colorSpace="catalog"/>
                     <connections>
                         <action selector="showDomainDataClicked:" target="-2" id="yqy-e8-Tpc"/>
                     </connections>
                 </button>
                 <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Ih1-L7-RTB">
-                    <rect key="frame" x="20" y="73" width="161" height="5"/>
+                    <rect key="frame" x="20" y="103" width="161" height="5"/>
                 </box>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="E5n-Hi-3qn">
-                    <rect key="frame" x="21" y="20" width="160" height="21"/>
+                    <rect key="frame" x="21" y="50" width="160" height="21"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="www.example.com" drawsBackground="YES" id="5bZ-df-5mP">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -147,10 +155,10 @@
                     </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TgF-Le-gDN">
-                    <rect key="frame" x="19" y="51" width="164" height="14"/>
+                    <rect key="frame" x="19" y="81" width="164" height="14"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Enter a URL:" id="ZkG-FV-xuq">
                         <font key="font" metaFont="menu" size="11"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
@@ -215,6 +223,11 @@
         </customView>
     </objects>
     <resources>
-        <image name="sillyspacer" width="20" height="10"/>
+        <image name="Calendar" width="33" height="16"/>
+        <image name="Data" width="33" height="16"/>
+        <image name="Files" width="33" height="16"/>
+        <image name="Newest" width="33" height="16"/>
+        <image name="Oldest" width="33" height="16"/>
+        <image name="Snapshot" width="33" height="16"/>
     </resources>
 </document>
