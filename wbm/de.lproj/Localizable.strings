@@ -61,3 +61,9 @@
 
 /* relative timestring xxx weeks ago */
 "%@ weeks ago" = "vor %@ Wochen";
+
+/* empty url */
+"Unfortunately we found an empty url" = "Leider haben wir keine URL gefunden";
+
+/* invalid url */
+"Unfortunately we found an invalid url" = "Leider haben wir eine ungültige URL gefunden";

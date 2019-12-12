@@ -55,14 +55,6 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <color key="contentTintColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="horizontalPadding">
-                            <real key="value" value="20"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="verticalPadding">
-                            <real key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="saveCurrentPageClicked:" target="-2" id="2BW-Uv-1gn"/>
                     </connections>
@@ -157,7 +149,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TgF-Le-gDN">
                     <rect key="frame" x="19" y="81" width="164" height="14"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Enter a URL:" id="ZkG-FV-xuq">
-                        <font key="font" metaFont="menu" size="11"/>
+                        <font key="font" metaFont="label" size="11"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>

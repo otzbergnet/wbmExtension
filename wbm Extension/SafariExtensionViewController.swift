@@ -55,13 +55,14 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         showOrHideLive()
     }
     
-
+    
     
     //MARK: — Extension Functionality
     
     func getCurrentUrlData(completion : @escaping (_ currentURL : String, _ originURL : String, _ cleanedURL : String, _ onWayBackMachine: Bool) -> ()){
         SFSafariApplication.getActiveWindow { (window) in
             guard let window = window else {
+                completion("", "", "", false)
                 return
             }
             window.getActiveTab { (tab) in
@@ -85,6 +86,9 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
                                     completion(self.currentURL, self.originURL, self.cleanedURL, self.onWayBackMachine)
                                 }
                             }
+                        }
+                        else{
+                            completion("", "", "", false)
                         }
                     })
                 })
@@ -152,10 +156,28 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
             self.progressIndicator.isHidden = false
             self.progressIndicator.startAnimation(nil)
         }
-        let jsonUrlString = "https://archive.org/wayback/available?url=\(self.currentURL)"
-        let url = URL(string: jsonUrlString)
+        if(self.currentURL == ""){
+            DispatchQueue.main.async {
+                print("empty URL")
+                self.progressIndicator.stopAnimation(nil)
+                self.progressIndicator.isHidden = true
+                self.lastArchivedLabel.stringValue = NSLocalizedString("Unfortunately we found an empty url", comment: "empty url")
+            }
+            return
+        }
         
-        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+        let jsonUrlString = "https://archive.org/wayback/available?url=\(self.currentURL)"
+        guard let url = URL(string: jsonUrlString) else{
+            DispatchQueue.main.async {
+                print("failed url")
+                self.progressIndicator.stopAnimation(nil)
+                self.progressIndicator.isHidden = true
+                self.lastArchivedLabel.stringValue = NSLocalizedString("Unfortunately we found an invalid url", comment: "invalid url")
+            }
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
             if let error = error{
                 //we got an error, let's tell the user
                 NSLog("wbm_log: \(error)")
@@ -267,36 +289,36 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     }
     
     func readableIntervalSinceNow(date: Date) -> String {
-            
-            let timeInterval = date.timeIntervalSinceNow
         
-            if (timeInterval > -3600) { // less than 1 hour
-                return "just now."
-            }
-            else if (timeInterval > -86400) { // less than a day
-                let hours = abs(timeInterval / 3600)
-                let hourString = String(format: "%.0f", hours)
-                
-                return String(format: NSLocalizedString("%@ hours ago", comment: "relative timestring xxx hours ago"), hourString)
-                //String(format: "%.f", hours)
-            }
-            else if (timeInterval > (-604800 * 4)) { // less than a months
-                let days = abs(timeInterval / 86400)
-                let dayString = String(format: "%.0f", days)
-                return String(format: NSLocalizedString("%@ days ago", comment: "relative timestring xxx days ago"), dayString)
-            }
-            else if (timeInterval > (-604800 * 4 * 3)) { // less than 3 months
-                let weeks = abs(timeInterval / 604800)
-                let weekString = String(format: "%.0f", weeks)
-                return String(format: NSLocalizedString("%@ weeks ago", comment: "relative timestring xxx weeks ago"), weekString)
-            }
-            else {
-                let dateFormatter = DateFormatter()
-                dateFormatter.setLocalizedDateFormatFromTemplate("MMMM YYYY")
-                dateFormatter.locale = Locale.current
-                return "\(dateFormatter.string(from: date))."
-            }
-
+        let timeInterval = date.timeIntervalSinceNow
+        
+        if (timeInterval > -3600) { // less than 1 hour
+            return "just now."
+        }
+        else if (timeInterval > -86400) { // less than a day
+            let hours = abs(timeInterval / 3600)
+            let hourString = String(format: "%.0f", hours)
+            
+            return String(format: NSLocalizedString("%@ hours ago", comment: "relative timestring xxx hours ago"), hourString)
+            //String(format: "%.f", hours)
+        }
+        else if (timeInterval > (-604800 * 4)) { // less than a months
+            let days = abs(timeInterval / 86400)
+            let dayString = String(format: "%.0f", days)
+            return String(format: NSLocalizedString("%@ days ago", comment: "relative timestring xxx days ago"), dayString)
+        }
+        else if (timeInterval > (-604800 * 4 * 3)) { // less than 3 months
+            let weeks = abs(timeInterval / 604800)
+            let weekString = String(format: "%.0f", weeks)
+            return String(format: NSLocalizedString("%@ weeks ago", comment: "relative timestring xxx weeks ago"), weekString)
+        }
+        else {
+            let dateFormatter = DateFormatter()
+            dateFormatter.setLocalizedDateFormatFromTemplate("MMMM YYYY")
+            dateFormatter.locale = Locale.current
+            return "\(dateFormatter.string(from: date))."
+        }
+        
     }
     
     
