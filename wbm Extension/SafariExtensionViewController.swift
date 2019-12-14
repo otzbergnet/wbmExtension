@@ -333,7 +333,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     func handleButtons(){
         for case let button as NSButton in self.view.subviews {
             (button.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
-            button.contentTintColor = .textColor
+            button.contentTintColor = .windowFrameTextColor
             let area = NSTrackingArea.init(rect: button.bounds,
                                            options: [.mouseEnteredAndExited, .activeAlways],
                                            owner: self,
@@ -362,7 +362,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
                 if let identifier = button.identifier?.rawValue{
                     if identifier == buttonName {
                         (button.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
-                        button.contentTintColor = .textColor
+                        button.contentTintColor = .windowFrameTextColor
                     }
                 }
             }
