@@ -38,6 +38,10 @@ The ultimate goal is to provide this as a free extension in the App Store
 
 We provide German & English translations at this time. We would love to work with others to add additional languages!
 
+## Support my work
+
+[<img src="https://www.otzberg.net/img/buymeatea.png" width="250" height="80" >](https://www.buymeacoffee.com/otzberg)
+
 # Contact?
 
 Use the issues page to collaborate with us or contact me at claus.wolf@otzberg.net to discuss directly
