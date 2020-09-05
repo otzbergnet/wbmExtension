@@ -30,9 +30,9 @@ The original concept for this extension was created by gingerbeardman, who is al
 
 You are able to define, which context menu items are added to your Safari Context Menu and which keyboard shortcut to use. We elected to use strg / ctrl as it is a rather unusual modifier on macOS
 
-# Will it be in the App Store
+# Download
 
-The ultimate goal is to provide this as a free extension in the App Store
+Available as a free extension [in the App Store](https://apps.apple.com/app/wayback/id1492499129)
 
 # Translations?
 
