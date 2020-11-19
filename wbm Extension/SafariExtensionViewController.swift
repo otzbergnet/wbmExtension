@@ -166,7 +166,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
             return
         }
         
-        let jsonUrlString = "https://archive.org/wayback/available?url=\(self.currentURL)"
+        let jsonUrlString = "https://web.archive.org/__wb/sparkline?url=\(currentURL)&collection=web&output=json"
         guard let url = URL(string: jsonUrlString) else{
             DispatchQueue.main.async {
                 print("failed url")
@@ -218,27 +218,24 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     func handleData(data: Data){
         //sole purpose is to dispatch the url
         do{
-            let archive = try JSONDecoder().decode(Wayback.self, from: data)
-            if let closest = archive.archived_snapshots?.closest {
-                if (closest.available){
+            let archive = try JSONDecoder().decode(WaybackSparkline.self, from: data)
+            
+            if let closest = archive.last_ts {
                     DispatchQueue.main.async {
                         self.progressIndicator.stopAnimation(nil)
                         self.lastArchivedLabel.stringValue = ""
                         self.progressIndicator.isHidden = true
-                        let datum = self.convertTimestamp(timestamp: closest.timestamp)
-                        self.lastArchivedLabel.stringValue = NSLocalizedString("Last archived:", comment: "Last Archived Date")
+                        let saveCount = self.getMementoCount(archive: archive)
+                        self.lastArchivedLabel.stringValue = ""
+                        if(saveCount > 0){
+                            self.lastArchivedLabel.stringValue += "\(saveCount) "
+                            self.lastArchivedLabel.stringValue += NSLocalizedString("saves - ", comment: "Saved")
+                        }
+                        let datum = self.convertTimestamp(timestamp: closest)
+                        self.lastArchivedLabel.stringValue += NSLocalizedString("Last archived:", comment: "Last Archived Date")
                         self.lastArchivedLabel.stringValue += "\n"
                         self.lastArchivedLabel.stringValue += datum
                     }
-                }
-                else{
-                    //unavailable
-                    DispatchQueue.main.async {
-                        self.progressIndicator.stopAnimation(nil)
-                        self.progressIndicator.isHidden = true
-                        self.lastArchivedLabel.stringValue = NSLocalizedString("The archive is inaccessible", comment: "network error")
-                    }
-                }
             }
             else {
                 // there was no snapshot
@@ -262,6 +259,18 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
             }
             return
         }
+    }
+    
+    func getMementoCount(archive: WaybackSparkline) -> Int{
+        var sum = 0
+        if let years = archive.years {
+            for year in years {
+                for value in year.value {
+                    sum += value
+                }
+            }
+        }
+        return sum;
     }
     
     func convertTimestamp(timestamp: String) -> String{

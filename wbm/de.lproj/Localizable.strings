@@ -1,4 +1,3 @@
-
 /* 
   Localizable.strings
   wbm
@@ -67,3 +66,9 @@
 
 /* invalid url */
 "Unfortunately we found an invalid url" = "Leider haben wir eine ungültige URL gefunden";
+
+/* Saved */
+"Saved: " = "Einträge: ";
+
+/* Saved */
+"saves - " = "Einträge - ";

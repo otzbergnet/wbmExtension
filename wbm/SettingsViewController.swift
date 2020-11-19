@@ -131,7 +131,7 @@ class SettingsViewController: NSViewController {
     }
     
     @IBAction func openSafariExtensionPreferences(_ sender: AnyObject?) {
-        SFSafariApplication.showPreferencesForExtension(withIdentifier: "net.otzberg.wbm-Extension") { error in
+        SFSafariApplication.showPreferencesForExtension(withIdentifier: "net.otzberg.wbm.Extension") { error in
             if let _ = error {
                 // Insert code to inform the user that something went wrong.
             }
