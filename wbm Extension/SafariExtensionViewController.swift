@@ -37,7 +37,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     static let shared: SafariExtensionViewController = {
         let shared = SafariExtensionViewController()
-        shared.preferredContentSize = NSSize(width:200, height:275)
+        shared.preferredContentSize = NSSize(width:220, height:275)
         return shared
     }()
     
@@ -52,6 +52,10 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     override func viewDidAppear() {
         setLabels()
+        showOrHideLive()
+    }
+    
+    override func viewDidLayout() {
         showOrHideLive()
     }
     
@@ -230,8 +234,8 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
                         let datum = self.convertTimestamp(timestamp: closest)
                         self.lastArchivedLabel.stringValue += NSLocalizedString("Last archived", comment: "Last Archived Date")
                         if(saveCount > 0){
-                            self.lastArchivedLabel.stringValue += " (\(self.formatPoints(from: saveCount)))"
-                            //self.lastArchivedLabel.stringValue += NSLocalizedString("saves - ", comment: "Saved")
+                            let label1 = NSLocalizedString("Show Page History", comment: "used in button to toggle Page History & Live Page")
+                            self.pageHistoryLivePageButton.title = "\(label1): \(self.formatPoints(from: saveCount))"
                         }
                         self.lastArchivedLabel.stringValue += ":\n"
                         self.lastArchivedLabel.stringValue += datum
