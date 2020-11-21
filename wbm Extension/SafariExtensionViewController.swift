@@ -101,10 +101,11 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     }
     
     func openTabWithURL(url: String){
-        SFSafariApplication.getActiveWindow { (window) in
-            if let myUrl = URL(string: url) {
-                window?.openTab(with: myUrl, makeActiveIfPossible: true, completionHandler: nil)
-            }
+        guard let myUrl = URL(string: url) else { return  }
+        SFSafariApplication.getActiveWindow { (activeWindow) in
+            activeWindow?.openTab(with: myUrl, makeActiveIfPossible: true, completionHandler: {_ in
+                // do nothing
+            })
         }
     }
     
@@ -225,21 +226,21 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
             let archive = try JSONDecoder().decode(WaybackSparkline.self, from: data)
             
             if let closest = archive.last_ts {
-                    DispatchQueue.main.async {
-                        self.progressIndicator.stopAnimation(nil)
-                        self.lastArchivedLabel.stringValue = ""
-                        self.progressIndicator.isHidden = true
-                        let saveCount = self.getMementoCount(archive: archive)
-                        self.lastArchivedLabel.stringValue = ""
-                        let datum = self.convertTimestamp(timestamp: closest)
-                        self.lastArchivedLabel.stringValue += NSLocalizedString("Last archived", comment: "Last Archived Date")
-                        if(saveCount > 0){
-                            let label1 = NSLocalizedString("Show Page History", comment: "used in button to toggle Page History & Live Page")
-                            self.pageHistoryLivePageButton.title = "\(label1): \(self.formatPoints(from: saveCount))"
-                        }
-                        self.lastArchivedLabel.stringValue += ":\n"
-                        self.lastArchivedLabel.stringValue += datum
+                DispatchQueue.main.async {
+                    self.progressIndicator.stopAnimation(nil)
+                    self.lastArchivedLabel.stringValue = ""
+                    self.progressIndicator.isHidden = true
+                    let saveCount = self.getMementoCount(archive: archive)
+                    self.lastArchivedLabel.stringValue = ""
+                    let datum = self.convertTimestamp(timestamp: closest)
+                    self.lastArchivedLabel.stringValue += NSLocalizedString("Last archived", comment: "Last Archived Date")
+                    if(saveCount > 0){
+                        let label1 = NSLocalizedString("Show Page History", comment: "used in button to toggle Page History & Live Page")
+                        self.pageHistoryLivePageButton.title = "\(label1): \(self.formatPoints(from: saveCount))"
                     }
+                    self.lastArchivedLabel.stringValue += ":\n"
+                    self.lastArchivedLabel.stringValue += datum
+                }
             }
             else {
                 // there was no snapshot
@@ -285,20 +286,20 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
             return "\(Int(number))"
         }
     }
-
-func roundToPlaces(number: Double, places:Int) -> String {
-    let divisor = pow(10.0, Double(places))
-    let rounded = round(number * divisor) / divisor
-    let remainder = rounded.truncatingRemainder(dividingBy: 1)
     
-    if(remainder > 0){
-        return "\(rounded)"
+    func roundToPlaces(number: Double, places:Int) -> String {
+        let divisor = pow(10.0, Double(places))
+        let rounded = round(number * divisor) / divisor
+        let remainder = rounded.truncatingRemainder(dividingBy: 1)
+        
+        if(remainder > 0){
+            return "\(rounded)"
+        }
+        else {
+            let intRounded = Int(rounded)
+            return "\(intRounded)"
+        }
     }
-    else {
-        let intRounded = Int(rounded)
-        return "\(intRounded)"
-    }
-}
     
     func getMementoCount(archive: WaybackSparkline) -> Int{
         var sum = 0
@@ -489,7 +490,7 @@ func roundToPlaces(number: Double, places:Int) -> String {
     
     @IBAction func settingsClicked(_ sender: NSButton) {
         if let url = URL(string: "wbmextension:settings"),
-            NSWorkspace.shared.open(url) {
+           NSWorkspace.shared.open(url) {
             (sender.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
             sender.contentTintColor = .labelColor
         }
