@@ -227,13 +227,13 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
                         self.progressIndicator.isHidden = true
                         let saveCount = self.getMementoCount(archive: archive)
                         self.lastArchivedLabel.stringValue = ""
-                        if(saveCount > 0){
-                            self.lastArchivedLabel.stringValue += "\(saveCount) "
-                            self.lastArchivedLabel.stringValue += NSLocalizedString("saves - ", comment: "Saved")
-                        }
                         let datum = self.convertTimestamp(timestamp: closest)
-                        self.lastArchivedLabel.stringValue += NSLocalizedString("Last archived:", comment: "Last Archived Date")
-                        self.lastArchivedLabel.stringValue += "\n"
+                        self.lastArchivedLabel.stringValue += NSLocalizedString("Last archived", comment: "Last Archived Date")
+                        if(saveCount > 0){
+                            self.lastArchivedLabel.stringValue += " (\(self.formatPoints(from: saveCount)))"
+                            //self.lastArchivedLabel.stringValue += NSLocalizedString("saves - ", comment: "Saved")
+                        }
+                        self.lastArchivedLabel.stringValue += ":\n"
                         self.lastArchivedLabel.stringValue += datum
                     }
             }
@@ -260,6 +260,41 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
             return
         }
     }
+    
+    func formatPoints(from: Int) -> String {
+        
+        let number = Double(from)
+        let thousand = number / 1000
+        let million = number / 1000000
+        let billion = number / 1000000000
+        
+        if billion >= 1.0 {
+            return "\(roundToPlaces(number: billion, places: 1))B"
+        }
+        else if million >= 1.0 {
+            return "\(roundToPlaces(number: million, places: 1))M"
+        }
+        else if thousand >= 1.0 {
+            return ("\(roundToPlaces(number: thousand, places: 1))K")
+        }
+        else {
+            return "\(Int(number))"
+        }
+    }
+
+func roundToPlaces(number: Double, places:Int) -> String {
+    let divisor = pow(10.0, Double(places))
+    let rounded = round(number * divisor) / divisor
+    let remainder = rounded.truncatingRemainder(dividingBy: 1)
+    
+    if(remainder > 0){
+        return "\(rounded)"
+    }
+    else {
+        let intRounded = Int(rounded)
+        return "\(intRounded)"
+    }
+}
     
     func getMementoCount(archive: WaybackSparkline) -> Int{
         var sum = 0
