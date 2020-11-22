@@ -22,3 +22,9 @@ struct Closest : Decodable {
     let timestamp : String
     let available : Bool
 }
+
+struct WaybackSparkline : Decodable {
+    let last_ts : String?
+    let first_ts : String?
+    let years : [ String : [Int]]?
+}

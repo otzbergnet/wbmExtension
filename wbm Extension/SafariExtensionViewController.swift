@@ -37,7 +37,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     static let shared: SafariExtensionViewController = {
         let shared = SafariExtensionViewController()
-        shared.preferredContentSize = NSSize(width:200, height:275)
+        shared.preferredContentSize = NSSize(width:220, height:275)
         return shared
     }()
     
@@ -52,6 +52,10 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     override func viewDidAppear() {
         setLabels()
+        showOrHideLive()
+    }
+    
+    override func viewDidLayout() {
         showOrHideLive()
     }
     
@@ -97,10 +101,11 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     }
     
     func openTabWithURL(url: String){
-        SFSafariApplication.getActiveWindow { (window) in
-            if let myUrl = URL(string: url) {
-                window?.openTab(with: myUrl, makeActiveIfPossible: true, completionHandler: nil)
-            }
+        guard let myUrl = URL(string: url) else { return  }
+        SFSafariApplication.getActiveWindow { (activeWindow) in
+            activeWindow?.openTab(with: myUrl, makeActiveIfPossible: true, completionHandler: {_ in
+                // do nothing
+            })
         }
     }
     
@@ -166,7 +171,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
             return
         }
         
-        let jsonUrlString = "https://archive.org/wayback/available?url=\(self.currentURL)"
+        let jsonUrlString = "https://web.archive.org/__wb/sparkline?url=\(currentURL)&collection=web&output=json"
         guard let url = URL(string: jsonUrlString) else{
             DispatchQueue.main.async {
                 print("failed url")
@@ -218,26 +223,23 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     func handleData(data: Data){
         //sole purpose is to dispatch the url
         do{
-            let archive = try JSONDecoder().decode(Wayback.self, from: data)
-            if let closest = archive.archived_snapshots?.closest {
-                if (closest.available){
-                    DispatchQueue.main.async {
-                        self.progressIndicator.stopAnimation(nil)
-                        self.lastArchivedLabel.stringValue = ""
-                        self.progressIndicator.isHidden = true
-                        let datum = self.convertTimestamp(timestamp: closest.timestamp)
-                        self.lastArchivedLabel.stringValue = NSLocalizedString("Last archived:", comment: "Last Archived Date")
-                        self.lastArchivedLabel.stringValue += "\n"
-                        self.lastArchivedLabel.stringValue += datum
+            let archive = try JSONDecoder().decode(WaybackSparkline.self, from: data)
+            
+            if let closest = archive.last_ts {
+                DispatchQueue.main.async {
+                    self.progressIndicator.stopAnimation(nil)
+                    self.lastArchivedLabel.stringValue = ""
+                    self.progressIndicator.isHidden = true
+                    let saveCount = self.getMementoCount(archive: archive)
+                    self.lastArchivedLabel.stringValue = ""
+                    let datum = self.convertTimestamp(timestamp: closest)
+                    self.lastArchivedLabel.stringValue += NSLocalizedString("Last archived", comment: "Last Archived Date")
+                    if(saveCount > 0){
+                        let label1 = NSLocalizedString("Show Page History", comment: "used in button to toggle Page History & Live Page")
+                        self.pageHistoryLivePageButton.title = "\(label1): \(self.formatPoints(from: saveCount))"
                     }
-                }
-                else{
-                    //unavailable
-                    DispatchQueue.main.async {
-                        self.progressIndicator.stopAnimation(nil)
-                        self.progressIndicator.isHidden = true
-                        self.lastArchivedLabel.stringValue = NSLocalizedString("The archive is inaccessible", comment: "network error")
-                    }
+                    self.lastArchivedLabel.stringValue += ":\n"
+                    self.lastArchivedLabel.stringValue += datum
                 }
             }
             else {
@@ -262,6 +264,53 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
             }
             return
         }
+    }
+    
+    func formatPoints(from: Int) -> String {
+        
+        let number = Double(from)
+        let thousand = number / 1000
+        let million = number / 1000000
+        let billion = number / 1000000000
+        
+        if billion >= 1.0 {
+            return "\(roundToPlaces(number: billion, places: 1))B"
+        }
+        else if million >= 1.0 {
+            return "\(roundToPlaces(number: million, places: 1))M"
+        }
+        else if thousand >= 1.0 {
+            return ("\(roundToPlaces(number: thousand, places: 1))K")
+        }
+        else {
+            return "\(Int(number))"
+        }
+    }
+    
+    func roundToPlaces(number: Double, places:Int) -> String {
+        let divisor = pow(10.0, Double(places))
+        let rounded = round(number * divisor) / divisor
+        let remainder = rounded.truncatingRemainder(dividingBy: 1)
+        
+        if(remainder > 0){
+            return "\(rounded)"
+        }
+        else {
+            let intRounded = Int(rounded)
+            return "\(intRounded)"
+        }
+    }
+    
+    func getMementoCount(archive: WaybackSparkline) -> Int{
+        var sum = 0
+        if let years = archive.years {
+            for year in years {
+                for value in year.value {
+                    sum += value
+                }
+            }
+        }
+        return sum;
     }
     
     func convertTimestamp(timestamp: String) -> String{
@@ -441,7 +490,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     @IBAction func settingsClicked(_ sender: NSButton) {
         if let url = URL(string: "wbmextension:settings"),
-            NSWorkspace.shared.open(url) {
+           NSWorkspace.shared.open(url) {
             (sender.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
             sender.contentTintColor = .labelColor
         }

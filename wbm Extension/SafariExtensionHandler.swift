@@ -148,7 +148,6 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             if let myUrl = URL(string: url) {
                 window?.openTab(with: myUrl, makeActiveIfPossible: true, completionHandler: nil)
             }
-            
         }
     }
     

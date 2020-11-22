@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2D9FC22523810BBC007FCF22 /* ToolbarItemIconWbm.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2D9FC22423810BBC007FCF22 /* ToolbarItemIconWbm.pdf */; };
-		2DCA3269237DD302001C0AB4 /* wbm.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA3268237DD302001C0AB4 /* wbm.entitlements */; };
 		2DCA326B237DD302001C0AB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA326A237DD302001C0AB4 /* AppDelegate.swift */; };
 		2DCA326E237DD303001C0AB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA326C237DD303001C0AB4 /* Main.storyboard */; };
 		2DCA3270237DD303001C0AB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA326F237DD303001C0AB4 /* ViewController.swift */; };
@@ -28,6 +27,8 @@
 		2DE13E272381185C007FCF3D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2DE13E292381185C007FCF3D /* InfoPlist.strings */; };
 		2DE13E2B238138A6007FCF3D /* SettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE13E2A238138A6007FCF3D /* SettingsHelper.swift */; };
 		2DE13E2C238138A6007FCF3D /* SettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE13E2A238138A6007FCF3D /* SettingsHelper.swift */; };
+		2DFE4F4323B73590006CF1AB /* BartyCrouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE4F4223B73590006CF1AB /* BartyCrouch.swift */; };
+		2DFE4F4423B73590006CF1AB /* BartyCrouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE4F4223B73590006CF1AB /* BartyCrouch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		2DE13E282381185C007FCF3D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2DE13E2A238138A6007FCF3D /* SettingsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHelper.swift; sourceTree = "<group>"; };
 		2DE13E3223814383007FCF3D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2DFE4F4223B73590006CF1AB /* BartyCrouch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartyCrouch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				2DCA3271237DD312001C0AB4 /* Assets.xcassets */,
 				2DCA3273237DD312001C0AB4 /* Info.plist */,
 				2DE13E3323814383007FCF3D /* Localizable.strings */,
+				2DFE4F4223B73590006CF1AB /* BartyCrouch.swift */,
 			);
 			path = wbm;
 			sourceTree = "<group>";
@@ -212,7 +215,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Claus Wolf";
 				TargetAttributes = {
 					2DCA3264237DD302001C0AB4 = {
@@ -248,7 +251,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCA3269237DD302001C0AB4 /* wbm.entitlements in Resources */,
 				2DCA3272237DD312001C0AB4 /* Assets.xcassets in Resources */,
 				2DCA326E237DD303001C0AB4 /* Main.storyboard in Resources */,
 			);
@@ -298,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DCA3270237DD303001C0AB4 /* ViewController.swift in Sources */,
+				2DFE4F4323B73590006CF1AB /* BartyCrouch.swift in Sources */,
 				2DE13E2B238138A6007FCF3D /* SettingsHelper.swift in Sources */,
 				2DCA326B237DD302001C0AB4 /* AppDelegate.swift in Sources */,
 				2DCBB8352388F65C0069BEB3 /* SettingsViewController.swift in Sources */,
@@ -309,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DCBB8322388622F0069BEB3 /* structs.swift in Sources */,
+				2DFE4F4423B73590006CF1AB /* BartyCrouch.swift in Sources */,
 				2DCA3283237DD313001C0AB4 /* SafariExtensionViewController.swift in Sources */,
 				2DE13E2C238138A6007FCF3D /* SettingsHelper.swift in Sources */,
 				2DCA3281237DD313001C0AB4 /* SafariExtensionHandler.swift in Sources */,
@@ -399,6 +403,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -460,6 +465,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -493,6 +499,7 @@
 				CODE_SIGN_ENTITLEMENTS = "wbm Extension/wbm_Extension.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 202011;
 				DEVELOPMENT_TEAM = J3PNNM2UXC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "wbm Extension/Info.plist";
@@ -501,7 +508,8 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.otzberg.wbm-Extension";
+				MARKETING_VERSION = 2020.11;
+				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.wbm.Extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -514,6 +522,7 @@
 				CODE_SIGN_ENTITLEMENTS = "wbm Extension/wbm_Extension.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 202011;
 				DEVELOPMENT_TEAM = J3PNNM2UXC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "wbm Extension/Info.plist";
@@ -522,7 +531,8 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.otzberg.wbm-Extension";
+				MARKETING_VERSION = 2020.11;
+				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.wbm.Extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -538,6 +548,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 202011;
 				DEVELOPMENT_TEAM = J3PNNM2UXC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = wbm/Info.plist;
@@ -545,6 +556,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MARKETING_VERSION = 2020.11;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.wbm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -560,6 +572,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 202011;
 				DEVELOPMENT_TEAM = J3PNNM2UXC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = wbm/Info.plist;
@@ -567,6 +580,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MARKETING_VERSION = 2020.11;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.wbm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
