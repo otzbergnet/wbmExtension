@@ -52,6 +52,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     override func viewDidAppear() {
         setLabels()
+        setButtonsToOffstate()
         showOrHideLive()
     }
     
@@ -104,7 +105,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         guard let myUrl = URL(string: url) else { return  }
         SFSafariApplication.getActiveWindow { (activeWindow) in
             activeWindow?.openTab(with: myUrl, makeActiveIfPossible: true, completionHandler: {_ in
-                // do nothing
+                self.dismissPopover()
             })
         }
     }
@@ -418,6 +419,15 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         }
     }
     
+    func setButtonsToOffstate() {
+        for case let button as NSButton in self.view.subviews {
+            if let identifier = button.identifier?.rawValue{
+                (button.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
+                button.contentTintColor = .windowFrameTextColor
+            }
+        }
+    }
+    
     
     //MARK: — Button Actions
     
@@ -455,12 +465,15 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     @IBAction func showDomainDataClicked(_ sender: Any) {
         //data
+        self.dismissPopover()
+        self.setButtonsToOffstate()
         self.openTabWithURL(url: "https://web.archive.org/cdx/search/cdx?showDupeCount=true&collapse=digest&output=json&url=\(self.originURL)*")
     }
     
     @IBAction func saveCurrentPageClicked(_ sender: Any) {
         //save
         self.dismissPopover()
+        self.setButtonsToOffstate()
         if(self.onWayBackMachine){
             self.openWithinSameTab(url: "https://web.archive.org/save/\(self.cleanedURL)")
         }
