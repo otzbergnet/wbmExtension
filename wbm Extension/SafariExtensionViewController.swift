@@ -421,10 +421,8 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     func setButtonsToOffstate() {
         for case let button as NSButton in self.view.subviews {
-            if let identifier = button.identifier?.rawValue{
-                (button.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
-                button.contentTintColor = .windowFrameTextColor
-            }
+            (button.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
+            button.contentTintColor = .windowFrameTextColor
         }
     }
     
@@ -487,8 +485,10 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         let url = sender.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
         if (validateUrl(urlString: url)){
             self.openTabWithURL(url: "https://web.archive.org/web/*/\(url)")
+            self.wbmURLField.stringValue = ""
         }
         else if(validateUrl(urlString: "http://\(url)")){
+            self.wbmURLField.stringValue = ""
             self.openTabWithURL(url: "https://web.archive.org/web/*/\(url)")
         }
         else{
