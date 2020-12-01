@@ -137,6 +137,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     func setLabels(){
         self.enterUrlLabel.stringValue = NSLocalizedString("Enter a URL to go to archive:", comment: "only shown when an invalid URL is encountered")
+        self.pageHistoryLivePageButton.title = NSLocalizedString("Show Page History", comment: "used in button to toggle Page History & Live Page")
     }
     
     func removeWBM(url: String) -> String{
@@ -239,6 +240,9 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
                         let label1 = NSLocalizedString("Show Page History", comment: "used in button to toggle Page History & Live Page")
                         self.pageHistoryLivePageButton.title = "\(label1): \(self.formatPoints(from: saveCount))"
                     }
+                    else {
+                        self.pageHistoryLivePageButton.title = NSLocalizedString("Show Page History", comment: "used in button to toggle Page History & Live Page")
+                    }
                     self.lastArchivedLabel.stringValue += ":\n"
                     self.lastArchivedLabel.stringValue += datum
                 }
@@ -250,6 +254,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
                     self.progressIndicator.stopAnimation(nil)
                     self.progressIndicator.isHidden = true
                     self.lastArchivedLabel.stringValue = NSLocalizedString("This page was never archived", comment: "network error")
+                    self.pageHistoryLivePageButton.title = NSLocalizedString("Show Page History", comment: "used in button to toggle Page History & Live Page")
                 }
             }
             
