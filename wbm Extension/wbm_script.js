@@ -37,9 +37,13 @@ function messageHandler(event){
 }
 
 function handleContextMenu(event) {
-    var link =  window.getSelection().anchorNode.parentNode.href
-    if(link != undefined){
-        safari.extension.setContextMenuEventUserInfo(event, { "href": link });
+    var target = event.target;
+    while(target != null && target.nodeType == Node.ELEMENT_NODE && target.nodeName.toLowerCase() != "a") {
+        target = target.parentNode;
+    }
+    clickedURL = target.href;
+    if(clickedURL != undefined && clickedURL != null && clickedURL != ""){
+        safari.extension.setContextMenuEventUserInfo(event, { "href": clickedURL });
     }
     else{
         safari.extension.setContextMenuEventUserInfo(event, { "href": "-" });
