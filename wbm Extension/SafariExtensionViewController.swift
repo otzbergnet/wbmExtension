@@ -328,7 +328,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMddHHmmss"
-        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
         dateFormatter.locale = Locale.current
         if let date = dateFormatter.date(from: timestamp){
             
