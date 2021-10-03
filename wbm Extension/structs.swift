@@ -28,3 +28,9 @@ struct WaybackSparkline : Decodable {
     let first_ts : String?
     let years : [ String : [Int]]?
 }
+
+struct Boost5 : Decodable {
+    var datum : String
+    var saveCount : Int
+    var status : String
+}
