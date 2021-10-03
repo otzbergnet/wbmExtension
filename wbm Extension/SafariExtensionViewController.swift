@@ -139,6 +139,18 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     func setLabels(){
         self.enterUrlLabel.stringValue = NSLocalizedString("Enter a URL to go to archive:", comment: "only shown when an invalid URL is encountered")
         self.pageHistoryLivePageButton.title = NSLocalizedString("Show Page History", comment: "used in button to toggle Page History & Live Page")
+        
+        let boost5Data = self.settings.getIntData(key: "boost5")
+        if boost5Data > 0 {
+            boost5Button.state = .on
+            if boost5Data > 1 {
+                boost5Button.title = NSLocalizedString("Boost next \(boost5Data) requests", comment: "Boost next x requests (plural)")
+            }
+            else{
+                boost5Button.title = NSLocalizedString("Boost next request", comment: "Boost next request (singular)")
+            }
+            
+        }
     }
     
     func removeWBM(url: String) -> String{
