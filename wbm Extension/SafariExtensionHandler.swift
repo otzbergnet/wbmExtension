@@ -11,6 +11,7 @@ import SafariServices
 class SafariExtensionHandler: SFSafariExtensionHandler {
     
     let settings = SettingsHelper()
+    let apiHelper = WaybackApiHelper()
     
     override func messageReceived(withName messageName: String, from page: SFSafariPage, userInfo: [String : Any]?) {
         // This method will be called when a content script provided by your extension calls safari.extension.dispatchMessage("message").
@@ -24,7 +25,13 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             let inject = settings.getBoolData(key: "pageHistoryInject")
             page.dispatchMessageToScript(withName: "inject", userInfo: [ "inject" : inject])
         case "boost5":
-            doBoost5()
+            if let url = userInfo?["url"] {
+                doBoost5(url: "\(url)", page: page)
+            }
+        case "wbm_showBadge":
+            if let count = userInfo?["count"] {
+                showBadge(badgeString: "\(count)")
+            }
         default:
             return
         }
@@ -153,13 +160,35 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         }
     }
     
-    func doBoost5() {
+    func doBoost5(url: String, page: SFSafariPage){
         let boost5Count = settings.getIntData(key: "boost5")
         if(boost5Count == 0) {
             return
         }
+        apiHelper.doWaybackCall(currentURL: url) { boost5data in
+            switch boost5data {
+            case .success(let data):
+                if (data.status == "ok") {
+                    let myBadgeString = self.apiHelper.formatPoints(from: data.saveCount, places: 0)
+                    self.showBadge(badgeString: "\(myBadgeString)")
+                }
+                self.settings.setIntData(key: "boost5", data: (boost5Count - 1))
+                print("boost5: \(url)")
+                page.dispatchMessageToScript(withName: "boost5result", userInfo: ["boost5count" : data.saveCount, "boost5date" : data.datum])
+                return;
+            case .failure(let error):
+                print(error)
+                return
+            }
+        }
         
-        //page.dispatchMessageToScript(withName: "boost5result", userInfo: ["boost5count" : boost5Count])
+    }
+    
+    func showBadge(badgeString: String){
+        print(badgeString)
+        SFSafariApplication.getActiveWindow { (window) in
+            window?.getToolbarItem { $0?.setBadgeText(badgeString)}
+        }
     }
     
 }

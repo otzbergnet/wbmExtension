@@ -141,15 +141,19 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         self.pageHistoryLivePageButton.title = NSLocalizedString("Show Page History", comment: "used in button to toggle Page History & Live Page")
         
         let boost5Data = self.settings.getIntData(key: "boost5")
+        print("boost5dataCount: \(boost5Data)")
         if boost5Data > 0 {
             boost5Button.state = .on
             if boost5Data > 1 {
                 boost5Button.title = NSLocalizedString("Boost next \(boost5Data) requests", comment: "Boost next x requests (plural)")
             }
-            else{
+            else if(boost5Data == 1){
                 boost5Button.title = NSLocalizedString("Boost next request", comment: "Boost next request (singular)")
             }
-            
+        }
+        else{
+            boost5Button.title = NSLocalizedString("Boost next 5 requests", comment: "Boost next request (singular)")
+            boost5Button.state = .off
         }
     }
     

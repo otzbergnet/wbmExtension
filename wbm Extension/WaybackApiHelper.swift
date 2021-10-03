@@ -8,7 +8,7 @@
 
 import Foundation
 
-class apiHelper {
+class WaybackApiHelper {
     
     let settings = SettingsHelper()
     
@@ -17,6 +17,12 @@ class apiHelper {
         if(currentURL == ""){
             let error = NSError(domain: "", code: 400, userInfo: ["msg" : "bad request: no url"])
             completion(.failure(error))
+            return
+        }
+        if(!currentURL.contains("http://") && !currentURL.contains("https://")){
+            let error = NSError(domain: "", code: 400, userInfo: ["msg" : "bad request: not http or https"])
+            completion(.failure(error))
+            return
         }
         
         let jsonUrlString = "https://web.archive.org/__wb/sparkline?url=\(currentURL)&collection=web&output=json"
@@ -154,5 +160,40 @@ class apiHelper {
             return "\(dateFormatter.string(from: date))."
         }
         
+    }
+    
+    func formatPoints(from: Int, places: Int = 1) -> String {
+        
+        let number = Double(from)
+        let thousand = number / 1000
+        let million = number / 1000000
+        let billion = number / 1000000000
+        
+        if billion >= 1.0 {
+            return "\(roundToPlaces(number: billion, places: places))B"
+        }
+        else if million >= 1.0 {
+            return "\(roundToPlaces(number: million, places: places))M"
+        }
+        else if thousand >= 1.0 {
+            return ("\(roundToPlaces(number: thousand, places: places))K")
+        }
+        else {
+            return "\(Int(number))"
+        }
+    }
+    
+    func roundToPlaces(number: Double, places:Int) -> String {
+        let divisor = pow(10.0, Double(places))
+        let rounded = round(number * divisor) / divisor
+        let remainder = rounded.truncatingRemainder(dividingBy: 1)
+        
+        if(remainder > 0){
+            return "\(rounded)"
+        }
+        else {
+            let intRounded = Int(rounded)
+            return "\(intRounded)"
+        }
     }
 }
