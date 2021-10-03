@@ -23,6 +23,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     @IBOutlet weak var enterUrlLabel: NSTextField!
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
     @IBOutlet weak var lastArchivedLabel: NSTextField!
+    @IBOutlet weak var boost5Button: NSButton!
     
     
     
@@ -37,7 +38,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     static let shared: SafariExtensionViewController = {
         let shared = SafariExtensionViewController()
-        shared.preferredContentSize = NSSize(width:220, height:275)
+        shared.preferredContentSize = NSSize(width:220, height:310)
         return shared
     }()
     
@@ -406,7 +407,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         if let buttonName = event.trackingArea?.userInfo?.values.first as? String {
             for case let button as NSButton in self.view.subviews {
                 if let identifier = button.identifier?.rawValue{
-                    if identifier == buttonName {
+                    if (identifier == buttonName && buttonName != "boost5"){
                         (button.cell as? NSButtonCell)?.backgroundColor = NSColor.darkGray
                         button.contentTintColor = .white
                     }
@@ -419,7 +420,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         if let buttonName = event.trackingArea?.userInfo?.values.first as? String {
             for case let button as NSButton in self.view.subviews {
                 if let identifier = button.identifier?.rawValue{
-                    if identifier == buttonName {
+                    if (identifier == buttonName && buttonName != "boost5") {
                         (button.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
                         button.contentTintColor = .windowFrameTextColor
                     }
@@ -516,6 +517,10 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
             (sender.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
             sender.contentTintColor = .labelColor
         }
+    }
+    
+    @IBAction func boost5Tapped(_ sender: Any) {
+        
     }
     
     
