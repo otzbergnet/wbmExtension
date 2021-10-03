@@ -519,8 +519,13 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         }
     }
     
-    @IBAction func boost5Tapped(_ sender: Any) {
-        
+    @IBAction func boost5Tapped(_ sender: NSButton) {
+        if(sender.state == .on){
+            self.settings.setIntData(key: "boost5", data: 5)
+        }
+        else {
+            self.settings.setIntData(key: "boost5", data: 0)
+        }
     }
     
     
