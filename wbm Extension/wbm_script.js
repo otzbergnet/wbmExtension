@@ -10,6 +10,7 @@ if (window.top === window) {
         document.addEventListener("contextmenu", handleContextMenu, false);
         safari.extension.dispatchMessage("shortcut", {"msgID" : "1"});
         safari.extension.dispatchMessage("pageHistoryInject");
+        safari.extension.dispatchMessage("boost5");
     });
     
     //detect ctrl+w for pageHistory
@@ -28,11 +29,18 @@ function messageHandler(event){
         case "shortcut":
             shortcut = event.message.shortcut
             console.log("use ctrl + "+shortcut+" to open the Page History")
+            break;
         case "inject":
             inject = event.message.inject
             if(inject){
                 injectPageHistoryButton();
             }
+            break;
+        case "boost5result":
+            console.log(event.message.boost5count)
+            break;
+        default:
+            //
     }
 }
 

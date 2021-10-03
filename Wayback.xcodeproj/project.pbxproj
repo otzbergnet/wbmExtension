@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D9FC22523810BBC007FCF22 /* ToolbarItemIconWbm.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2D9FC22423810BBC007FCF22 /* ToolbarItemIconWbm.pdf */; };
+		2DC042772709805400BF4087 /* apiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC042762709805400BF4087 /* apiHelper.swift */; };
 		2DCA326B237DD302001C0AB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA326A237DD302001C0AB4 /* AppDelegate.swift */; };
 		2DCA326E237DD303001C0AB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DCA326C237DD303001C0AB4 /* Main.storyboard */; };
 		2DCA3270237DD303001C0AB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA326F237DD303001C0AB4 /* ViewController.swift */; };
@@ -60,6 +61,7 @@
 		2D9FC22723811494007FCF22 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SafariExtensionViewController.strings; sourceTree = "<group>"; };
 		2D9FC228238114B2007FCF22 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		2D9FC229238114B2007FCF22 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SafariExtensionViewController.strings; sourceTree = "<group>"; };
+		2DC042762709805400BF4087 /* apiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apiHelper.swift; sourceTree = "<group>"; };
 		2DC5978D2389C44100C68737 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2DCA3265237DD302001C0AB4 /* Wayback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wayback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DCA3268237DD302001C0AB4 /* wbm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wbm.entitlements; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				2DC5978E2389C44100C68737 /* Localizable.strings */,
 				2DCA3288237DD313001C0AB4 /* wbm_script.js */,
 				2DDAC02F238DB03E008EA73C /* wbm.css */,
+				2DC042762709805400BF4087 /* apiHelper.swift */,
 			);
 			path = "wbm Extension";
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				2DFE4F4423B73590006CF1AB /* BartyCrouch.swift in Sources */,
 				2DCA3283237DD313001C0AB4 /* SafariExtensionViewController.swift in Sources */,
 				2DE13E2C238138A6007FCF3D /* SettingsHelper.swift in Sources */,
+				2DC042772709805400BF4087 /* apiHelper.swift in Sources */,
 				2DCA3281237DD313001C0AB4 /* SafariExtensionHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

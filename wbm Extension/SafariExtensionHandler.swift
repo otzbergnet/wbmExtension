@@ -23,6 +23,8 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         case "pageHistoryInject":
             let inject = settings.getBoolData(key: "pageHistoryInject")
             page.dispatchMessageToScript(withName: "inject", userInfo: [ "inject" : inject])
+        case "boost5":
+            doBoost5()
         default:
             return
         }
@@ -149,6 +151,15 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                 window?.openTab(with: myUrl, makeActiveIfPossible: true, completionHandler: nil)
             }
         }
+    }
+    
+    func doBoost5() {
+        let boost5Count = settings.getIntData(key: "boost5")
+        if(boost5Count == 0) {
+            return
+        }
+        
+        //page.dispatchMessageToScript(withName: "boost5result", userInfo: ["boost5count" : boost5Count])
     }
     
 }
