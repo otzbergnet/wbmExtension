@@ -11,6 +11,7 @@ import Foundation
 class WaybackApiHelper {
     
     let settings = SettingsHelper()
+    var callMemory : [String : Boost5] = [:]
     
     func doWaybackCall(currentURL : String, completion: @escaping (Result<Boost5, Error>) -> ()){
 
@@ -23,6 +24,18 @@ class WaybackApiHelper {
             let error = NSError(domain: "", code: 400, userInfo: ["msg" : "bad request: not http or https"])
             completion(.failure(error))
             return
+        }
+        
+        // if the item is present in call memory and the associated apiCall wasn't more than 15 minutes (900 seconds)
+        // ago return that memory object and be done
+        if (callMemory[currentURL] != nil) {
+            if let callMemoryResult = callMemory[currentURL] {
+                let currentTimestamp = Int(NSDate().timeIntervalSince1970) - 900
+                if(callMemoryResult.apiTimestamp > currentTimestamp){
+                    completion(.success(callMemoryResult))
+                    return
+                }
+            }
         }
         
         let jsonUrlString = "https://web.archive.org/__wb/sparkline?url=\(currentURL)&collection=web&output=json"
@@ -47,6 +60,7 @@ class WaybackApiHelper {
                     if(httpResponse.statusCode == 200){
                         //we need to handle the data here
                         let response = self.handleData(data: data)
+                        self.callMemory[currentURL] = response
                         completion(.success(response))
                     }
                     else{
@@ -77,18 +91,20 @@ class WaybackApiHelper {
             if let closest = archive.last_ts {
                 let saveCount = self.getMementoCount(archive: archive)
                 let datum = self.convertTimestamp(timestamp: closest)
-                let returnObject = Boost5(datum: datum, saveCount: saveCount, status: "ok")
+                let timestamp = Int(NSDate().timeIntervalSince1970)
+                let returnObject = Boost5(apiTimestamp: timestamp, datum: datum, saveCount: saveCount, status: "ok")
                 return returnObject;
             }
             else {
-                let returnObject = Boost5(datum: "", saveCount: 0, status: "fail")
+                let returnObject = Boost5(apiTimestamp: 0, datum: "", saveCount: 0, status: "never")
                 return returnObject;
                 
             }
         }
         catch let jsonError{
             NSLog("wbm_log json_Error: \(jsonError)")
-            let returnObject = Boost5(datum: "", saveCount: 0, status: "fail json")
+            print(jsonError)
+            let returnObject = Boost5(apiTimestamp: 0, datum: "", saveCount: 0, status: "fail json")
             return returnObject;
         }
     }

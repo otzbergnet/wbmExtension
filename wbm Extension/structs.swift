@@ -30,6 +30,7 @@ struct WaybackSparkline : Decodable {
 }
 
 struct Boost5 : Decodable {
+    var apiTimestamp : Int
     var datum : String
     var saveCount : Int
     var status : String

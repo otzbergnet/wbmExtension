@@ -173,7 +173,6 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                     self.showBadge(badgeString: "\(myBadgeString)")
                 }
                 self.settings.setIntData(key: "boost5", data: (boost5Count - 1))
-                print("boost5: \(url)")
                 page.dispatchMessageToScript(withName: "boost5result", userInfo: ["boost5count" : data.saveCount, "boost5date" : data.datum])
                 return;
             case .failure(let error):
@@ -185,7 +184,6 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     }
     
     func showBadge(badgeString: String){
-        print(badgeString)
         SFSafariApplication.getActiveWindow { (window) in
             window?.getToolbarItem { $0?.setBadgeText(badgeString)}
         }
