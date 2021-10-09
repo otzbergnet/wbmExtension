@@ -145,7 +145,8 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         if boost5Data > 0 {
             boost5Button.state = .on
             if boost5Data > 1 {
-                boost5Button.title = NSLocalizedString("Boost next \(boost5Data) requests", comment: "Boost next x requests (plural)")
+                let myString = String(format: NSLocalizedString("Boost next %d requests", comment: "Boost next x requests (plural)"), boost5Data)
+                boost5Button.title = myString
             }
             else if(boost5Data == 1){
                 boost5Button.title = NSLocalizedString("Boost next request", comment: "Boost next request (singular)")

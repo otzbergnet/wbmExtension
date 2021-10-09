@@ -84,3 +84,6 @@
 
 /* Boost next request (singular) */
 "Boost next 5 requests" = "Boost für 5 Anfragen";
+
+/* Boost next x requests (plural) */
+"Boost next %d requests" = "Boost für %d Anfragen";
