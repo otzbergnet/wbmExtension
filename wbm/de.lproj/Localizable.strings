@@ -75,3 +75,12 @@
 
 /* Last Archived Date */
 "Last archived" = "Gespeichert";
+
+/* Boost next x requests (plural) */
+"Boost next \(boost5Data) requests" = "Boost für \(boost5Data) Anfragen";
+
+/* Boost next request (singular) */
+"Boost next request" = "Boost für nächste Anfrage";
+
+/* Boost next request (singular) */
+"Boost next 5 requests" = "Boost für die nächsten 5 Anfragen";

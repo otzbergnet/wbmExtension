@@ -23,6 +23,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     @IBOutlet weak var enterUrlLabel: NSTextField!
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
     @IBOutlet weak var lastArchivedLabel: NSTextField!
+    @IBOutlet weak var boost5Button: NSButton!
     
     
     
@@ -30,33 +31,33 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     var currentURL : String = ""
     var cleanedURL : String = ""
     var onWayBackMachine : Bool = false
+    var activeCallUrl =  ""
+    var callMemory : [String : Boost5] = [:]
     
     let settings = SettingsHelper()
+    let apiHelper = WaybackApiHelper()
     
     //MARK: — Return Popover Size
     
     static let shared: SafariExtensionViewController = {
         let shared = SafariExtensionViewController()
-        shared.preferredContentSize = NSSize(width:220, height:275)
+        shared.preferredContentSize = NSSize(width:220, height:310)
         return shared
     }()
     
     //MARK: — Livecycle Functions
     
     override func viewDidLoad() {
-        showOrHideLive()
-        setLabels()
         handleButtons()
         hideAPILabels()
     }
     
     override func viewDidAppear() {
-        setLabels()
         setButtonsToOffstate()
-        showOrHideLive()
     }
     
     override func viewDidLayout() {
+        setLabels()
         showOrHideLive()
     }
     
@@ -129,15 +130,31 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
             else{
                 self.pageHistoryLivePageButton.title = NSLocalizedString("Show Page History", comment: "used in button to toggle Page History & Live Page")
             }
-            DispatchQueue.main.async {
+            if(!self.activeCallUrl.contains(self.currentURL)){
                 self.callWayBackApi()
             }
+            
         }
     }
     
     func setLabels(){
         self.enterUrlLabel.stringValue = NSLocalizedString("Enter a URL to go to archive:", comment: "only shown when an invalid URL is encountered")
         self.pageHistoryLivePageButton.title = NSLocalizedString("Show Page History", comment: "used in button to toggle Page History & Live Page")
+        
+        let boost5Data = self.settings.getIntData(key: "boost5")
+        if boost5Data > 0 {
+            boost5Button.state = .on
+            if boost5Data > 1 {
+                boost5Button.title = NSLocalizedString("Boost next \(boost5Data) requests", comment: "Boost next x requests (plural)")
+            }
+            else if(boost5Data == 1){
+                boost5Button.title = NSLocalizedString("Boost next request", comment: "Boost next request (singular)")
+            }
+        }
+        else{
+            boost5Button.title = NSLocalizedString("Boost next 5 requests", comment: "Boost next request (singular)")
+            boost5Button.state = .off
+        }
     }
     
     func removeWBM(url: String) -> String{
@@ -165,219 +182,63 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         }
         if(self.currentURL == ""){
             DispatchQueue.main.async {
-                print("empty URL")
                 self.progressIndicator.stopAnimation(nil)
                 self.progressIndicator.isHidden = true
                 self.lastArchivedLabel.stringValue = NSLocalizedString("Unfortunately we found an empty url", comment: "empty url")
             }
             return
         }
-        
-        let jsonUrlString = "https://web.archive.org/__wb/sparkline?url=\(currentURL)&collection=web&output=json"
-        guard let url = URL(string: jsonUrlString) else{
-            DispatchQueue.main.async {
-                print("failed url")
-                self.progressIndicator.stopAnimation(nil)
-                self.progressIndicator.isHidden = true
-                self.lastArchivedLabel.stringValue = NSLocalizedString("Unfortunately we found an invalid url", comment: "invalid url")
-            }
-            return
-        }
-        
-        var request = URLRequest(url: url)
-            request.httpMethod = "GET"
-            request.setValue("web.archive.org", forHTTPHeaderField: "Referer")
-
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let error = error{
-                //we got an error, let's tell the user
-                NSLog("wbm_log: \(error)")
-                DispatchQueue.main.async {
-                    self.progressIndicator.stopAnimation(nil)
-                    self.progressIndicator.isHidden = true
-                    self.lastArchivedLabel.stringValue = NSLocalizedString("Unfortunately we encountered an error1!", comment: "network error")
-                }
-                
-            }
-            if let data = data {
-                if let httpResponse = response as? HTTPURLResponse {
-                    if(httpResponse.statusCode == 200){
-                        self.handleData(data: data)
-                    }
-                    else{
-                        self.lastArchivedLabel.stringValue = String(format: NSLocalizedString("Error - HTTP Status: \"%@\"", comment: "changes Context Label"), String(httpResponse.statusCode))
-                        self.progressIndicator.isHidden = true
-                    }
-                }
-                
-            }
-            else{
-                // data wasn't there, which is also a type of eror
-                
-                DispatchQueue.main.async {
-                    self.progressIndicator.stopAnimation(nil)
-                    self.progressIndicator.isHidden = true
-                    self.lastArchivedLabel.stringValue = NSLocalizedString("Unfortunately we encountered an error2!", comment: "network error")
-                }
-            }
-            
-        }
-        
-        task.resume()
-    }
-    
-    func handleData(data: Data){
-        //sole purpose is to dispatch the url
-        do{
-            let archive = try JSONDecoder().decode(WaybackSparkline.self, from: data)
-            
-            if let closest = archive.last_ts {
-                DispatchQueue.main.async {
-                    self.progressIndicator.stopAnimation(nil)
-                    self.lastArchivedLabel.stringValue = ""
-                    self.progressIndicator.isHidden = true
-                    let saveCount = self.getMementoCount(archive: archive)
-                    self.lastArchivedLabel.stringValue = ""
-                    let datum = self.convertTimestamp(timestamp: closest)
-                    self.lastArchivedLabel.stringValue += NSLocalizedString("Last archived", comment: "Last Archived Date")
+        self.activeCallUrl = self.currentURL
+        apiHelper.doWaybackCall(currentURL: self.currentURL) { res in
+            switch res {
+            case .success (let boost5):
+                if(boost5.status == "ok"){
+                    let saveCount = boost5.saveCount
+                    let datum = boost5.datum
+                    let lastArchivedLabel = "\(NSLocalizedString("Last archived", comment: "Last Archived Date")):\n\(datum)"
+                    var pageHistoryLivePageButton = ""
                     if(saveCount > 0){
                         let label1 = NSLocalizedString("Show Page History", comment: "used in button to toggle Page History & Live Page")
-                        self.pageHistoryLivePageButton.title = "\(label1): \(self.formatPoints(from: saveCount))"
+                        pageHistoryLivePageButton = "\(label1): \(self.apiHelper.formatPoints(from: saveCount))"
                     }
                     else {
-                        self.pageHistoryLivePageButton.title = NSLocalizedString("Show Page History", comment: "used in button to toggle Page History & Live Page")
+                        pageHistoryLivePageButton = NSLocalizedString("Show Page History", comment: "used in button to toggle Page History & Live Page")
                     }
-                    self.lastArchivedLabel.stringValue += ":\n"
-                    self.lastArchivedLabel.stringValue += datum
+                    self.makePopupInfo(
+                        lastArchivedLabel: lastArchivedLabel,
+                        pageHistoryLivePageButton: pageHistoryLivePageButton
+                    )
+                        
                 }
-            }
-            else {
-                // there was no snapshot
-                
-                DispatchQueue.main.async {
-                    self.progressIndicator.stopAnimation(nil)
-                    self.progressIndicator.isHidden = true
-                    self.lastArchivedLabel.stringValue = NSLocalizedString("This page was never archived", comment: "network error")
-                    self.pageHistoryLivePageButton.title = NSLocalizedString("Show Page History", comment: "used in button to toggle Page History & Live Page")
+                else if(boost5.status == "never"){
+                    self.makePopupInfo(
+                        lastArchivedLabel: NSLocalizedString("This page was never archived", comment: "network error"),
+                        pageHistoryLivePageButton: NSLocalizedString("Show Page History", comment: "used in button to toggle Page History & Live Page")
+                    )
                 }
-            }
-            
-            
-        }
-        catch let jsonError{
-            NSLog("wbm_log json_Error: \(jsonError)")
-            
-            DispatchQueue.main.async {
-                self.progressIndicator.stopAnimation(nil)
-                self.progressIndicator.isHidden = true
-                self.lastArchivedLabel.stringValue = NSLocalizedString("Unfortunately we encountered an error3!", comment: "network error")
-            }
-            return
-        }
-    }
-    
-    func formatPoints(from: Int) -> String {
-        
-        let number = Double(from)
-        let thousand = number / 1000
-        let million = number / 1000000
-        let billion = number / 1000000000
-        
-        if billion >= 1.0 {
-            return "\(roundToPlaces(number: billion, places: 1))B"
-        }
-        else if million >= 1.0 {
-            return "\(roundToPlaces(number: million, places: 1))M"
-        }
-        else if thousand >= 1.0 {
-            return ("\(roundToPlaces(number: thousand, places: 1))K")
-        }
-        else {
-            return "\(Int(number))"
-        }
-    }
-    
-    func roundToPlaces(number: Double, places:Int) -> String {
-        let divisor = pow(10.0, Double(places))
-        let rounded = round(number * divisor) / divisor
-        let remainder = rounded.truncatingRemainder(dividingBy: 1)
-        
-        if(remainder > 0){
-            return "\(rounded)"
-        }
-        else {
-            let intRounded = Int(rounded)
-            return "\(intRounded)"
-        }
-    }
-    
-    func getMementoCount(archive: WaybackSparkline) -> Int{
-        var sum = 0
-        if let years = archive.years {
-            for year in years {
-                for value in year.value {
-                    sum += value
+                else if(boost5.status == "fail json"){
+                    self.makePopupInfo(
+                        lastArchivedLabel: NSLocalizedString("Unfortunately we encountered an error3!", comment: "network error"),
+                        pageHistoryLivePageButton: ""
+                    )
                 }
+            case .failure(let error):
+                print(error)
             }
         }
-        return sum;
     }
     
-    func convertTimestamp(timestamp: String) -> String{
-        let relativeDate = self.settings.getBoolData(key: "relativeTimestamp")
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMddHHmmss"
-        dateFormatter.timeZone = TimeZone(identifier: "UTC")
-        dateFormatter.locale = Locale.current
-        if let date = dateFormatter.date(from: timestamp){
-            
-            if(relativeDate){
-                let relativeDateString = self.readableIntervalSinceNow(date: date)
-                return relativeDateString
-            }
-            else{
-                let displayFormatter = DateFormatter()
-                displayFormatter.locale = Locale.current
-                displayFormatter.setLocalizedDateFormatFromTemplate("yyyyMMMddHHmm")
-                return displayFormatter.string(from: date)
+    func makePopupInfo(lastArchivedLabel: String, pageHistoryLivePageButton: String){
+        DispatchQueue.main.async {
+            self.lastArchivedLabel.stringValue = ""
+            self.progressIndicator.stopAnimation(nil)
+            self.progressIndicator.isHidden = true
+            self.lastArchivedLabel.stringValue = lastArchivedLabel
+            if(pageHistoryLivePageButton != ""){
+                self.pageHistoryLivePageButton.title = pageHistoryLivePageButton
             }
             
         }
-        return "failed to convert date"
-    }
-    
-    func readableIntervalSinceNow(date: Date) -> String {
-        
-        let timeInterval = date.timeIntervalSinceNow
-        
-        if (timeInterval > -3600) { // less than 1 hour
-            return "just now."
-        }
-        else if (timeInterval > -86400) { // less than a day
-            let hours = abs(timeInterval / 3600)
-            let hourString = String(format: "%.0f", hours)
-            
-            return String(format: NSLocalizedString("%@ hours ago", comment: "relative timestring xxx hours ago"), hourString)
-            //String(format: "%.f", hours)
-        }
-        else if (timeInterval > (-604800 * 4)) { // less than a months
-            let days = abs(timeInterval / 86400)
-            let dayString = String(format: "%.0f", days)
-            return String(format: NSLocalizedString("%@ days ago", comment: "relative timestring xxx days ago"), dayString)
-        }
-        else if (timeInterval > (-604800 * 4 * 3)) { // less than 3 months
-            let weeks = abs(timeInterval / 604800)
-            let weekString = String(format: "%.0f", weeks)
-            return String(format: NSLocalizedString("%@ weeks ago", comment: "relative timestring xxx weeks ago"), weekString)
-        }
-        else {
-            let dateFormatter = DateFormatter()
-            dateFormatter.setLocalizedDateFormatFromTemplate("MMMM YYYY")
-            dateFormatter.locale = Locale.current
-            return "\(dateFormatter.string(from: date))."
-        }
-        
     }
     
     
@@ -406,7 +267,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         if let buttonName = event.trackingArea?.userInfo?.values.first as? String {
             for case let button as NSButton in self.view.subviews {
                 if let identifier = button.identifier?.rawValue{
-                    if identifier == buttonName {
+                    if (identifier == buttonName && buttonName != "boost5"){
                         (button.cell as? NSButtonCell)?.backgroundColor = NSColor.darkGray
                         button.contentTintColor = .white
                     }
@@ -419,7 +280,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         if let buttonName = event.trackingArea?.userInfo?.values.first as? String {
             for case let button as NSButton in self.view.subviews {
                 if let identifier = button.identifier?.rawValue{
-                    if identifier == buttonName {
+                    if (identifier == buttonName && buttonName != "boost5") {
                         (button.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
                         button.contentTintColor = .windowFrameTextColor
                     }
@@ -515,6 +376,15 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
            NSWorkspace.shared.open(url) {
             (sender.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
             sender.contentTintColor = .labelColor
+        }
+    }
+    
+    @IBAction func boost5Tapped(_ sender: NSButton) {
+        if(sender.state == .on){
+            self.settings.setIntData(key: "boost5", data: 5)
+        }
+        else {
+            self.settings.setIntData(key: "boost5", data: 0)
         }
     }
     

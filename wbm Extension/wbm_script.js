@@ -6,10 +6,18 @@ if (window.top === window) {
     console.log("Wayback Machine Extension successfully loaded");
     
     document.addEventListener("DOMContentLoaded", function(event) {
-        safari.self.addEventListener("message", messageHandler);
-        document.addEventListener("contextmenu", handleContextMenu, false);
-        safari.extension.dispatchMessage("shortcut", {"msgID" : "1"});
-        safari.extension.dispatchMessage("pageHistoryInject");
+
+        var wbmTrackCall =setInterval(function(){
+            if (!document.hidden) {
+                clearInterval(wbmTrackCall);
+                safari.self.addEventListener("message", messageHandler);
+                document.addEventListener("contextmenu", handleContextMenu, false);
+                safari.extension.dispatchMessage("shortcut", {"msgID" : "1"});
+                safari.extension.dispatchMessage("pageHistoryInject");
+                doBoost5();
+            }
+        },500);
+        
     });
     
     //detect ctrl+w for pageHistory
@@ -28,11 +36,18 @@ function messageHandler(event){
         case "shortcut":
             shortcut = event.message.shortcut
             console.log("use ctrl + "+shortcut+" to open the Page History")
+            break;
         case "inject":
             inject = event.message.inject
             if(inject){
                 injectPageHistoryButton();
             }
+            break;
+        case "boost5result":
+            handleBookst5Result(event.message);
+            break;
+        default:
+            //
     }
 }
 
@@ -70,4 +85,34 @@ function watchPageHistory(){
 
 function handlePageHistory(){
     safari.extension.dispatchMessage("wbm_pageHistory", {"source": "shortcut"});
+}
+
+function doBoost5(){
+    
+    let boost5Element = document.getElementById('web_boost5');
+    if (boost5Element == undefined || boost5Element == null){
+        safari.extension.dispatchMessage("boost5", {"url" : document.location.href});
+    } else{
+        let count = boost5Element.dataset.boost5count;
+        let date = boost5Element.dataset.boost5date;
+        if(count != "n" && date != "n"){
+            safari.extension.dispatchMessage("wbm_showBadge", {"count": count});
+        } else{
+            let message = [];
+            message.boost5count = "n"
+            message.boost5date = "n";
+            handleBookst5Result(message);
+        }
+        
+    }
+    
+}
+
+function handleBookst5Result(message){
+    let div = document.createElement('div');
+    div.setAttribute("id", "boost5");
+    div.dataset.success = "y"
+    div.dataset.count = message.boost5count;
+    div.dataset.date = message.boost5date;
+    document.body.appendChild(div);
 }
