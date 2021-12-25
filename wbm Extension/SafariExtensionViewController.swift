@@ -253,14 +253,17 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     func handleButtons(){
         for case let button as NSButton in self.view.subviews {
-            (button.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
-            button.contentTintColor = .windowFrameTextColor
-            let area = NSTrackingArea.init(rect: button.bounds,
-                                           options: [.mouseEnteredAndExited, .activeAlways],
-                                           owner: self,
-                                           userInfo: ["button" : button.identifier?.rawValue ?? "failed"])
-            button.addTrackingArea(area)
-            
+            if let identifier = button.identifier?.rawValue {
+                if (identifier != "boost5") {
+                    (button.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
+                    button.contentTintColor = .windowFrameTextColor
+                    let area = NSTrackingArea.init(rect: button.bounds,
+                                                   options: [.mouseEnteredAndExited, .activeAlways],
+                                                   owner: self,
+                                                   userInfo: ["button" : button.identifier?.rawValue ?? "failed"])
+                    button.addTrackingArea(area)
+                }
+            }
         }
     }
     
@@ -292,8 +295,12 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     func setButtonsToOffstate() {
         for case let button as NSButton in self.view.subviews {
-            (button.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
-            button.contentTintColor = .windowFrameTextColor
+            if let identifier = button.identifier?.rawValue{
+                if (identifier != "boost5") {
+                    (button.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
+                    button.contentTintColor = .windowFrameTextColor
+                }
+            }
         }
     }
     
