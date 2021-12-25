@@ -103,5 +103,8 @@
 /* Class = "NSMenuItem"; title = "10"; ObjectID = "yo7-yG-p8v"; */
 "yo7-yG-p8v.title" = "10";
 
-/* Class = "NSTextFieldCell"; title = "Boost Next x Requests Value: "; ObjectID = "zpx-it-RjM"; */
+/* Class = "NSTextFieldCell"; title = "Boost next x requests value: "; ObjectID = "zpx-it-RjM"; */
 "zpx-it-RjM.title" = "Wert für nächste x Anfragen beschleunigen: ";
+
+/* Class = "NSButtonCell"; title = "Save Current Page opens in new tab"; ObjectID = "uYm-DE-ADQ"; */
+"uYm-DE-ADQ.title" = "";

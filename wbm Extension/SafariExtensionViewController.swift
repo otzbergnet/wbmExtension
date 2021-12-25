@@ -140,7 +140,13 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     func setLabels(){
         self.enterUrlLabel.stringValue = NSLocalizedString("Enter a URL to go to archive:", comment: "only shown when an invalid URL is encountered")
         self.pageHistoryLivePageButton.title = NSLocalizedString("Show Page History", comment: "used in button to toggle Page History & Live Page")
-        
+        let openInNewTab = self.settings.getBoolData(key: "saveInNewTab")
+        if(openInNewTab){
+            if !currentPageButton.title.contains("[+]") {
+                currentPageButton.title = "\(currentPageButton.title) [+]"
+            }
+        }
+
         let boost5Data = self.settings.getIntData(key: "boost5")
         if boost5Data > 0 {
             boost5Button.state = .on
@@ -352,11 +358,24 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         //save
         self.dismissPopover()
         self.setButtonsToOffstate()
+        let openInNewTab = self.settings.getBoolData(key: "saveInNewTab")
         if(self.onWayBackMachine){
-            self.openWithinSameTab(url: "https://web.archive.org/save/\(self.cleanedURL)")
+            if(openInNewTab){
+                self.openTabWithURL(url: "https://web.archive.org/save/\(self.cleanedURL)")
+            }
+            else{
+                self.openWithinSameTab(url: "https://web.archive.org/save/\(self.cleanedURL)")
+            }
+            
         }
         else{
-            self.openWithinSameTab(url: "https://web.archive.org/save/\(self.currentURL)")
+            if(openInNewTab) {
+                self.openTabWithURL(url: "https://web.archive.org/save/\(self.currentURL)")
+            }
+            else{
+                self.openWithinSameTab(url: "https://web.archive.org/save/\(self.currentURL)")
+            }
+            
         }
         
     }
