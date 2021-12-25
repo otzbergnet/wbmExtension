@@ -153,7 +153,9 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
             }
         }
         else{
-            boost5Button.title = NSLocalizedString("Boost next 5 requests", comment: "Boost next request (singular)")
+            let boost5ValueData = self.settings.getIntData(key: "boost5Value")
+            let myString = String(format: NSLocalizedString("Boost next %d requests", comment: "Boost next x requests (plural)"), boost5ValueData)
+            boost5Button.title = myString
             boost5Button.state = .off
         }
     }
@@ -389,7 +391,8 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     @IBAction func boost5Tapped(_ sender: NSButton) {
         if(sender.state == .on){
-            self.settings.setIntData(key: "boost5", data: 5)
+            let boost5Value = self.settings.getIntData(key: "boost5Value")
+            self.settings.setIntData(key: "boost5", data: boost5Value)
         }
         else {
             self.settings.setIntData(key: "boost5", data: 0)

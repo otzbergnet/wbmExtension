@@ -81,3 +81,27 @@
 
 /* Class = "NSButtonCell"; title = "Use relative timestamps"; ObjectID = "GfQ-sI-MwQ"; */
 "GfQ-sI-MwQ.title" = "Relative Zeitangaben nutzen";
+
+/* Class = "NSMenuItem"; title = "50"; ObjectID = "92R-eV-bbv"; */
+"92R-eV-bbv.title" = "50";
+
+/* Class = "NSMenuItem"; title = "40"; ObjectID = "FKp-pZ-bbU"; */
+"FKp-pZ-bbU.title" = "40";
+
+/* Class = "NSMenuItem"; title = "15"; ObjectID = "ODq-gR-w3j"; */
+"ODq-gR-w3j.title" = "15";
+
+/* Class = "NSMenuItem"; title = "5"; ObjectID = "T8y-lr-rMe"; */
+"T8y-lr-rMe.title" = "5";
+
+/* Class = "NSMenuItem"; title = "30"; ObjectID = "WZc-fs-pPG"; */
+"WZc-fs-pPG.title" = "30";
+
+/* Class = "NSMenuItem"; title = "20"; ObjectID = "mGf-wB-7xE"; */
+"mGf-wB-7xE.title" = "20";
+
+/* Class = "NSMenuItem"; title = "10"; ObjectID = "yo7-yG-p8v"; */
+"yo7-yG-p8v.title" = "10";
+
+/* Class = "NSTextFieldCell"; title = "Boost Next x Requests Value: "; ObjectID = "zpx-it-RjM"; */
+"zpx-it-RjM.title" = "Wert für nächste x Anfragen beschleunigen: ";
