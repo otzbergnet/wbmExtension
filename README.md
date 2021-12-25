@@ -38,9 +38,6 @@ Available as a free extension [in the App Store](https://apps.apple.com/app/wayb
 
 We provide German & English translations at this time. We would love to work with others to add additional languages!
 
-## Support my work
-
-[<img src="https://www.otzberg.net/img/buymeatea.png" width="250" height="80" >](https://www.buymeacoffee.com/otzberg)
 
 # Contact?
 
