@@ -21,6 +21,7 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var injectHistoryCheck: NSButton!
     @IBOutlet weak var relativeTimestampCheck: NSButton!
     @IBOutlet weak var boost5ValueDropDown: NSPopUpButton!
+    @IBOutlet weak var savePageNewTabCheck: NSButton!
     
 
     let settings = SettingsHelper()
@@ -36,6 +37,7 @@ class SettingsViewController: NSViewController {
         getPageHistoryInjectState()
         getRelativeTimestampState()
         getBoost5Value()
+        getSaveInNewTabState()
     }
     
     func initialSetup(){
@@ -46,6 +48,7 @@ class SettingsViewController: NSViewController {
             settings.setBoolData(key: "pageHistoryContext", data: true)
             settings.setBoolData(key: "pageHistoryInject", data: false)
             settings.setBoolData(key: "relativeTimestamp", data: true)
+            settings.setBoolData(key: "saveInNewTab", data: false)
             settings.setBoolData(key: "setup", data: true)
         }
     }
@@ -98,6 +101,16 @@ class SettingsViewController: NSViewController {
         }
         else{
             relativeTimestampCheck.state = .off
+        }
+    }
+    
+    func getSaveInNewTabState(){
+        let state = settings.getBoolData(key: "saveInNewTab")
+        if(state){
+            savePageNewTabCheck.state = .on
+        }
+        else{
+            savePageNewTabCheck.state = .off
         }
     }
     
@@ -206,4 +219,12 @@ class SettingsViewController: NSViewController {
         }
     }
     
+    @IBAction func saveNewPageChanged(_ sender: NSButton) {
+        if(sender.state == .on){
+            settings.setBoolData(key: "saveInNewTab", data: true)
+        }
+        else{
+            settings.setBoolData(key: "saveInNewTab", data: false)
+        }
+    }
 }
