@@ -150,24 +150,39 @@ class WaybackApiHelper {
         let timeInterval = date.timeIntervalSinceNow
         
         if (timeInterval > -3600) { // less than 1 hour
-            return "just now."
+            return NSLocalizedString("just now.", comment: "just now")
         }
         else if (timeInterval > -86400) { // less than a day
             let hours = abs(timeInterval / 3600)
             let hourString = String(format: "%.0f", hours)
-            
-            return String(format: NSLocalizedString("%@ hours ago", comment: "relative timestring xxx hours ago"), hourString)
-            //String(format: "%.f", hours)
+            if(hourString == "1"){
+                return String(format: NSLocalizedString("1 hour ago", comment: "relative timestring one hour ago"), hourString)
+            }
+            else{
+                return String(format: NSLocalizedString("%@ hours ago", comment: "relative timestring xxx hours ago"), hourString)
+            }
         }
         else if (timeInterval > (-604800 * 4)) { // less than a months
             let days = abs(timeInterval / 86400)
             let dayString = String(format: "%.0f", days)
-            return String(format: NSLocalizedString("%@ days ago", comment: "relative timestring xxx days ago"), dayString)
+            if(dayString == "1"){
+                return String(format: NSLocalizedString("1 day ago", comment: "relative timestring one day ago"), dayString)
+            }
+            else{
+                return String(format: NSLocalizedString("%@ days ago", comment: "relative timestring xxx days ago"), dayString)
+            }
+            
         }
         else if (timeInterval > (-604800 * 4 * 3)) { // less than 3 months
             let weeks = abs(timeInterval / 604800)
             let weekString = String(format: "%.0f", weeks)
-            return String(format: NSLocalizedString("%@ weeks ago", comment: "relative timestring xxx weeks ago"), weekString)
+            if (weekString == "1"){
+                return String(format: NSLocalizedString("1 week ago", comment: "relative timestring one week ago"), weekString)
+            }
+            else{
+                return String(format: NSLocalizedString("%@ weeks ago", comment: "relative timestring xxx weeks ago"), weekString)
+            }
+            
         }
         else {
             let dateFormatter = DateFormatter()

@@ -87,3 +87,15 @@
 
 /* Boost next x requests (plural) */
 "Boost next %d requests" = "Boost für %d Anfragen";
+
+/* relative timestring one day ago */
+"1 day ago" = "vor einem Tag";
+
+/* relative timestring one hour ago */
+"1 hour ago" = "vor einer Stunde";
+
+/* relative timestring one week ago */
+"1 week ago" = "vor einer Woche";
+
+/* just now */
+"just now." = "gerade eben";

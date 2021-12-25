@@ -22,7 +22,7 @@ class SettingsHelper {
     }
     
     func getIntData(key : String) -> Int{
-        let data : Int = self.defaults.integer(forKey: "boost5")
+        let data : Int = self.defaults.integer(forKey: key)
         return data
     }
     

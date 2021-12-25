@@ -20,6 +20,8 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var pageHistoryCheck: NSButton!
     @IBOutlet weak var injectHistoryCheck: NSButton!
     @IBOutlet weak var relativeTimestampCheck: NSButton!
+    @IBOutlet weak var boost5ValueDropDown: NSPopUpButton!
+    @IBOutlet weak var savePageNewTabCheck: NSButton!
     
 
     let settings = SettingsHelper()
@@ -34,6 +36,8 @@ class SettingsViewController: NSViewController {
         getPageHistoryState()
         getPageHistoryInjectState()
         getRelativeTimestampState()
+        getBoost5Value()
+        getSaveInNewTabState()
     }
     
     func initialSetup(){
@@ -44,6 +48,7 @@ class SettingsViewController: NSViewController {
             settings.setBoolData(key: "pageHistoryContext", data: true)
             settings.setBoolData(key: "pageHistoryInject", data: false)
             settings.setBoolData(key: "relativeTimestamp", data: true)
+            settings.setBoolData(key: "saveInNewTab", data: false)
             settings.setBoolData(key: "setup", data: true)
         }
     }
@@ -99,6 +104,16 @@ class SettingsViewController: NSViewController {
         }
     }
     
+    func getSaveInNewTabState(){
+        let state = settings.getBoolData(key: "saveInNewTab")
+        if(state){
+            savePageNewTabCheck.state = .on
+        }
+        else{
+            savePageNewTabCheck.state = .off
+        }
+    }
+    
     func getKeyboardShortCut(){
         var shortcut = settings.getStringData(key: "shortcut")
         if(shortcut == ""){
@@ -111,6 +126,17 @@ class SettingsViewController: NSViewController {
         }
         
         shortcutTextField.stringValue = shortcut
+    }
+    
+    func getBoost5Value(){
+        let boost5Value = settings.getIntData(key: "boost5Value")
+        if(boost5Value != 0) {
+            boost5ValueDropDown.selectItem(withTitle: "\(boost5Value)")
+        }
+        else {
+            settings.setIntData(key: "boost5Value", data: 5)
+            boost5ValueDropDown.selectItem(withTitle: "5")
+        }
     }
     
     
@@ -183,5 +209,22 @@ class SettingsViewController: NSViewController {
         }
     }
     
+    @IBAction func boost5ValueDropDownChanged(_ sender: NSPopUpButton) {
+        if let boost5ValueReceived = sender.selectedItem?.title {
+            let boost5IntValue = Int(boost5ValueReceived) ?? 5
+            settings.setIntData(key: "boost5Value", data: boost5IntValue)
+        }
+        else{
+            settings.setIntData(key: "boost5Value", data: 5)
+        }
+    }
     
+    @IBAction func saveNewPageChanged(_ sender: NSButton) {
+        if(sender.state == .on){
+            settings.setBoolData(key: "saveInNewTab", data: true)
+        }
+        else{
+            settings.setBoolData(key: "saveInNewTab", data: false)
+        }
+    }
 }

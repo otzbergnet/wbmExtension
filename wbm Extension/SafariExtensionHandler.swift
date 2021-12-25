@@ -172,7 +172,10 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                     let myBadgeString = self.apiHelper.formatPoints(from: data.saveCount, places: 0)
                     self.showBadge(badgeString: "\(myBadgeString)")
                 }
-                self.settings.setIntData(key: "boost5", data: (boost5Count - 1))
+                // only deduct from boost5Count, if not web.archive.org URL
+                if (!url.contains("web.archive.org")){
+                    self.settings.setIntData(key: "boost5", data: (boost5Count - 1))
+                }
                 page.dispatchMessageToScript(withName: "boost5result", userInfo: ["boost5count" : data.saveCount, "boost5date" : data.datum])
                 return;
             case .failure(let error):

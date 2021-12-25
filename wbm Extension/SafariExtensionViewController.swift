@@ -140,7 +140,13 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     func setLabels(){
         self.enterUrlLabel.stringValue = NSLocalizedString("Enter a URL to go to archive:", comment: "only shown when an invalid URL is encountered")
         self.pageHistoryLivePageButton.title = NSLocalizedString("Show Page History", comment: "used in button to toggle Page History & Live Page")
-        
+        let openInNewTab = self.settings.getBoolData(key: "saveInNewTab")
+        if(openInNewTab){
+            if !currentPageButton.title.contains("[+]") {
+                currentPageButton.title = "\(currentPageButton.title) [+]"
+            }
+        }
+
         let boost5Data = self.settings.getIntData(key: "boost5")
         if boost5Data > 0 {
             boost5Button.state = .on
@@ -153,7 +159,9 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
             }
         }
         else{
-            boost5Button.title = NSLocalizedString("Boost next 5 requests", comment: "Boost next request (singular)")
+            let boost5ValueData = self.settings.getIntData(key: "boost5Value")
+            let myString = String(format: NSLocalizedString("Boost next %d requests", comment: "Boost next x requests (plural)"), boost5ValueData)
+            boost5Button.title = myString
             boost5Button.state = .off
         }
     }
@@ -253,14 +261,17 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     func handleButtons(){
         for case let button as NSButton in self.view.subviews {
-            (button.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
-            button.contentTintColor = .windowFrameTextColor
-            let area = NSTrackingArea.init(rect: button.bounds,
-                                           options: [.mouseEnteredAndExited, .activeAlways],
-                                           owner: self,
-                                           userInfo: ["button" : button.identifier?.rawValue ?? "failed"])
-            button.addTrackingArea(area)
-            
+            if let identifier = button.identifier?.rawValue {
+                if (identifier != "boost5") {
+                    (button.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
+                    button.contentTintColor = .windowFrameTextColor
+                    let area = NSTrackingArea.init(rect: button.bounds,
+                                                   options: [.mouseEnteredAndExited, .activeAlways],
+                                                   owner: self,
+                                                   userInfo: ["button" : button.identifier?.rawValue ?? "failed"])
+                    button.addTrackingArea(area)
+                }
+            }
         }
     }
     
@@ -292,8 +303,12 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     func setButtonsToOffstate() {
         for case let button as NSButton in self.view.subviews {
-            (button.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
-            button.contentTintColor = .windowFrameTextColor
+            if let identifier = button.identifier?.rawValue{
+                if (identifier != "boost5") {
+                    (button.cell as? NSButtonCell)?.backgroundColor = NSColor.clear
+                    button.contentTintColor = .windowFrameTextColor
+                }
+            }
         }
     }
     
@@ -343,11 +358,24 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         //save
         self.dismissPopover()
         self.setButtonsToOffstate()
+        let openInNewTab = self.settings.getBoolData(key: "saveInNewTab")
         if(self.onWayBackMachine){
-            self.openWithinSameTab(url: "https://web.archive.org/save/\(self.cleanedURL)")
+            if(openInNewTab){
+                self.openTabWithURL(url: "https://web.archive.org/save/\(self.cleanedURL)")
+            }
+            else{
+                self.openWithinSameTab(url: "https://web.archive.org/save/\(self.cleanedURL)")
+            }
+            
         }
         else{
-            self.openWithinSameTab(url: "https://web.archive.org/save/\(self.currentURL)")
+            if(openInNewTab) {
+                self.openTabWithURL(url: "https://web.archive.org/save/\(self.currentURL)")
+            }
+            else{
+                self.openWithinSameTab(url: "https://web.archive.org/save/\(self.currentURL)")
+            }
+            
         }
         
     }
@@ -382,7 +410,8 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     @IBAction func boost5Tapped(_ sender: NSButton) {
         if(sender.state == .on){
-            self.settings.setIntData(key: "boost5", data: 5)
+            let boost5Value = self.settings.getIntData(key: "boost5Value")
+            self.settings.setIntData(key: "boost5", data: boost5Value)
         }
         else {
             self.settings.setIntData(key: "boost5", data: 0)
